@@ -1,13 +1,14 @@
 import './App.css'
-import Input from "./Components/input/Input.tsx";
-document.title='___________'
+import Registr from "./Components/Registr/Registr.tsx";
+
+
 function App() {
 
 
 
   return (
         <div>
-            <Input/>
+            <Registr/>
         </div>
   )
 }
