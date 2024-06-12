@@ -1,20 +1,6 @@
 import styles from './registr.module.css'
-import Input from "../input/Input.tsx";
-
-interface inputRegistr {
-    type : string,
-    hidden : string
-}
-
-const textInp:inputRegistr = {
-    type:'text',
-    hidden:'Email'
-}
-
-const passInp:inputRegistr = {
-    type : 'password',
-    hidden : 'password'
-}
+import {Input} from "../../ui-kit/input/Input.tsx";
+import TopCont from "../topCont/TopCont.tsx";
 
 
 
@@ -24,17 +10,34 @@ function Registr(){
 
     return(
         <div className={styles.registr_container}>
-            <div className={styles.top_cont}>
-                <img
-                    src=".\public\checklist-minimalistic-svgrepo-com.svg"
-                    alt="logo"
-                    width={'30px'}
+
+            <TopCont/>
+
+            <div className={styles.input_area}>
+                <Input
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={styles.classNameLabel}
+                    classNameInput={styles.classNameInput}
+                    placeholder=''
+                    hidden='Email'
                 />
-                <h1>Focus flow</h1>
+                <Input
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={styles.classNameLabel}
+                    classNameInput={styles.classNameInput}
+                    placeholder=''
+                    hidden='password'
+                />
+
+                <Input
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={styles.classNameLabel}
+                    classNameInput={styles.classNameInput}
+                    placeholder=''
+                    hidden='retr password'
+                />
             </div>
-            <Input props={textInp}/>
-            <Input props={passInp}/>
-            <Input props={passInp}/>
+
 
         </div>
     )

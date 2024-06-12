@@ -1,6 +1,77 @@
+
+
+.registr_container{
+    font-family: "Exo 2", sans-serif;
+    width: 80vw;
+    margin: 10px auto;
+
+
+    .input_area{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+
+    }
+
+    .classNameContainer {
+        position: relative;
+        width: 70vw;
+        margin-bottom: 20px;
+        color: #e8e5e5;
+
+        .classNameInput {
+            font-family: "Exo 2", sans-serif;
+            font-style: normal;
+            font-size: 16px;
+
+            background-color: #FFF;
+            border: 1px solid #d5d4d4;
+            border-radius: 5px;
+            box-sizing: border-box;
+            color: #000;
+            line-height: 16px;
+            height: 50px;
+            outline: 0;
+            padding: 0 20px;
+            width: 100%;
+        }
+        .classNameLabel {
+            color: #c9c8c8;
+            font-family: Verdana, sans-serif;
+            background-color: #FFF;
+            font-size: 16px;
+            line-height: 16px;
+            padding: 5px 10px;
+            pointer-events: none;
+            position: absolute;
+            transition: all 400ms;
+            top: 12px;
+            left: 10px;
+        }
+        .classNameInput:focus + .classNameLabel,
+        .classNameInput:not(:placeholder-shown) + .classNameLabel{
+            top: -10px;
+            left: 10px;
+            font-size: 15px;
+            /*background-color: #BFE2FF;*/
+            padding: 2px 3px;
+        }
+
+    }
+
+
+}
+
 @media screen and (min-width:260px) and (max-width:770px){
     .registr_container{
 
+        .classNameInput{
+            width: 70vw;
+        }
 
+        .input_area{
+            text-align: center;
+        }
     }
 }
