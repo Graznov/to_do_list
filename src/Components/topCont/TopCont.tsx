@@ -7,7 +7,7 @@ function TopCont(){
             <img
                 src=".\public\checklist-minimalistic-svgrepo-com.svg"
                 alt="logo"
-                width={'30px'}
+                width={'35px'}
             />
             <h1>Focus flow</h1>
         </div>

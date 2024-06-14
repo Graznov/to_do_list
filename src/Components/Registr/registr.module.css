@@ -2,76 +2,133 @@
 
 .registr_container{
     font-family: "Exo 2", sans-serif;
-    width: 80vw;
     margin: 10px auto;
+    display: flex;
+
+    .registr_container_left{
+
+        width: 55vw;
+
+        .input_area{
+
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            .input_area_Zag{
+                width: 80%;
+                margin: 0 auto;
+            }
 
 
-    .input_area{
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+            .classNameContainer {
+                position: relative;
+                width: 80%;
+                margin: 0 auto;
+                /*margin-bottom: 20px;*/
+                color: #e8e5e5;
 
+                .classNameInput {
+                    font-family: "Exo 2", sans-serif;
+                    font-style: normal;
+                    font-size: 16px;
 
-    }
+                    background-color: #FFF;
+                    border: 1px solid #d5d4d4;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    color: #000;
+                    line-height: 16px;
+                    height: 50px;
+                    outline: 0;
+                    padding: 0 20px;
+                    width: 100%;
+                }
+                .classNameLabel {
+                    color: #c9c8c8;
+                    font-family: Verdana, sans-serif;
+                    background-color: #FFF;
+                    font-size: 16px;
+                    line-height: 16px;
+                    padding: 5px 10px;
+                    pointer-events: none;
+                    position: absolute;
+                    transition: all 400ms;
+                    top: 12px;
+                    left: 10px;
+                }
+                .classNameInput:focus + .classNameLabel,
+                .classNameInput:not(:placeholder-shown) + .classNameLabel{
+                    top: -10px;
+                    left: 10px;
+                    font-size: 15px;
+                    /*background-color: #BFE2FF;*/
+                    padding: 2px 3px;
+                }
 
-    .classNameContainer {
-        position: relative;
-        width: 70vw;
-        margin-bottom: 20px;
-        color: #e8e5e5;
+            }
 
-        .classNameInput {
-            font-family: "Exo 2", sans-serif;
-            font-style: normal;
-            font-size: 16px;
-
-            background-color: #FFF;
-            border: 1px solid #d5d4d4;
-            border-radius: 5px;
-            box-sizing: border-box;
-            color: #000;
-            line-height: 16px;
-            height: 50px;
-            outline: 0;
-            padding: 0 20px;
-            width: 100%;
         }
-        .classNameLabel {
+        .classNameBtn{
             color: #c9c8c8;
-            font-family: Verdana, sans-serif;
-            background-color: #FFF;
-            font-size: 16px;
-            line-height: 16px;
-            padding: 5px 10px;
-            pointer-events: none;
-            position: absolute;
-            transition: all 400ms;
-            top: 12px;
-            left: 10px;
+            background: blue;
+            padding: 20px;
+            font-family: "Exo 2", sans-serif;
+            font-size: 21px;
+            width: 80%;
+            margin: 0 auto;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
         }
-        .classNameInput:focus + .classNameLabel,
-        .classNameInput:not(:placeholder-shown) + .classNameLabel{
-            top: -10px;
-            left: 10px;
-            font-size: 15px;
-            /*background-color: #BFE2FF;*/
-            padding: 2px 3px;
+        .classNameBtn:hover{
+            color: #faf7f7;
+            background: #0404bd;
+        }
+        .classNameBtn:active{
+            box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+
+    }
+
+    .registr_container_right{
+
+        width: 45vw;
+        padding: 25vh 5vw;
+
+        img{
+            width: 30vw;
         }
 
     }
+
+
+
 
 
 }
 
-@media screen and (min-width:260px) and (max-width:770px){
+@media screen and (min-width:60px) and (max-width:770px){
     .registr_container{
 
         .classNameInput{
             width: 70vw;
+            margin: 0 auto;
         }
 
         .input_area{
-            text-align: center;
+            /*text-align: center;*/
+            padding: 0;
+            /*width: 70vw;*/
+
+        }
+
+        .registr_container_right{
+            display: none;
+        }
+        .registr_container_left{
+            width: 100vw;
         }
     }
 }
