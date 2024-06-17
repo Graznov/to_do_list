@@ -94,7 +94,10 @@ function Registr(){
 
 // проверка пароля...
 
-    const [inputErrorPass, setInputErrorPass] = useState(true)
+    const [inputErrorPass, setInputErrorPass] = useState({
+        length:true,
+        upper:true
+    })
 
     const [passwordS, setPasswordS] = useState({
         passOne:'',
@@ -103,30 +106,56 @@ function Registr(){
 
     const changePassOne = (e) => {
         const elem = e.target.value
-        if (elem.length>6 || elem.length>250){
 
-            setInputErrorPass(true)
-            console.log(elem)
-        } else {
-            setInputErrorPass(false)
-            return
-        }
+        for(let o = 0; o<elem.length-1; o++){
+            console.log(elem[o])
+            if(elem[o]!==elem[o].toUpperCase()){
 
-        for(let o = 0; o<elem.length; o++){
-            if(elem[o]===elem[o].toUpperCase()){
-                setInputErrorEmail(true)
+                setInputErrorPass({
+                    ...inputErrorPass,
+                    upper:elem[o]===elem[o].toUpperCase()
+                })
+
+                console.log(elem[o]===elem[o].toUpperCase())
+            } else {
+                console.log(elem[o]===elem[o].toUpperCase())
+                setInputErrorPass({
+                    ...inputErrorPass,
+                    upper:elem[o]===elem[o].toUpperCase()
+                })
                 break
+
             }
         }
 
+        if (elem.length>=6 && elem.length<=250){
+
+            setInputErrorPass({
+                ...inputErrorPass,
+                length:true
+            })
+            console.log(elem)
+        } else {
+            setInputErrorPass({
+                ...inputErrorPass,
+                length:false
+            })
+
+        }
+
+
+
     }
 
+    useEffect(() => {
+        console.log(inputErrorPass)
+    }, [inputErrorPass]);
 
     const ClassInputPass = cx('classNameInputPass',{
-        classNameInput_red:!inputErrorPass
+        classNameInput_red:!inputErrorPass.upper || !inputErrorPass.length
     });
     const ClassLabelPass = cx('classNameLabelPass',{
-        classNameLabel_red:!inputErrorPass
+        classNameLabel_red:!inputErrorPass.upper || !inputErrorPass.length
     });
 // ...проверка пароля
 
