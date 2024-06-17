@@ -16,11 +16,10 @@ function Registr(){
         email:'',
         password:''
     })
-
+    console.log(form)
 // проверка имени...
 
     const [inputError, setInputError] = useState(true)
-    const [userName, setUserName] = useState('')
     const validVall:string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_1234567890'
 
     useEffect(()=>{
@@ -31,21 +30,30 @@ function Registr(){
     },[inputError])
     const changeName = (e) => {
 
-        if(e.target.value.length<userName.length){
-            setUserName(e.target.value)
+        if(e.target.value.length<form.name.length){
+            setForm({
+                ...form,
+                name: e.target.value
+            })
             return
         }
 
         if(validVall.includes(e.target.value[e.target.value.length-1]) && e.target.value.length<=250){
-            setUserName(e.target.value)
+
+            setForm({
+                ...form,
+                name: e.target.value
+            })
             setInputError(true)
             return;
         } else {
             setInputError(false)
-            e.target.value = userName
+            e.target.value = form.name
             return;
         }
     }
+
+
 
     const ClassInput = cx('classNameInput', '111',{
         classNameInput_red:!inputError
@@ -57,7 +65,6 @@ function Registr(){
 
 // проверка почты...
     const [inputErrorEmail, setInputErrorEmail] = useState(true)
-    const [email, setEmail] = useState('')
     const changeEmail = (e) => {
 
         const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -66,9 +73,12 @@ function Registr(){
         }
 
         if(isEmailValid(e.target.value)){
-            setEmail(e.target.value)
-            console.log(`email: ${email}`)
+
             setInputErrorEmail(isEmailValid(e.target.value))
+            setForm({
+                ...form,
+                email: e.target.value
+            })
         } else {
             setInputErrorEmail(isEmailValid(e.target.value))
         }
@@ -81,6 +91,45 @@ function Registr(){
         classNameLabel_red:!inputErrorEmail
     });
 // ...проверка почты
+
+// проверка пароля...
+
+    const [inputErrorPass, setInputErrorPass] = useState(true)
+
+    const [passwordS, setPasswordS] = useState({
+        passOne:'',
+        passTwo:''
+    })
+
+    const changePassOne = (e) => {
+        const elem = e.target.value
+        if (elem.length>6 || elem.length>250){
+
+            setInputErrorPass(true)
+            console.log(elem)
+        } else {
+            setInputErrorPass(false)
+            return
+        }
+
+        for(let o = 0; o<elem.length; o++){
+            if(elem[o]===elem[o].toUpperCase()){
+                setInputErrorEmail(true)
+                break
+            }
+        }
+
+    }
+
+
+    const ClassInputPass = cx('classNameInputPass',{
+        classNameInput_red:!inputErrorPass
+    });
+    const ClassLabelPass = cx('classNameLabelPass',{
+        classNameLabel_red:!inputErrorPass
+    });
+// ...проверка пароля
+
     return(
         <div className={styles.registr_container}>
 
@@ -111,9 +160,10 @@ function Registr(){
                         hidden='Email'
                     />
                     <Input
+                        onChange={changePassOne}
                         classNameContainer={styles.classNameContainer}
-                        classNameLabel={styles.classNameLabel}
-                        classNameInput={styles.classNameInput}
+                        classNameLabel={ClassLabelPass}
+                        classNameInput={ClassInputPass}
                         placeholder=''
                         type='password'
                         hidden='password'

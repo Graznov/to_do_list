@@ -29,7 +29,8 @@
                 color: #e8e5e5;
 
                 .classNameInput,
-                .classNameInputEmail{
+                .classNameInputEmail,
+                .classNameInputPass{
                     font-family: "Exo 2", sans-serif;
                     font-style: normal;
                     font-size: 16px;
@@ -51,7 +52,8 @@
                     /*background-color: #dc4949;*/
                 }
                 .classNameLabel,
-                .classNameLabelEmail{
+                .classNameLabelEmail,
+                .classNameLabelPass{
                     color: #c9c8c8;
                     font-family: Verdana, sans-serif;
                     background-color: #FFF;
@@ -70,7 +72,9 @@
                 .classNameInput:focus + .classNameLabel,
                 .classNameInput:not(:placeholder-shown) + .classNameLabel,
                 .classNameInputEmail:focus + .classNameLabelEmail,
-                .classNameInputEmail:not(:placeholder-shown) + .classNameLabelEmail{
+                .classNameInputEmail:not(:placeholder-shown) + .classNameLabelEmail,
+                .classNameInputPass:focus + .classNameLabelPass,
+                .classNameInputPass:not(:placeholder-shown) + .classNameLabelPass{
                     top: -10px;
                     left: 10px;
                     font-size: 15px;
