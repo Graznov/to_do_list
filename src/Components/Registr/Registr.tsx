@@ -9,42 +9,20 @@ import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-let inputError:boolean = true
 function Registr(){
 
-    const ClassInput = cx('classNameInput', '111',{
-        classNameInput_red:!inputError
-    });
-    const ClassLabel = cx('classNameLabel',{
-        'classNameLabel_red':!inputError
-    });
-    // useEffect(()=>{
-    //     let timerId
-    //     if(!isValid.title || !isValid.text || !isValid.date){
-    //         timerId = setTimeout(()=>{
-    //             console.log('Timer')
-    //             dispatchForm( { type : 'RESET_VALIDITY' } )
-    //         },1000)
-    //     }
-    //     return () => {
-    //         clearTimeout(timerId)
-    //     }
-    // }, [isValid])
+// проверка имени...
 
-
-    //
-    // useEffect(()=>{
-    //     console.log(`userName: ${userName}\ninputError: ${inputError}`)
-    //     const time = setTimeout(()=>{
-    //         inputError=true
-    //         console.log(`TIMER\ninputError: ${inputError}`)
-    //     },1000)
-    //     // clearTimeout(time)
-    //
-    // },[inputError])
-
+    const [inputError, setInputError] = useState(true)
     const [userName, setUserName] = useState('')
     const validVall:string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_1234567890'
+
+    useEffect(()=>{
+        const time = setTimeout(()=>{
+            setInputError(true)
+        },1000)
+        return () => {clearTimeout(time)}
+    },[inputError])
     const changeName = (e) => {
 
         if(e.target.value.length<userName.length){
@@ -54,22 +32,27 @@ function Registr(){
 
         if(validVall.includes(e.target.value[e.target.value.length-1]) && e.target.value.length<=250){
             setUserName(e.target.value)
-            inputError=true
+            setInputError(true)
+            return;
         } else {
-            inputError=false
-            // const time = setTimeout(()=>{
-            //     inputError=true
-            console.log(`TIMER\ninputError: ${inputError}`)
-            // },1000)
-            // clearTimeout(time)
-
+            setInputError(false)
             e.target.value = userName
+            return;
         }
-        console.log(`inputError: ${inputError}`)
     }
 
+    const ClassInput = cx('classNameInput', '111',{
+        classNameInput_red:!inputError
+    });
+    const ClassLabel = cx('classNameLabel',{
+        classNameLabel_red:!inputError
+    });
+// ...проверка имени
+
+// проверка почты...
 
 
+// ...проверка почты
     return(
         <div className={styles.registr_container}>
 

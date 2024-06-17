@@ -43,6 +43,7 @@
                     outline: 0;
                     padding: 0 20px;
                     width: 100%;
+                    transition: 0.3s;
                 }
                 .classNameInput_red{
                     border: 1px solid #f80101;
