@@ -30,7 +30,8 @@
 
                 .classNameInput,
                 .classNameInputEmail,
-                .classNameInputPass{
+                .classNameInputPass,
+                .classNameInputPassTwo{
                     font-family: "Exo 2", sans-serif;
                     font-style: normal;
                     font-size: 16px;
@@ -53,7 +54,8 @@
                 }
                 .classNameLabel,
                 .classNameLabelEmail,
-                .classNameLabelPass{
+                .classNameLabelPass,
+                .classNameLabelPassTwo{
                     color: #c9c8c8;
                     font-family: Verdana, sans-serif;
                     background-color: #FFF;
@@ -74,7 +76,9 @@
                 .classNameInputEmail:focus + .classNameLabelEmail,
                 .classNameInputEmail:not(:placeholder-shown) + .classNameLabelEmail,
                 .classNameInputPass:focus + .classNameLabelPass,
-                .classNameInputPass:not(:placeholder-shown) + .classNameLabelPass{
+                .classNameInputPass:not(:placeholder-shown) + .classNameLabelPass,
+                .classNameInputPassTwo:focus + .classNameLabelPassTwo,
+                .classNameInputPassTwo:not(:placeholder-shown) + .classNameLabelPassTwo{
                     top: -10px;
                     left: 10px;
                     font-size: 15px;
@@ -98,13 +102,26 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-
         }
+
+        .classNameBtnDiss:disabled{
+            opacity: 0.5;
+        }
+
+
         .classNameBtn:hover{
             color: #faf7f7;
             background: #0404bd;
         }
         .classNameBtn:active{
+            box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+        .classNameBtnDiss:disabled, .classNameBtnDiss:hover:disabled {
+            background-color: rgba(0,0,0,.1);
+            border: 1px solid rgba(0, 0, 0, .1);
+            cursor: not-allowed;
+        }
+        .classNameBtnDiss:disabled, .classNameBtnDiss:active:disabled{
             box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 

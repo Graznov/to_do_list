@@ -2,12 +2,14 @@
 function Btn({
                 Btn_text,
                 ClassNameBtn,
-                type
+                type,
+                // disabled
              }){
 
     return(
         <button
             className={ClassNameBtn}
+            disabled
             type={type}>
             {Btn_text}
         </button>

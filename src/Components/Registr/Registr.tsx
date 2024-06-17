@@ -14,9 +14,20 @@ function Registr(){
     const [form, setForm] = useState({
         name:'',
         email:'',
-        password:''
+        password:'',
     })
-    console.log(form)
+    
+    if(form.name && form.email && form.password){
+        // setFormCompl(true)
+        console.log('zaebca')
+    }
+
+    const ClassBtn = cx('classNameBtn',{
+        classNameBtnDiss:(!form.name || !form.email || !form.password)
+    })
+
+    const [upper, setUpper] = useState(-1) //для загл буквы пароля
+    if(upper===-1) setUpper(0)
 // проверка имени...
 
     const [inputError, setInputError] = useState(true)
@@ -94,68 +105,65 @@ function Registr(){
 
 // проверка пароля...
 
-    const [inputErrorPass, setInputErrorPass] = useState({
-        length:true,
-        upper:true
-    })
+    const [passOne,  setPassOne] = useState('')
+    const [passTwo,  setPassTwo] = useState('')
 
-    const [passwordS, setPasswordS] = useState({
-        passOne:'',
-        passTwo:''
-    })
+    const [len, setLen] = useState(true)
+    const [equality, setEquality] = useState(true)
 
     const changePassOne = (e) => {
+
         const elem = e.target.value
 
-        for(let o = 0; o<elem.length-1; o++){
-            console.log(elem[o])
-            if(elem[o]!==elem[o].toUpperCase()){
-
-                setInputErrorPass({
-                    ...inputErrorPass,
-                    upper:elem[o]===elem[o].toUpperCase()
-                })
-
-                console.log(elem[o]===elem[o].toUpperCase())
-            } else {
-                console.log(elem[o]===elem[o].toUpperCase())
-                setInputErrorPass({
-                    ...inputErrorPass,
-                    upper:elem[o]===elem[o].toUpperCase()
-                })
-                break
-
-            }
+        if(elem.length!==0 && elem[elem.length-1]===elem[elem.length-1].toUpperCase()) {
+            setUpper(upper+1)
+            console.log(elem[elem.length-1])
         }
 
         if (elem.length>=6 && elem.length<=250){
-
-            setInputErrorPass({
-                ...inputErrorPass,
-                length:true
-            })
+            setLen(true)
+            if(upper){
+                setPassOne(elem)
+                setEquality(false)
+            }
             console.log(elem)
         } else {
-            setInputErrorPass({
-                ...inputErrorPass,
-                length:false
-            })
-
+            setLen(false)
         }
-
-
 
     }
 
+    const changePassTwo = (e) => {
+        const elem = e.target.value
+        setPassTwo(elem)
+
+        if(passOne === elem){
+            setEquality(true)
+
+            setForm({
+                ...form,
+                password: elem
+            })
+
+        }
+    }
+
     useEffect(() => {
-        console.log(inputErrorPass)
-    }, [inputErrorPass]);
+        console.log(`len: ${len}\nupper: ${upper}\npasswordOne: ${passOne}\npasswordTwo: ${passTwo}`)
+    }, [len, upper, passOne, passTwo]);
 
     const ClassInputPass = cx('classNameInputPass',{
-        classNameInput_red:!inputErrorPass.upper || !inputErrorPass.length
+        classNameInput_red:upper<0 || !len
     });
     const ClassLabelPass = cx('classNameLabelPass',{
-        classNameLabel_red:!inputErrorPass.upper || !inputErrorPass.length
+        classNameLabel_red:upper<0 || !len
+    });
+
+    const ClassInputPassTwo = cx('classNameInputPassTwo',{
+        classNameInput_red:!equality
+    });
+    const ClassLabelPassTwo = cx('classNameLabelPassTwo',{
+        classNameLabel_red:!equality
     });
 // ...проверка пароля
 
@@ -199,18 +207,22 @@ function Registr(){
                     />
 
                     <Input
+                        onChange={changePassTwo}
                         classNameContainer={styles.classNameContainer}
-                        classNameLabel={styles.classNameLabel}
-                        classNameInput={styles.classNameInput}
+                        classNameLabel={ClassLabelPassTwo}
+                        classNameInput={ClassInputPassTwo}
                         placeholder=''
                         type='password'
                         hidden='retr password'
                     />
 
                     <Btn
-                        ClassNameBtn={styles.classNameBtn}
+                        ClassNameBtn={ClassBtn}
                         Btn_text='registration'
-                        type='submit'/>
+                        // disabled='disabled'
+                        type='submit'
+                        // ref={refBtn}
+                    />
                 </form>
 
 
