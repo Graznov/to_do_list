@@ -11,6 +11,12 @@ const cx = classNames.bind(styles);
 
 function Registr(){
 
+    const [form, setForm] = useState({
+        name:'',
+        email:'',
+        password:''
+    })
+
 // проверка имени...
 
     const [inputError, setInputError] = useState(true)
@@ -50,20 +56,42 @@ function Registr(){
 // ...проверка имени
 
 // проверка почты...
+    const [inputErrorEmail, setInputErrorEmail] = useState(true)
+    const [email, setEmail] = useState('')
+    const changeEmail = (e) => {
 
+        const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
+        function isEmailValid (value){
+            return EMAIL_REGEXP.test(value);
+        }
 
+        if(isEmailValid(e.target.value)){
+            setEmail(e.target.value)
+            console.log(`email: ${email}`)
+            setInputErrorEmail(isEmailValid(e.target.value))
+        } else {
+            setInputErrorEmail(isEmailValid(e.target.value))
+        }
+
+    }
+    const ClassInputEmail = cx('classNameInputEmail',{
+        classNameInput_red:!inputErrorEmail
+    });
+    const ClassLabelEmail = cx('classNameLabelEmail',{
+        classNameLabel_red:!inputErrorEmail
+    });
 // ...проверка почты
     return(
         <div className={styles.registr_container}>
 
             <div className={styles.registr_container_left}>
+                <TopCont/>
+                <Title_3
+                    ClassNameTitle_3={styles.input_area_Zag}
+                    title_text='sign up'
+                />
+                <form className={styles.input_area}>
 
-                <div className={styles.input_area}>
-                    <TopCont/>
-                    <Title_3
-                        ClassNameTitle_3={styles.input_area_Zag}
-                        title_text='sign up'
-                    />
                     <Input
                         onChange={changeName}
                         classNameContainer={styles.classNameContainer}
@@ -74,11 +102,12 @@ function Registr(){
                         hidden='Username'
                     />
                     <Input
+                        onChange={changeEmail}
                         classNameContainer={styles.classNameContainer}
-                        classNameLabel={styles.classNameLabel}
-                        classNameInput={styles.classNameInput}
+                        classNameLabel={ClassLabelEmail}
+                        classNameInput={ClassInputEmail}
                         placeholder=''
-                        type='text'
+                        type='email'
                         hidden='Email'
                     />
                     <Input
@@ -101,8 +130,9 @@ function Registr(){
 
                     <Btn
                         ClassNameBtn={styles.classNameBtn}
-                        Btn_text='registration'/>
-            </div>
+                        Btn_text='registration'
+                        type='submit'/>
+                </form>
 
 
             </div>

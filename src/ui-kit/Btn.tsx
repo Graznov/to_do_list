@@ -2,11 +2,13 @@
 function Btn({
                 Btn_text,
                 ClassNameBtn,
+                type
              }){
 
     return(
         <button
-            className={ClassNameBtn}>
+            className={ClassNameBtn}
+            type={type}>
             {Btn_text}
         </button>
     )

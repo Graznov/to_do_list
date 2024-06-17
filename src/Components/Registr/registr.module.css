@@ -8,17 +8,17 @@
     .registr_container_left{
 
         width: 55vw;
-
+        .input_area_Zag{
+            width: 80%;
+            margin: 10px auto;
+        }
         .input_area{
 
             display: flex;
             flex-direction: column;
             gap: 20px;
 
-            .input_area_Zag{
-                width: 80%;
-                margin: 0 auto;
-            }
+
 
 
             .classNameContainer {
@@ -28,7 +28,8 @@
                 /*margin-bottom: 20px;*/
                 color: #e8e5e5;
 
-                .classNameInput {
+                .classNameInput,
+                .classNameInputEmail{
                     font-family: "Exo 2", sans-serif;
                     font-style: normal;
                     font-size: 16px;
@@ -49,7 +50,8 @@
                     border: 1px solid #f80101;
                     /*background-color: #dc4949;*/
                 }
-                .classNameLabel {
+                .classNameLabel,
+                .classNameLabelEmail{
                     color: #c9c8c8;
                     font-family: Verdana, sans-serif;
                     background-color: #FFF;
@@ -66,13 +68,17 @@
                     color: #f80101;
                 }
                 .classNameInput:focus + .classNameLabel,
-                .classNameInput:not(:placeholder-shown) + .classNameLabel{
+                .classNameInput:not(:placeholder-shown) + .classNameLabel,
+                .classNameInputEmail:focus + .classNameLabelEmail,
+                .classNameInputEmail:not(:placeholder-shown) + .classNameLabelEmail{
                     top: -10px;
                     left: 10px;
                     font-size: 15px;
                     /*background-color: #BFE2FF;*/
                     padding: 2px 3px;
                 }
+
+
 
             }
 
