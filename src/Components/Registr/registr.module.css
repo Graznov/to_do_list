@@ -44,6 +44,10 @@
                     padding: 0 20px;
                     width: 100%;
                 }
+                .classNameInput_red{
+                    border: 1px solid #f80101;
+                    /*background-color: #dc4949;*/
+                }
                 .classNameLabel {
                     color: #c9c8c8;
                     font-family: Verdana, sans-serif;
@@ -56,6 +60,9 @@
                     transition: all 400ms;
                     top: 12px;
                     left: 10px;
+                }
+                .classNameLabel_red{
+                    color: #f80101;
                 }
                 .classNameInput:focus + .classNameLabel,
                 .classNameInput:not(:placeholder-shown) + .classNameLabel{
@@ -80,6 +87,7 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+
         }
         .classNameBtn:hover{
             color: #faf7f7;

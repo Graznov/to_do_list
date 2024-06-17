@@ -11,6 +11,7 @@ export const Input = (
         classNameContainer,
         classNameInput,
         classNameLabel,
+        onChange,
         hidden,
         name,
         value,
@@ -24,6 +25,7 @@ export const Input = (
         <div className={classNameContainer}>
             <input
                 className={classNameInput}
+                onChange={onChange}
                 type={type}
                 placeholder={placeholder}
                 value={value}

@@ -1,7 +1,7 @@
 
 function Btn({
                 Btn_text,
-                ClassNameBtn
+                ClassNameBtn,
              }){
 
     return(
