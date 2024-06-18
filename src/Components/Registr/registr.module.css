@@ -125,6 +125,19 @@
             box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
 
+        .ClassDivError{
+            color: #f80101;
+            font-size: 15px;
+            position: absolute;
+            right: 10px;
+            top: 30px;
+            display: none;
+        }
+        .ClassDivErrorVisibl{
+            display: flex;
+            justify-content: flex-end;
+        }
+
 
     }
 
