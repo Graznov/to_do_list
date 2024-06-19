@@ -27,10 +27,11 @@ function Registr(){
     const ClassBtn = cx('classNameBtn',{
         classNameBtnDiss:(!form.name || !form.email || !form.password)
     })
-    const [upper, setUpper] = useState(-1) //для загл буквы пароля
-    if(upper===-1) setUpper(0)
+    const [upper, setUpper] = useState(false) //для загл буквы пароля
+    const [numberInPass, setNumberInPass] = useState(false)
 
     const [temp, setTemp] = useState('')
+    const [nameCorrectSimbol, setNameCorrectSimbol] = useState(false)
     const [nameDirty, setNameDirty] = useState(false)
     const [nameBorder, setNameBorder] = useState(false)
     const [nameError, setNameError] = useState('Поле не может быть пустым')
@@ -46,10 +47,17 @@ function Registr(){
     const [passTwoError, setPassTwoError] = useState('Поле не может быть пустым')
 
 
+
     const blurHandler = (e) => {
         switch (e.target.name){
             case 'name':
-                if(!form.name){
+                if(temp.length>5){
+                    setForm({
+                        ...form,
+                        name: temp
+                    })
+                } else {
+                    setNameError('Должно быть неменее 6 символов')
                     setNameDirty(true)
                     setNameBorder(true)
                 }
@@ -62,7 +70,20 @@ function Registr(){
                 }
                 break
             case 'passOne':
-                setPassOneDirty(true)
+                if (passOne.length<6 || passOne.length>250){
+                    setPassOneDirty(true)
+                    setPassOneError('не менее 6 и не более 250 символов')
+                    break
+                }
+                if(numberInPass && upper){
+                    console.log(`passOne: ${passOne} is good`)
+                    setPassOneDirty(false)
+                    setPassOneError('')
+                    break
+                } else {
+                    setPassOneDirty(true)
+                    setPassOneError('должна быть заглавная буква и цифра')
+                }
                 break
             case 'passTwo':
                 setPassTwoDirty(true)
@@ -101,64 +122,32 @@ function Registr(){
 
     const validVall:string = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_1234567890'
 
-    // useEffect(()=>{
-    //     const time = setTimeout(()=>{
-    //         setNameDirty(true)
-    //     },1000)
-    //     return () => {clearTimeout(time)}
-    // },[nameDirty])
+    useEffect(()=>{
+        const time = setTimeout(()=>{
+            setNameDirty(false)
+            setNameBorder(false)
+            setNameError('')
+            setNameCorrectSimbol(false)
+        },1000)
+        return () => {clearTimeout(time)}
+    },[nameCorrectSimbol])
 
 
     const changeName = (e) => {
         
     const elem = e.target.value
-        if(elem.length<elem.length){
-            // setForm({
-            //     ...form,
-            //     name: e.target.value
-            // })
-            // setTemp(elem)
-            // return
-        }
-
+        if(elem.length===0)setTemp('')
         if(validVall.includes(elem[elem.length-1])){
             setTemp(elem)
-            // setForm({
-            //     ...form,
-            //     name: e.target.value
-            // })
-
-            if(elem.length<6){
-                setNameBorder(false)
-                setNameError('Должно быть неменее 6 символов')
-                return;
-            }
-
-
             setNameError('')
             setNameBorder(false)
-            // setInputError(true)
-            // setNameDirty(false)
-            // return;
         } else {
-            // setTemp()
             setNameError('Некорректный символ')
             setNameDirty(true)
             setNameBorder(true)
+            setNameCorrectSimbol(true)
             e.target.value = temp
-            // return;
         }
-
-        if (elem.length>5){
-
-            setForm({
-                ...form,
-                name: elem
-            })
-
-        }
-
-
     }
 
 
@@ -190,31 +179,41 @@ function Registr(){
     const [passOne,  setPassOne] = useState('')
     const [passTwo,  setPassTwo] = useState('')
 
-    const [len, setLen] = useState(true)
+    // const [len, setLen] = useState(true)
     const [equality, setEquality] = useState(true)
 
     const changePassOne = (e) => {
 
         const elem = e.target.value
 
-        if(elem.length!==0 && elem[elem.length-1]===elem[elem.length-1].toUpperCase()) {
-            setUpper(upper+1)
-            console.log(elem[elem.length-1])
-        }
+        // console.log(isNaN(elem[elem.length-1]))
 
-        if (elem.length>=6 && elem.length<=250){
-            setLen(true)
-            if(upper){
-                setPassOne(elem)
-                setEquality(false)
-            }
-            console.log(elem)
-        } else {
-            setLen(false)
-        }
+
+
+        // if (elem.length>=6 && elem.length<=250){
+            // setLen(true)
+            // setPassOneError('')
+            // if(upper){
+            //     setPassOne(elem)
+            //     setEquality(false)
+            // }
+            // console.log(elem)
+            setPassOne(elem)
+        // } else {
+        //     setPassOneError('Должно быть не менее 6 символов')
+            // setLen(false)
+        // }
 
     }
-
+useEffect(()=>{
+    passOne.split('').forEach(i =>{
+        if (!isNaN(i)){
+            setNumberInPass(true)
+        }else if(isNaN(i) && i===i.toUpperCase()) {
+            setUpper(true)
+        }
+    }, [passOne])
+})
     const changePassTwo = (e) => {
         const elem = e.target.value
         setPassTwo(elem)
@@ -231,8 +230,8 @@ function Registr(){
     }
 
     useEffect(() => {
-        console.log(`len: ${len}\nupper: ${upper}\npasswordOne: ${passOne}\npasswordTwo: ${passTwo}`)
-    }, [len, upper, passOne, passTwo]);
+        console.log(`len:_____\nnumber: ${numberInPass}\nupper: ${upper}\npasswordOne: ${passOne}\npasswordTwo: ${passTwo}`)
+    }, [upper, passOne, passTwo, numberInPass]);
 
 
 // ...проверка пароля
@@ -252,7 +251,7 @@ function Registr(){
 
                     <Input
                         name='name'
-                        // value={temp}
+                        value={temp}
                         onBlur={e => blurHandler(e)}
                         onChange={changeName}
                         classNameContainer={styles.classNameContainer}

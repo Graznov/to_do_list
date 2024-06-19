@@ -132,10 +132,13 @@
             right: 10px;
             top: 30px;
             display: none;
+            transition: 0.3s;
+
         }
         .ClassDivErrorVisibl{
             display: flex;
             justify-content: flex-end;
+
         }
 
 
