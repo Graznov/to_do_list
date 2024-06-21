@@ -16,13 +16,13 @@ function Registr(){
         email:'',
         password:'',
     })
-
-    console.log(form)
-
-    if(form.name && form.email && form.password){
-        // setFormCompl(true)
-        console.log('zaebca')
-    }
+    //
+    // console.log(form)
+    //
+    // if(form.name && form.email && form.password){
+    //     // setFormCompl(true)
+    //     console.log('zaebca')
+    // }
 
     const ClassBtn = cx('classNameBtn',{
         classNameBtnDiss:(!form.name || !form.email || !form.password)
@@ -76,7 +76,7 @@ function Registr(){
                     break
                 }
                 if(numberInPass && upper){
-                    console.log(`passOne: ${passOne} is good`)
+                    // console.log(`passOne: ${passOne} is good`)
                     setPassOneDirty(false)
                     setPassOneError('')
                     break
@@ -87,6 +87,14 @@ function Registr(){
                 break
             case 'passTwo':
                 setPassTwoDirty(true)
+                if(form.password){
+                    setPassTwoError('')
+                    setPassTwoDirty(false)
+                }
+                if(!passTwo){
+                    setPassTwoError('Поле не может быть пустым')
+                    setPassTwoDirty(true)
+                }
                 break
         }
     }
@@ -183,27 +191,8 @@ function Registr(){
     const [equality, setEquality] = useState(true)
 
     const changePassOne = (e) => {
-
         const elem = e.target.value
-
-        // console.log(isNaN(elem[elem.length-1]))
-
-
-
-        // if (elem.length>=6 && elem.length<=250){
-            // setLen(true)
-            // setPassOneError('')
-            // if(upper){
-            //     setPassOne(elem)
-            //     setEquality(false)
-            // }
-            // console.log(elem)
-            setPassOne(elem)
-        // } else {
-        //     setPassOneError('Должно быть не менее 6 символов')
-            // setLen(false)
-        // }
-
+        setPassOne(elem)
     }
 useEffect(()=>{
     passOne.split('').forEach(i =>{
@@ -219,19 +208,21 @@ useEffect(()=>{
         setPassTwo(elem)
 
         if(passOne === elem){
-            setEquality(true)
-
             setForm({
                 ...form,
                 password: elem
             })
-
+            setPassTwoError('')
+            setPassTwoDirty(false)
+        } else {
+            setPassTwoError('Пароли не совпадают')
+            setPassTwoDirty(true)
         }
     }
 
-    useEffect(() => {
-        console.log(`len:_____\nnumber: ${numberInPass}\nupper: ${upper}\npasswordOne: ${passOne}\npasswordTwo: ${passTwo}`)
-    }, [upper, passOne, passTwo, numberInPass]);
+    // useEffect(() => {
+    //     console.log(`len:_____\nnumber: ${numberInPass}\nupper: ${upper}\npasswordOne: ${passOne}\npasswordTwo: ${passTwo}`)
+    // }, [upper, passOne, passTwo, numberInPass]);
 
 
 // ...проверка пароля
@@ -316,9 +307,7 @@ useEffect(()=>{
                     <Btn
                         ClassNameBtn={ClassBtn}
                         Btn_text='registration'
-                        // disabled='disabled'
                         type='submit'
-                        // ref={refBtn}
                     />
                 </form>
 
