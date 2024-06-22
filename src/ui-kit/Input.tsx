@@ -50,6 +50,7 @@ export const Input = (
             >{hidden}</label>
             <div className={ClassDivError}>{message}</div>
             <button
+                type='button'
                 className={classNameBtn}
                 onClick={onClickBtn}
             >

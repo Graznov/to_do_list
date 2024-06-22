@@ -226,14 +226,11 @@ useEffect(()=>{
     const [adress, setAdress] = useState('public/hide_icon.svg')
     const [isShown, setIsShown] = useState(false)
     const isShowChange = () => {
-        console.log('click')
         setIsShown(!isShown)
         setAdress((adress==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
-        console.log(isShown)
     }
-    useEffect(()=>{
-        console.log(`EFFECT-${isShown}`)
-    },[isShown])
+    // useEffect(()=>{
+    // },[isShown])
 
     const [adressTwo, setAdressTwo] = useState('public/hide_icon.svg')
     const [isShownTwo, setIsShownTwo] = useState(false)
@@ -343,9 +340,6 @@ useEffect(()=>{
                     <div className={styles.toLogin}>already have an account? <a href="/">Login</a></div>
 
                 </form>
-                <button onClick={isShowChange}><img src={adress} alt=""/></button>
-                <button onClick={isShowChangeTwo}><img src={adressTwo} alt=""/></button>
-
 
             </div>
 
