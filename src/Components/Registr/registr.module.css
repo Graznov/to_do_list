@@ -7,17 +7,34 @@
 
     .registr_container_left{
 
+
         width: 55vw;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
         .input_area_Zag{
             width: 80%;
             margin: 10px auto;
+            font-family: "Inter", sans-serif;
+            font-size: 25px;
+            font-weight: 400;
         }
         .input_area{
-
+            /*position: absolute;*/
             display: flex;
             flex-direction: column;
             gap: 20px;
+            justify-content: flex-end;
 
+            .classInputBtn{
+                border: none;
+                background:none;
+                position: absolute;
+                top: 14px;
+                right: 10px;
+            }
 
 
 
@@ -27,6 +44,9 @@
                 margin: 0 auto;
                 /*margin-bottom: 20px;*/
                 color: #e8e5e5;
+
+
+
 
                 .classNameInput,
                 .classNameInputEmail,
@@ -99,6 +119,7 @@
             font-size: 21px;
             width: 80%;
             margin: 0 auto;
+            padding: 12px 0;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -141,15 +162,27 @@
 
         }
 
+        .toLogin{
+            width: 80%;
+            margin: 10px auto;
+            text-align: center;
+        }
+
 
     }
 
     .registr_container_right{
 
         width: 45vw;
-        padding: 25vh 5vw;
+        /*height: 90vh;*/
+        /*padding: 25vh 5vw;*/
+        position: relative;
 
         img{
+            position: absolute;
+            /*margin: auto;*/
+            top: 30vh;
+            left: 10%;
             width: 30vw;
         }
 
@@ -181,6 +214,7 @@
         }
         .registr_container_left{
             width: 100vw;
+            height: 0;
         }
     }
 }

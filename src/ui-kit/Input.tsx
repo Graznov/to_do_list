@@ -6,6 +6,8 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     classNameLabel?: string;
     ClassDivError?:string;
     message?:string;
+    classNameBtn?:string;
+    onClickBtn;
 }
 
 export const Input = (
@@ -13,6 +15,7 @@ export const Input = (
         classNameContainer,
         classNameInput,
         classNameLabel,
+        ClassBtn,
         onChange,
         hidden,
         name,
@@ -23,6 +26,10 @@ export const Input = (
         onBlur,
         ClassDivError,
         message,
+        onClickBtn,
+        src,
+        classNameBtn,
+        altImg,
         ...restProps
     }: InputProps
 ): ReactNode => {
@@ -42,6 +49,12 @@ export const Input = (
                 className={classNameLabel}
             >{hidden}</label>
             <div className={ClassDivError}>{message}</div>
+            <button
+                className={classNameBtn}
+                onClick={onClickBtn}
+            >
+                <img src={src} alt=''/>
+            </button>
         </div>
     );
 };

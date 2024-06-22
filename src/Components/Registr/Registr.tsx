@@ -219,25 +219,42 @@ useEffect(()=>{
             setPassTwoDirty(true)
         }
     }
-
-    // useEffect(() => {
-    //     console.log(`len:_____\nnumber: ${numberInPass}\nupper: ${upper}\npasswordOne: ${passOne}\npasswordTwo: ${passTwo}`)
-    // }, [upper, passOne, passTwo, numberInPass]);
-
-
 // ...проверка пароля
 
 
+// кнопка показать/скрыть пароль:
+    const [adress, setAdress] = useState('public/hide_icon.svg')
+    const [isShown, setIsShown] = useState(false)
+    const isShowChange = () => {
+        console.log('click')
+        setIsShown(!isShown)
+        setAdress((adress==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+        console.log(isShown)
+    }
+    useEffect(()=>{
+        console.log(`EFFECT-${isShown}`)
+    },[isShown])
 
+    const [adressTwo, setAdressTwo] = useState('public/hide_icon.svg')
+    const [isShownTwo, setIsShownTwo] = useState(false)
+    const isShowChangeTwo = () => {
+        setIsShownTwo(!isShownTwo)
+        setAdressTwo((adressTwo==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+    }
+// ... показать/скрыть пароль
     return(
         <div className={styles.registr_container}>
 
             <div className={styles.registr_container_left}>
-                <TopCont/>
-                <Title_3
-                    ClassNameTitle_3={styles.input_area_Zag}
-                    title_text='sign up'
-                />
+                <div>
+                    <TopCont/>
+                    <Title_3
+                        ClassNameTitle_3={styles.input_area_Zag}
+                        title_text='Sign Up'
+                    />
+                </div>
+
+
                 <form className={styles.input_area}>
 
                     <Input
@@ -255,6 +272,8 @@ useEffect(()=>{
                             ClassDivErrorVisibl:nameDirty
                         })}
                         message={nameError}
+                        classNameBtn={styles.classInputBtn}
+
                     />
 
                     <Input
@@ -271,6 +290,8 @@ useEffect(()=>{
                             ClassDivErrorVisibl:emailDirty
                         })}
                         message={emailError}
+                        classNameBtn={styles.classInputBtn}
+
                     />
                     <Input
                         name='passOne'
@@ -280,12 +301,16 @@ useEffect(()=>{
                         classNameLabel={ClassLabelPass}
                         classNameInput={ClassInputPass}
                         placeholder=''
-                        type='password'
+                        type={isShown ? "text" : "password"}
                         hidden='password'
                         ClassDivError={cx('ClassDivError',{
                             ClassDivErrorVisibl:passOneDirty
                         })}
                         message={passOneError}
+
+                        onClickBtn={isShowChange}
+                        src={adress}
+                        classNameBtn={styles.classInputBtn}
                     />
 
                     <Input
@@ -296,12 +321,18 @@ useEffect(()=>{
                         classNameLabel={ClassLabelPassTwo}
                         classNameInput={ClassInputPassTwo}
                         placeholder=''
-                        type='password'
+                        // type='password'
+                        type={isShownTwo ? "text" : "password"}
                         hidden='retr password'
                         ClassDivError={cx('ClassDivError',{
                             ClassDivErrorVisibl:passTwoDirty
                         })}
                         message={passTwoError}
+                        src={adressTwo}
+                        onClickBtn={isShowChangeTwo}
+                        btnImg={adressTwo}
+                                      // alt="show/hide icon"/>)}
+                        classNameBtn={styles.classInputBtn}
                     />
 
                     <Btn
@@ -309,7 +340,11 @@ useEffect(()=>{
                         Btn_text='registration'
                         type='submit'
                     />
+                    <div className={styles.toLogin}>already have an account? <a href="/">Login</a></div>
+
                 </form>
+                <button onClick={isShowChange}><img src={adress} alt=""/></button>
+                <button onClick={isShowChangeTwo}><img src={adressTwo} alt=""/></button>
 
 
             </div>
