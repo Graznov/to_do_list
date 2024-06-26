@@ -4,10 +4,9 @@ function TopCont(){
 
     return(
         <div className={styles.top_cont}>
-            <img
+            <img className={styles.image}
                 src=".\public\checklist-minimalistic-svgrepo-com.svg"
                 alt="logo"
-                width={'35px'}
             />
             <h1>Focus flow</h1>
         </div>
