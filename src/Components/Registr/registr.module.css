@@ -1,7 +1,9 @@
 
 
 .registr_container{
-    font-family: "Exo 2", sans-serif;
+    /*font-family: "Exo 2", sans-serif;*/
+    font-family: "Inter", sans-serif;
+
     margin: 10px auto;
     display: flex;
 
@@ -19,7 +21,7 @@
             margin: 10px auto;
             font-family: "Inter", sans-serif;
             font-size: 25px;
-            font-weight: 400;
+            font-weight: 600;
         }
         .input_area{
             /*position: absolute;*/
@@ -41,7 +43,7 @@
             .classNameContainer {
                 position: relative;
                 width: 80%;
-                margin: 0 auto;
+                margin: 5px auto;
                 /*margin-bottom: 20px;*/
                 color: #e8e5e5;
 

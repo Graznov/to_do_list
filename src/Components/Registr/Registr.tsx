@@ -16,13 +16,6 @@ function Registr(){
         email:'',
         password:'',
     })
-    //
-    // console.log(form)
-    //
-    // if(form.name && form.email && form.password){
-    //     // setFormCompl(true)
-    //     console.log('zaebca')
-    // }
 
     const ClassBtn = cx('classNameBtn',{
         classNameBtnDiss:(!form.name || !form.email || !form.password)
@@ -299,7 +292,7 @@ useEffect(()=>{
                         classNameInput={ClassInputPass}
                         placeholder=''
                         type={isShown ? "text" : "password"}
-                        hidden='password'
+                        hidden='Set Password'
                         ClassDivError={cx('ClassDivError',{
                             ClassDivErrorVisibl:passOneDirty
                         })}
@@ -320,7 +313,7 @@ useEffect(()=>{
                         placeholder=''
                         // type='password'
                         type={isShownTwo ? "text" : "password"}
-                        hidden='retr password'
+                        hidden='Confirm Password'
                         ClassDivError={cx('ClassDivError',{
                             ClassDivErrorVisibl:passTwoDirty
                         })}
@@ -337,7 +330,7 @@ useEffect(()=>{
                         Btn_text='registration'
                         type='submit'
                     />
-                    <div className={styles.toLogin}>already have an account? <a href="/">Login</a></div>
+                    <div className={styles.toLogin}>Already have an account? <a href="/">Login</a></div>
 
                 </form>
 
