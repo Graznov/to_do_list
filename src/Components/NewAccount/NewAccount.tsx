@@ -3,6 +3,7 @@ import {Input} from "../ui-kit/Input.tsx";
 import Btn from "../ui-kit/Btn.tsx";
 import {useEffect, useState} from "react";
 import classNames from "classnames/bind";
+import {NavLink} from "react-router-dom";
 
 const cx = classNames.bind(styles);
 
@@ -317,7 +318,7 @@ export const NewAccount = () => {
                 Btn_text='registration'
                 type='submit'
             />
-            <div className={styles.toLogin}>Already have an account? <a href="/">Login</a></div>
+            <div className={styles.toLogin}>Already have an account? <NavLink to={'/login'}>Login</NavLink></div>
 
         </form>
     )
