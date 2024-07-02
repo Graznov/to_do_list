@@ -4,6 +4,7 @@ import Btn from "../ui-kit/Btn.tsx";
 import {useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import {NavLink} from "react-router-dom";
+import Title_3 from "../ui-kit/title_3.tsx";
 
 const cx = classNames.bind(styles);
 
@@ -128,52 +129,52 @@ export const LogInWind = () => {
 // ... показать/скрыть пароль
 
     return(
-        <form className={styles.input_area}>
+            <form className={styles.input_area}>
 
-            <Input
-                name='email'
-                onBlur={e => blurHandler(e)}
-                onChange={changeEmail}
-                classNameContainer={styles.classNameContainer}
-                classNameLabel={ClassLabelEmail}
-                classNameInput={ClassInputEmail}
-                placeholder=''
-                type='email'
-                hidden='Email'
-                ClassDivError={cx('ClassDivError',{
-                    ClassDivErrorVisibl:emailDirty
-                })}
-                message={emailError}
-                classNameBtn={styles.classInputBtn}
+                <Input
+                    name='email'
+                    onBlur={e => blurHandler(e)}
+                    onChange={changeEmail}
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={ClassLabelEmail}
+                    classNameInput={ClassInputEmail}
+                    placeholder=''
+                    type='email'
+                    hidden='Email'
+                    ClassDivError={cx('ClassDivError',{
+                        ClassDivErrorVisibl:emailDirty
+                    })}
+                    message={emailError}
+                    classNameBtn={styles.classInputBtn}
 
-            />
-            <Input
-                name='passOne'
-                onBlur={e => blurHandler(e)}
-                onChange={changePassOne}
-                classNameContainer={styles.classNameContainer}
-                classNameLabel={ClassLabelPass}
-                classNameInput={ClassInputPass}
-                placeholder=''
-                type={isShown ? "text" : "password"}
-                hidden='Set Password'
-                ClassDivError={cx('ClassDivError',{
-                    ClassDivErrorVisibl:passOneDirty
-                })}
-                message={passOneError}
+                />
+                <Input
+                    name='passOne'
+                    onBlur={e => blurHandler(e)}
+                    onChange={changePassOne}
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={ClassLabelPass}
+                    classNameInput={ClassInputPass}
+                    placeholder=''
+                    type={isShown ? "text" : "password"}
+                    hidden='Set Password'
+                    ClassDivError={cx('ClassDivError',{
+                        ClassDivErrorVisibl:passOneDirty
+                    })}
+                    message={passOneError}
 
-                onClickBtn={isShowChange}
-                src={adress}
-                classNameBtn={styles.classInputBtn}
-            />
+                    onClickBtn={isShowChange}
+                    src={adress}
+                    classNameBtn={styles.classInputBtn}
+                />
 
-            <Btn
-                ClassNameBtn={ClassBtn}
-                Btn_text='Sign In'
-                type='submit'
-            />
-            <div className={styles.toLogin}>I don't have an account <NavLink to={'/registration'}>Registration</NavLink></div>
+                <Btn
+                    ClassNameBtn={ClassBtn}
+                    Btn_text='Sign In'
+                    type='submit'
+                />
+                <div className={styles.toLogin}>I don't have an account <NavLink to={'/registration'}>Registration</NavLink></div>
 
-        </form>
+            </form>
     )
 }

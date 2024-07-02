@@ -13,12 +13,12 @@ function Registr(){
             <div className={styles.registr_container_left}>
                 <div>
                     <TopCont/>
-                    <Title_3
-                        ClassNameTitle_3={styles.input_area_Zag}
-                        title_text='Sign Up'
-                    />
                 </div>
 
+                <Title_3
+                    ClassNameTitle_3={styles.input_area_Zag}
+                    title_text='Sign Up'
+                />
                 <Outlet/>
 
             </div>

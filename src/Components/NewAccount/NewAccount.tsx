@@ -4,6 +4,7 @@ import Btn from "../ui-kit/Btn.tsx";
 import {useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import {NavLink} from "react-router-dom";
+import Title_3 from "../ui-kit/title_3.tsx";
 
 const cx = classNames.bind(styles);
 
@@ -233,93 +234,95 @@ export const NewAccount = () => {
 // ... показать/скрыть пароль
 
     return(
-        <form className={styles.input_area}>
 
-            <Input
-                name='name'
-                value={temp}
-                onBlur={e => blurHandler(e)}
-                onChange={changeName}
-                classNameContainer={styles.classNameContainer}
-                classNameLabel={ClassLabel}
-                classNameInput={ClassInput}
-                placeholder=''
-                type='text'
-                hidden='Username'
-                ClassDivError={cx('ClassDivError',{
-                    ClassDivErrorVisibl:nameDirty
-                })}
-                message={nameError}
-                classNameBtn={styles.classInputBtn}
+            <form className={styles.input_area}>
 
-            />
+                <Input
+                    name='name'
+                    value={temp}
+                    onBlur={e => blurHandler(e)}
+                    onChange={changeName}
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={ClassLabel}
+                    classNameInput={ClassInput}
+                    placeholder=''
+                    type='text'
+                    hidden='Username'
+                    ClassDivError={cx('ClassDivError',{
+                        ClassDivErrorVisibl:nameDirty
+                    })}
+                    message={nameError}
+                    classNameBtn={styles.classInputBtn}
 
-            <Input
-                name='email'
-                onBlur={e => blurHandler(e)}
-                onChange={changeEmail}
-                classNameContainer={styles.classNameContainer}
-                classNameLabel={ClassLabelEmail}
-                classNameInput={ClassInputEmail}
-                placeholder=''
-                type='email'
-                hidden='Email'
-                ClassDivError={cx('ClassDivError',{
-                    ClassDivErrorVisibl:emailDirty
-                })}
-                message={emailError}
-                classNameBtn={styles.classInputBtn}
+                />
 
-            />
-            <Input
-                name='passOne'
-                onBlur={e => blurHandler(e)}
-                onChange={changePassOne}
-                classNameContainer={styles.classNameContainer}
-                classNameLabel={ClassLabelPass}
-                classNameInput={ClassInputPass}
-                placeholder=''
-                type={isShown ? "text" : "password"}
-                hidden='Set Password'
-                ClassDivError={cx('ClassDivError',{
-                    ClassDivErrorVisibl:passOneDirty
-                })}
-                message={passOneError}
+                <Input
+                    name='email'
+                    onBlur={e => blurHandler(e)}
+                    onChange={changeEmail}
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={ClassLabelEmail}
+                    classNameInput={ClassInputEmail}
+                    placeholder=''
+                    type='email'
+                    hidden='Email'
+                    ClassDivError={cx('ClassDivError',{
+                        ClassDivErrorVisibl:emailDirty
+                    })}
+                    message={emailError}
+                    classNameBtn={styles.classInputBtn}
 
-                onClickBtn={isShowChange}
-                src={adress}
-                classNameBtn={styles.classInputBtn}
-            />
+                />
+                <Input
+                    name='passOne'
+                    onBlur={e => blurHandler(e)}
+                    onChange={changePassOne}
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={ClassLabelPass}
+                    classNameInput={ClassInputPass}
+                    placeholder=''
+                    type={isShown ? "text" : "password"}
+                    hidden='Set Password'
+                    ClassDivError={cx('ClassDivError',{
+                        ClassDivErrorVisibl:passOneDirty
+                    })}
+                    message={passOneError}
 
-            <Input
-                name='passTwo'
-                onBlur={e => blurHandler(e)}
-                onChange={changePassTwo}
-                classNameContainer={styles.classNameContainer}
-                classNameLabel={ClassLabelPassTwo}
-                classNameInput={ClassInputPassTwo}
-                placeholder=''
-                // type='password'
-                type={isShownTwo ? "text" : "password"}
-                hidden='Confirm Password'
-                ClassDivError={cx('ClassDivError',{
-                    ClassDivErrorVisibl:passTwoDirty
-                })}
-                message={passTwoError}
-                src={adressTwo}
-                onClickBtn={isShowChangeTwo}
-                btnImg={adressTwo}
-                // alt="show/hide icon"/>)}
-                classNameBtn={styles.classInputBtn}
-            />
+                    onClickBtn={isShowChange}
+                    src={adress}
+                    classNameBtn={styles.classInputBtn}
+                />
 
-            <Btn
-                ClassNameBtn={ClassBtn}
-                Btn_text='registration'
-                type='submit'
-            />
-            <div className={styles.toLogin}>Already have an account? <NavLink to={'/login'}>Login</NavLink></div>
+                <Input
+                    name='passTwo'
+                    onBlur={e => blurHandler(e)}
+                    onChange={changePassTwo}
+                    classNameContainer={styles.classNameContainer}
+                    classNameLabel={ClassLabelPassTwo}
+                    classNameInput={ClassInputPassTwo}
+                    placeholder=''
+                    // type='password'
+                    type={isShownTwo ? "text" : "password"}
+                    hidden='Confirm Password'
+                    ClassDivError={cx('ClassDivError',{
+                        ClassDivErrorVisibl:passTwoDirty
+                    })}
+                    message={passTwoError}
+                    src={adressTwo}
+                    onClickBtn={isShowChangeTwo}
+                    btnImg={adressTwo}
+                    // alt="show/hide icon"/>)}
+                    classNameBtn={styles.classInputBtn}
+                />
 
-        </form>
+                <Btn
+                    ClassNameBtn={ClassBtn}
+                    Btn_text='registration'
+                    type='submit'
+                />
+                <div className={styles.toLogin}>Already have an account? <NavLink to={'/login'}>Login</NavLink></div>
+
+            </form>
+
     )
 }
