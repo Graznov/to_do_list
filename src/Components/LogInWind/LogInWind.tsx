@@ -173,7 +173,7 @@ export const LogInWind = () => {
                     Btn_text='Sign In'
                     type='submit'
                 />
-                <div className={styles.toLogin}>I don't have an account <NavLink to={'/registration'}>Registration</NavLink></div>
+                <div className={styles.toLogin}>I don't have an account <NavLink to={'/'}>Registration</NavLink></div>
 
             </form>
     )

@@ -5,6 +5,7 @@ import Registr from "./Components/Registr/Registr.tsx";
 import {NewAccount} from "./Components/NewAccount/NewAccount.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import {LogInWind} from "./Components/LogInWind/LogInWind.tsx";
+import WorkWind from "./Components/WorkWind/WorkWind.tsx";
 
 const router = createBrowserRouter([
     {
@@ -13,7 +14,8 @@ const router = createBrowserRouter([
         // errorElement:<ErrorPage/>,
         children:[
             {
-                path:"/registration",
+                path:"/",
+                // index,
                 element: <NewAccount/>
             },
             {
@@ -22,10 +24,10 @@ const router = createBrowserRouter([
             },
         ]
     },
-    // {
-    //     path: '/workwindow',
-    //     element:<WorkWindOne/>
-    // }
+    {
+        path: '/workwindow',
+        element:<WorkWind/>
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
