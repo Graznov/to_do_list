@@ -1,4 +1,9 @@
+
+
 .work_container{
+    display: flex;
+
+
 
 
     /*font-family: "Exo 2", sans-serif;*/
@@ -10,11 +15,11 @@
         max-width: 25vw;
         /*padding: 20px 20px;*/
 
-.work_container_leftPanel_Top{
-    position: absolute;
-    top: 20px;
-    left: 15px;
-}
+        .work_container_leftPanel_Top{
+            position: absolute;
+            top: 20px;
+            left: 15px;
+        }
 
 
 
@@ -28,6 +33,26 @@
         }
 
     }
+
+    .work_container_rightPanel{
+        .logogo * {
+
+            fill: none;
+            stroke: #ec0831;
+            color: green;
+            cursor: pointer;
+
+        }
+
+        .logogo:hover * {
+            /*fill: #eebe04;*/
+            color: #ec0831;
+            stroke: #0404bd;
+        }
+
+    }
+
+
 
 }
 
