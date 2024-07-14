@@ -12,8 +12,8 @@
 
         border-right: 2px solid rgba(141, 140, 140, 0.5);
         height: 100vh;
-        max-width: 25vw;
-        /*padding: 20px 20px;*/
+        max-width: 350px;
+        min-width: 250px;
 
         .work_container_leftPanel_Top{
             position: absolute;
@@ -30,25 +30,77 @@
             padding-top: 100px;
             padding-bottom: 15px;
             border-bottom: 1px solid rgba(141, 140, 140, 0.5);
+
+
         }
 
     }
 
+
     .work_container_rightPanel{
-        .logogo * {
 
-            fill: none;
-            stroke: #ec0831;
-            color: green;
+        .button{
+            background: none;
+            border: none;
             cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 10px 20px;
+            align-items:center;
+            .calendar_btn{
+
+                align-items:center;
+                display: flex;
+                gap: 10px;
+
+                .logogo {
+                    background: red;
+                    width: 30px;
+                    height: 30px;
+                    fill: none;
+                    stroke: #ec0831;
+
+                    color: green;
+                    cursor: pointer;
+
+                }
+
+                .logogo:hover * {
+                    /*fill: #eebe04;*/
+                    color: #ec0831;
+                    stroke: #0404bd;
+                }
+
+
+                /*.calendar_btn_SVG{*/
+                /*    width: 20px;*/
+                /*    height: 20px;*/
+                /*}*/
+
+            }
+        }
+        button:hover {
+            background: #0000ff;
+            color: #d5d4d4;
 
         }
+        /*.logogo * {*/
 
-        .logogo:hover * {
-            /*fill: #eebe04;*/
-            color: #ec0831;
-            stroke: #0404bd;
-        }
+        /*    fill: none;*/
+        /*    stroke: #ec0831;*/
+        /*    color: green;*/
+        /*    cursor: pointer;*/
+
+        /*}*/
+
+        /*.logogo:hover * {*/
+        /*    !*fill: #eebe04;*!*/
+        /*    color: #ec0831;*/
+        /*    stroke: #0404bd;*/
+        /*}*/
 
     }
 

@@ -2,7 +2,10 @@ import styles from './workWind.module.css'
 import classNames from "classnames/bind";
 import LeftPanelBtn from "./Components/LeftPanelBtn/LeftPanelBtn.tsx";
 import UserName from "./Components/UserName/UserName.tsx";
-import {ReactComponent as LogoOne} from "../../assets/one.svg";
+import {ReactComponent as LogoOne} from "/src/assets/one.svg";
+import {ReactComponent as LogoSeven} from "/src/assets/Seven.svg";
+import {ReactComponent as LogoAll} from "/src/assets/All.svg";
+
 
 const cx = classNames.bind(styles);
 
@@ -24,19 +27,19 @@ function WorkWind() {
 
                 <div className={cx('work_container_leftPanel_calendar')}>
 
-                    <LeftPanelBtn
+                    <LeftPanelBtn className={cx('button')}
 
-                        path_img={'public/one.svg'}
                         text_btn={'Today'}
                         number={13}/>
 
                     <LeftPanelBtn
-                        path_img={'public/2.svg'}
+
+
                         text_btn={'Next 7 days'}
                         number={13}/>
 
                     <LeftPanelBtn
-                        path_img={'public/3.svg'}
+
                         text_btn={'All'}
                         number={13}/>
 
@@ -49,12 +52,8 @@ function WorkWind() {
 
             <div className={cx('work_container_rightPanel')}>
 
-                {/*<Logo/>*/}
-                <LogoOne
-                    className={cx("logogo")}
-                    // fill="green"
-                    width="30px"
-                    height="30px"/>
+                <LogoOne/>
+
 
             </div>
 
