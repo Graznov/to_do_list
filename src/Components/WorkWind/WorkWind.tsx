@@ -60,7 +60,7 @@ function WorkWind() {
                                        heidth={'30px'}/>}
                         text_btn={'My List'}/>
 
-                    <div>
+                    <div className={cx('tags')}>
                         <button>Personal</button>
                         <button>Work</button>
                         <button>Education</button>

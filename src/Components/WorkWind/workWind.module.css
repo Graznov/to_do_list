@@ -31,7 +31,8 @@
             border-bottom: 2px solid rgba(141, 140, 140, 0.1);
 
             button:hover *{
-                stroke: #d5d4d4;
+                /*stroke: #d5d4d4;*/
+                stroke: white;
             }
             .logogo {
                 fill: none;
@@ -39,10 +40,46 @@
 
         }
 
-        .ork_container_leftPanel_TagsList{
+        .work_container_leftPanel_TagsList{
+            padding-top: 30px;
             /*padding-top: 0px;*/
             button{
-                font-size: 37px;
+                font-size: 31px;
+                font-weight: 200;
+            }
+            .tags{
+                display: flex;
+                flex-direction: column;
+                button{
+                    /*font-size: 23px;*/
+                    /*text-align: left;*/
+                    /*border: none;*/
+                    /*background-color: transparent;*/
+                    /*padding: 0;*/
+                    /*cursor: pointer;*/
+
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 15px;
+                    font-weight: 600;
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    padding: 10px 20px;
+                    align-items:center;
+
+                }
+                button:hover {
+                    background: #0000ff;
+                    /*color: #d5d4d4;*/
+                    color: white;
+                }
+                button:active {
+                    background: #02029f;
+                    /*color: #d5d4d4;*/
+
+                }
             }
 
         }
