@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 
 function WorkWind() {
 
-
+    const arr = ['Personal', 'Work', 'Education', 'Hobby']
 
     return (
         <div className={cx('work_container')}>
@@ -61,9 +61,12 @@ function WorkWind() {
                         text_btn={'My List'}/>
 
                     <div className={cx('tags')}>
-                        <button>Personal</button>
-                        <button>Work</button>
-                        <button>Education</button>
+
+                        {
+                            arr.map((title)=> (
+                                <button key={title}>{title}</button>
+                            ))
+                        }
                     </div>
 
 
