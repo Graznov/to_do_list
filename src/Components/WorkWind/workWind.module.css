@@ -5,9 +5,18 @@
 
     font-family: "Exo 2", sans-serif;
     .work_container_leftPanel{
+
+        button:hover *{
+            /*stroke: #d5d4d4;*/
+            stroke: white;
+        }
+        .logogo {
+            fill: none;
+        }
+
         /*position: relative;*/
 
-        border-right: 2px solid rgba(141, 140, 140, 0.5);
+        /*border-right: 2px solid rgba(141, 140, 140, 0.5);*/
         height: 100vh;
         max-width: 350px;
         min-width: 250px;
@@ -50,13 +59,12 @@
             .tags{
                 display: flex;
                 flex-direction: column;
+                max-height: 150px;
+                overflow: auto;
+                ::-webkit-scrollbar,
+
+
                 button{
-                    /*font-size: 23px;*/
-                    /*text-align: left;*/
-                    /*border: none;*/
-                    /*background-color: transparent;*/
-                    /*padding: 0;*/
-                    /*cursor: pointer;*/
 
                     background: none;
                     border: none;
@@ -81,8 +89,31 @@
 
                 }
             }
+            .tags::-webkit-scrollbar {
+                width: 5px;               /* ширина scrollbar */
+            }
+            .tags::-webkit-scrollbar-track {
+                background: none;        /* цвет дорожки */
+            }
+            .tags::-webkit-scrollbar-thumb {
+                background-color: rgba(141, 140, 140, 0.5);    /* цвет плашки */
+                border-radius: 10px;       /* закругления плашки */
+                border: none;  /* padding вокруг плашки */
+            }
 
         }
+
+    .completed{
+        padding: 20px 0px;
+        border-bottom: 2px solid rgba(141, 140, 140, 0.1);
+        button:hover *{
+            stroke: white;
+            stroke-width: 2px;
+        }
+        .logogo {
+            fill: none;
+        }
+    }
 
     }
 

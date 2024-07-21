@@ -6,13 +6,15 @@ import {ReactComponent as LogoOne} from "/src/assets/one.svg";
 import {ReactComponent as LogoSeven} from "/src/assets/Seven.svg";
 import {ReactComponent as LogoAll} from "/src/assets/All.svg";
 import {ReactComponent as LogoPlus} from "/src/assets/plus.svg";
+import {ReactComponent as LogoCompleted} from "/src/assets/completed.svg";
+import {ReactComponent as LogoTrash} from "/src/assets/trash.svg";
 
 
 const cx = classNames.bind(styles);
 
 function WorkWind() {
 
-    const arr = ['Personal', 'Work', 'Education', 'Hobby']
+    const arr = ['Personal', 'Work', 'Education', 'Hobby', 'Prog', 'Games']
 
     return (
         <div className={cx('work_container')}>
@@ -30,15 +32,15 @@ function WorkWind() {
 
                     <LeftPanelBtn
                         logo={<LogoOne className={cx('logogo')}
-                                      width={'30px'}
-                                      heidth={'30px'}/>}
+                                       width={'30px'}
+                                       heidth={'30px'}/>}
                         text_btn={'Today'}
                         number={13}/>
 
                     <LeftPanelBtn
                         logo={<LogoSeven className={cx('logogo')}
-                                       width={'30px'}
-                                       heidth={'30px'}/>}
+                                         width={'30px'}
+                                         heidth={'30px'}/>}
                         text_btn={'Next 7 days'}
                         number={13}/>
 
@@ -55,26 +57,35 @@ function WorkWind() {
                 <div className={cx('work_container_leftPanel_TagsList')}>
 
                     <LeftPanelBtn className={cx('MyListBtn')}
-                        logo2={<LogoPlus className={cx('logogo')}
-                                       width={'30px'}
-                                       heidth={'30px'}/>}
-                        text_btn={'My List'}/>
+                                  logo2={<LogoPlus className={cx('logogo')}
+                                                   width={'30px'}
+                                                   heidth={'30px'}/>}
+                                  text_btn={'My List'}/>
 
                     <div className={cx('tags')}>
 
                         {
-                            arr.map((title)=> (
+                            arr.map((title) => (
                                 <button key={title}>{title}</button>
                             ))
                         }
                     </div>
 
 
-
                 </div>
 
-
-                
+                <div className={cx('completed')}>
+                    <LeftPanelBtn className={cx('MyListBtn')}
+                                  logo={<LogoCompleted className={cx('logogo')}
+                                                   width={'25px'}
+                                                   heidth={'25px'}/>}
+                                  text_btn={'Completed'}/>
+                    <LeftPanelBtn className={cx('MyListBtn')}
+                                  logo={<LogoTrash className={cx('logogo')}
+                                                   width={'30px'}
+                                                   heidth={'30px'}/>}
+                                  text_btn={'Trash'}/>
+                </div>
 
 
             </div>
