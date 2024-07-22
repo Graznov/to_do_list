@@ -120,7 +120,70 @@
 
     .work_container_rightPanel{
 
+        /*position: relative;*/
 
+
+        .head{
+            position: fixed;
+            top: 0;
+            width: 100%;
+            /*height: 5vh;*/
+            background: #02029f;
+            padding: 25px;
+
+            /*input:*/
+            .inputContainer{
+
+                color: white;
+                position: relative;
+
+                .searchInput{
+                    color: white;
+                    font-size: 15px;
+                    background: #02029f;
+                    border: 1.5px solid white;
+                    padding: 10px 15px 10px 37px;
+                    border-radius: 10px;
+                }
+                .searchLabel{
+                    position: absolute;
+                    left: 37px;
+                    top: 9px;
+                }
+
+                .searchBtn{
+                    /*display: none;*/
+
+
+
+
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+
+                    img{
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+
+
+          
+                .searchInput:focus + .searchLabel,
+                .searchInput:not(:placeholder-shown) + .searchLabel{
+                    display: none;
+                }
+
+
+            }
+
+
+
+            /*...input*/
+        }
 
     }
 

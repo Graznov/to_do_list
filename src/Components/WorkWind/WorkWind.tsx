@@ -8,6 +8,7 @@ import {ReactComponent as LogoAll} from "/src/assets/All.svg";
 import {ReactComponent as LogoPlus} from "/src/assets/plus.svg";
 import {ReactComponent as LogoCompleted} from "/src/assets/completed.svg";
 import {ReactComponent as LogoTrash} from "/src/assets/trash.svg";
+import {Input} from "../ui-kit/Input.tsx";
 
 
 const cx = classNames.bind(styles);
@@ -15,7 +16,7 @@ const cx = classNames.bind(styles);
 function WorkWind() {
 
     const arr = ['Personal', 'Work', 'Education', 'Hobby', 'Prog', 'Games']
-
+    const adres:string = 'src/assets/search.svg'
     return (
         <div className={cx('work_container')}>
 
@@ -91,6 +92,28 @@ function WorkWind() {
             </div>
 
             <div className={cx('work_container_rightPanel')}>
+                <div className={cx('head')}>
+                    <Input
+                        name='search'
+                        // onBlur={e => blurHandler(e)}
+                        // onChange={changePassOne}
+                        classNameContainer={cx('inputContainer')}
+                        classNameLabel={cx('searchLabel')}
+                        classNameInput={cx('searchInput')}
+                        placeholder=''
+                        // type={isShown ? "text" : "password"}
+                        hidden='Search'
+                        // ClassDivError={cx('ClassDivError',{
+                        //     ClassDivErrorVisibl:passOneDirty
+                        // })}
+                        // message={passOneError}
+                        //
+                        // onClickBtn={isShowChange}
+
+                        classNameBtn={cx('searchBtn')}
+                        src={adres}
+                    />
+                </div>
 
             </div>
 
