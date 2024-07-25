@@ -1,7 +1,20 @@
 
+/*body::-webkit-scrollbar {*/
+/*    width: 5px;               !* ширина scrollbar *!*/
+/*}*/
+/*body::-webkit-scrollbar-track {*/
+/*    background: none;        !* цвет дорожки *!*/
+/*}*/
+/*body::-webkit-scrollbar-thumb {*/
+/*    background-color: rgba(141, 140, 140, 0.5);    !* цвет плашки *!*/
+/*    border-radius: 10px;       !* закругления плашки *!*/
+/*    border: none;  !* padding вокруг плашки *!*/
+/*}*/
 
 .work_container{
     display: flex;
+
+
 
     font-family: "Exo 2", sans-serif;
     .work_container_leftPanel{
@@ -18,8 +31,10 @@
 
         /*border-right: 2px solid rgba(141, 140, 140, 0.5);*/
         height: 100vh;
-        max-width: 350px;
-        min-width: 250px;
+        width: 20%;
+        min-width: 150px;
+        /*max-width: 350px;*/
+        /*min-width: 250px;*/
 
         .work_container_leftPanel_Top{
             /*position: absolute;*/
@@ -124,11 +139,12 @@
 
             position: fixed;
             top: 0;
-            width: 100%;
+            width: 80%;
+            min-width: 540px;
             background: #02029f;
             padding: 25px 35px;
             display: flex;
-            /*justify-content: space-between;*/
+            justify-content: space-between;
 
             .inputContainer{
 
@@ -136,7 +152,7 @@
                 position: relative;
 
                 .searchInput{
-                    /*width: 35%;*/
+                    width:150%;
                     color: white;
                     font-size: 15px;
                     background: #02029f;
@@ -172,6 +188,7 @@
             }
             .buttonArea{
                 display: flex;
+
 
                 .headerBtn{
 

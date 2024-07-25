@@ -10,6 +10,7 @@ import {ReactComponent as LogoCompleted} from "/src/assets/completed.svg";
 import {ReactComponent as LogoTrash} from "/src/assets/trash.svg";
 import {Input} from "../ui-kit/Input.tsx";
 import Btn from "../ui-kit/Btn.tsx";
+import {Outlet} from "react-router-dom";
 
 
 const cx = classNames.bind(styles);
@@ -33,6 +34,7 @@ function WorkWind() {
                 <div className={cx('work_container_leftPanel_calendar')}>
 
                     <LeftPanelBtn
+                        adress={'/workwindow/today'}
                         logo={<LogoOne className={cx('logogo')}
                                        width={'30px'}
                                        heidth={'30px'}/>}
@@ -40,6 +42,7 @@ function WorkWind() {
                         number={13}/>
 
                     <LeftPanelBtn
+                        adress={'/workwindow/sevenDaysList'}
                         logo={<LogoSeven className={cx('logogo')}
                                          width={'30px'}
                                          heidth={'30px'}/>}
@@ -47,6 +50,7 @@ function WorkWind() {
                         number={13}/>
 
                     <LeftPanelBtn
+                        adress={'/workwindow/alllist'}
                         logo={<LogoAll className={cx('logogo')}
                                        width={'30px'}
                                        heidth={'30px'}/>}
@@ -58,7 +62,9 @@ function WorkWind() {
 
                 <div className={cx('work_container_leftPanel_TagsList')}>
 
-                    <LeftPanelBtn className={cx('MyListBtn')}
+                    <LeftPanelBtn
+
+                        className={cx('MyListBtn')}
                                   logo2={<LogoPlus className={cx('logogo')}
                                                    width={'30px'}
                                                    heidth={'30px'}/>}
@@ -77,12 +83,15 @@ function WorkWind() {
                 </div>
 
                 <div className={cx('completed')}>
-                    <LeftPanelBtn className={cx('MyListBtn')}
+                    <LeftPanelBtn
+                        adress={'/workwindow/completed'}
+                        className={cx('MyListBtn')}
                                   logo={<LogoCompleted className={cx('logogo')}
                                                    width={'25px'}
                                                    heidth={'25px'}/>}
                                   text_btn={'Completed'}/>
-                    <LeftPanelBtn className={cx('MyListBtn')}
+                    <LeftPanelBtn
+                        adress={'/workwindow/trash'}                        className={cx('MyListBtn')}
                                   logo={<LogoTrash className={cx('logogo')}
                                                    width={'30px'}
                                                    heidth={'30px'}/>}
@@ -131,6 +140,9 @@ function WorkWind() {
                     </div>
 
                 </div>
+
+                <Outlet/>
+
 
             </div>
 
