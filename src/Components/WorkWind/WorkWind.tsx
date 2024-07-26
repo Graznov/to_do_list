@@ -8,6 +8,9 @@ import {ReactComponent as LogoAll} from "/src/assets/All.svg";
 import {ReactComponent as LogoPlus} from "/src/assets/plus.svg";
 import {ReactComponent as LogoCompleted} from "/src/assets/completed.svg";
 import {ReactComponent as LogoTrash} from "/src/assets/trash.svg";
+import {ReactComponent as LogoQuestion} from "/src/assets/question.svg";
+// import {ReactComponent as LogoAlarm} from "src/assets/alarm_alert.svg";
+
 import {Input} from "../ui-kit/Input.tsx";
 import Btn from "../ui-kit/Btn.tsx";
 import {Outlet} from "react-router-dom";
@@ -129,7 +132,11 @@ function WorkWind() {
                             type={'button'}
                             ClassNameBtn={cx('headerBtn')}
                             Btn_text={
-                                <img src={'src/assets/question_circle_icon.svg'} alt='ask logo'/>
+                                <LogoQuestion className={cx('logogo')}
+                                              width={'30px'}
+                                              heidth={'30px'}/>
+
+                                // <img src={'src/assets/question.svg'} alt='ask logo'/>
                             }/>
                         <Btn
                             type={'button'}
@@ -142,6 +149,13 @@ function WorkWind() {
                 </div>
 
                 <Outlet/>
+                <LogoTrash className={cx('logogo')}
+                           width={'30px'}
+                           heidth={'30px'}/>
+                {/*<LogoQuestion/>*/}
+                {/*<LogoAlarm className={cx('logogo')}*/}
+                {/*           width={'30px'}*/}
+                {/*           heidth={'30px'}/>*/}
 
 
             </div>
