@@ -1,4 +1,11 @@
 .cont{
-    color: #f80101;
-    margin: 100px;
+    color: #717171;
+    position: fixed;
+    top: 89px;
+    border: 3px solid silver;
+    border-radius: 10px;
+    padding: 20px;
+    width: 60%;
+    margin: 20px auto;
+
 }

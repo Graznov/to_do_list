@@ -8,6 +8,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     message?:string;
     classNameBtn?:string;
     onClickBtn;
+    reactSvg?
 }
 
 export const Input = (
@@ -30,6 +31,7 @@ export const Input = (
         src,
         classNameBtn,
         altImg,
+        reactSvg,
         ...restProps
     }: InputProps
 ): ReactNode => {
@@ -54,6 +56,7 @@ export const Input = (
                 className={classNameBtn}
                 onClick={onClickBtn}
             >
+                {reactSvg}
                 <img src={src} alt=''/>
             </button>
         </div>

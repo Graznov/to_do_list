@@ -65,8 +65,13 @@
         }
 
         .work_container_leftPanel_TagsList{
+
             padding-top: 30px;
             /*padding-top: 0px;*/
+
+            .MyList{
+                padding-left: 20px;
+            }
             button{
                 font-size: 31px;
                 font-weight: 200;
@@ -170,16 +175,18 @@
 
                 .searchBtn{
                     position: absolute;
-                    top: 10px;
+                    top: 8px;
                     left: 10px;
                     background: none;
                     border: none;
                     cursor: pointer;
+                    width: 25px;
+                    height: 25px;
 
-                    img{
-                        width: 20px;
-                        height: 20px;
-                    }
+                    /*img{*/
+                    /*    width: 20px;*/
+                    /*    height: 20px;*/
+                    /*}*/
                 }
                 .searchInput:focus + .searchLabel,
                 .searchInput:not(:placeholder-shown) + .searchLabel{
@@ -208,6 +215,8 @@
 
             /*...input*/
         }
+
+
 
     }
 
