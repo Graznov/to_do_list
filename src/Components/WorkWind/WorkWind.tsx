@@ -14,14 +14,22 @@ import {ReactComponent as LogoSearch} from "/src/assets/search.svg";
 
 import {Input} from "../ui-kit/Input.tsx";
 import Btn from "../ui-kit/Btn.tsx";
-import {Outlet} from "react-router-dom";
+import {Outlet, useNavigate} from "react-router-dom";
+import {useEffect, useState} from "react";
 
 
 const cx = classNames.bind(styles);
 
 function WorkWind() {
 
+
     const arr = ['Personal', 'Work', 'Education', 'Hobby', 'Prog', 'Games']
+
+    const [index, setIndex] = useState(1)
+    const navigate = useNavigate()
+    useEffect(()=>{
+        navigate('/workwindow/today')
+    },[])
 
     return (
         <div className={cx('work_container')}>
@@ -38,6 +46,9 @@ function WorkWind() {
                 <div className={cx('work_container_leftPanel_calendar')}>
 
                     <LeftPanelBtn
+                        Click={()=>{
+                            setIndex(0)
+                        }}
                         adress={'/workwindow/today'}
                         logo={<LogoOne className={cx('logogo')}
                                        width={'30px'}
