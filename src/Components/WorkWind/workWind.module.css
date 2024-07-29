@@ -139,13 +139,13 @@
 
 
     .work_container_rightPanel{
-
+        width: 100%;
         .head{
 
-            position: fixed;
-            top: 0;
-            width: 80%;
-            min-width: 540px;
+            /*position: fixed;*/
+            /*top: 0;*/
+            /*max-width: 80%;*/
+            /*min-width: 540px;*/
             background: #02029f;
             padding: 25px 35px;
             display: flex;

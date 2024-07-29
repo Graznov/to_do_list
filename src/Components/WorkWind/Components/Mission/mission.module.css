@@ -1,0 +1,37 @@
+.mission{
+    border: 3px solid silver;
+    border-radius: 5px;
+    width: 90%;
+    margin: 10px auto;
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+    line-break: auto;
+
+    .missCheck{
+        width: 25px;
+        height: 25px;
+    }
+    .missTag{
+        padding: 5px;
+        width: 20%;
+        background: #c7c4c4;
+        text-align: center;
+        border-radius: 3px;
+    }
+    .missText{
+        font-size: 21px;
+
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        /*line-height: 21px;*/
+        /*max-height: 48px;*/
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+    }
+    .missText:hover{
+        display: block;
+        cursor: none;
+    }
+}
