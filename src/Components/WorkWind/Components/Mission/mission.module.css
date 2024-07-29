@@ -8,12 +8,14 @@
     gap: 20px;
     line-break: auto;
 
-    .missCheck{
+    input{
         width: 25px;
         height: 25px;
     }
+
     .missTag{
         padding: 5px;
+        height: 29px;
         width: 20%;
         background: #c7c4c4;
         text-align: center;
@@ -23,7 +25,7 @@
         font-size: 21px;
 
         overflow: hidden;
-        text-overflow: ellipsis;
+        text-overflow: clip;
         display: -webkit-box;
         /*line-height: 21px;*/
         /*max-height: 48px;*/
@@ -32,6 +34,7 @@
     }
     .missText:hover{
         display: block;
-        cursor: none;
     }
+
+
 }
