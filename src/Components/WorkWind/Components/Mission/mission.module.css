@@ -11,6 +11,7 @@
     input{
         width: 25px;
         height: 25px;
+        
     }
 
     .missTag{
@@ -33,7 +34,7 @@
         -webkit-box-orient: vertical;
     }
     .missText:hover{
-        display: block;
+        /*display: block;*/
     }
 
 
