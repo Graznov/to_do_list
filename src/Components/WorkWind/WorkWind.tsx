@@ -153,6 +153,10 @@ function WorkWind() {
 
                 <Outlet/>
 
+                <div className={cx('floor')}>
+                    <button className={cx('floorBtn')}>+Add Task</button>
+                </div>
+
 
             </div>
 
