@@ -31,6 +31,10 @@ function WorkWind() {
         navigate('/workwindow/today')
     },[])
 
+    const clickAddTask = () => {
+        console.log('CLICK ADD TASK')
+    }
+
     return (
         <div className={cx('work_container')}>
 
@@ -153,8 +157,14 @@ function WorkWind() {
 
                 <Outlet/>
 
+                <form className={cx('AddTaskContainer')}>
+
+                    <Input />
+
+                </form>
+
                 <div className={cx('floor')}>
-                    <button className={cx('floorBtn')}>+Add Task</button>
+                    <button onClick={clickAddTask} className={cx('floorBtn')}>+Add Task</button>
                 </div>
 
 
