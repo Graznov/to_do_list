@@ -20,7 +20,11 @@ import {useEffect, useState} from "react";
 
 const cx = classNames.bind(styles);
 
+
+
 function WorkWind() {
+
+    const [visibleAddTask, setVisibleAddTask] = useState(false)
 
 
     const arr = ['Personal', 'Work', 'Education', 'Hobby', 'Prog', 'Games']
@@ -31,12 +35,22 @@ function WorkWind() {
         navigate('/workwindow/today')
     },[])
 
+    const ClassAddTask = cx('AddTaskContainer',{
+        'AddTaskContainer_Visible':visibleAddTask
+
+    })
+
     const clickAddTask = () => {
         console.log('CLICK ADD TASK')
+        setVisibleAddTask(!visibleAddTask)
+        console.log(visibleAddTask)
+
     }
 
     return (
-        <div className={cx('work_container')}>
+        <div className={cx('work_container',{
+            work_container_opasity:visibleAddTask
+        })}>
 
             <div className={cx('work_container_leftPanel')}>
 
@@ -157,9 +171,15 @@ function WorkWind() {
 
                 <Outlet/>
 
-                <form className={cx('AddTaskContainer')}>
+                <form className={ClassAddTask}>
 
-                    <Input />
+                    <div className={cx('AddTaskContainerTop')}>
+                        <Input/>
+                        <input type="date"/>
+                    </div>
+
+                    <textarea/>
+                    <button>Add</button>
 
                 </form>
 
