@@ -16,6 +16,7 @@ import {Input} from "../ui-kit/Input.tsx";
 import Btn from "../ui-kit/Btn.tsx";
 import {Outlet, useNavigate} from "react-router-dom";
 import {useEffect, useState} from "react";
+import {AddTaskWindow} from "./Components/AddTaskWindow/AddTaskWindow.tsx";
 
 
 const cx = classNames.bind(styles);
@@ -52,7 +53,9 @@ function WorkWind() {
             work_container_opasity:visibleAddTask
         })}>
 
-            <div className={cx('work_container_leftPanel')}>
+            <div className={cx('work_container_leftPanel',{
+                work_container_PanelDeactive:visibleAddTask
+            })}>
 
                 <div className={cx('work_container_leftPanel_Top')}>
                     <UserName
@@ -135,7 +138,9 @@ function WorkWind() {
 
             </div>
 
-            <div className={cx('work_container_rightPanel')}>
+            <div className={cx('work_container_rightPanel',{
+                work_container_PanelDeactive:visibleAddTask
+            })}>
                 <div className={cx('head')}>
                     <Input
                         name='search'
@@ -171,17 +176,19 @@ function WorkWind() {
 
                 <Outlet/>
 
-                <form className={ClassAddTask}>
+                {/*<form className={ClassAddTask}>*/}
 
-                    <div className={cx('AddTaskContainerTop')}>
-                        <Input/>
-                        <input type="date"/>
-                    </div>
+                {/*    <div className={cx('AddTaskContainerTop')}>*/}
+                {/*        <Input/>*/}
+                {/*        <input type="date"/>*/}
+                {/*    </div>*/}
 
-                    <textarea/>
-                    <button>Add</button>
+                {/*    <textarea/>*/}
+                {/*    <button>Add</button>*/}
 
-                </form>
+                {/*</form>*/}
+
+                {/*<AddTaskWindow visibleAddTask={visibleAddTask}/>*/}
 
                 <div className={cx('floor')}>
                     <button onClick={clickAddTask} className={cx('floorBtn')}>+Add Task</button>
@@ -189,6 +196,8 @@ function WorkWind() {
 
 
             </div>
+
+            <AddTaskWindow visibleAddTask={visibleAddTask}/>
 
         </div>
     );
