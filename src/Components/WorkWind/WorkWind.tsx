@@ -175,21 +175,7 @@ function WorkWind() {
                 </div>
 
                 <Outlet/>
-
-                {/*<form className={ClassAddTask}>*/}
-
-                {/*    <div className={cx('AddTaskContainerTop')}>*/}
-                {/*        <Input/>*/}
-                {/*        <input type="date"/>*/}
-                {/*    </div>*/}
-
-                {/*    <textarea/>*/}
-                {/*    <button>Add</button>*/}
-
-                {/*</form>*/}
-
-                {/*<AddTaskWindow visibleAddTask={visibleAddTask}/>*/}
-
+                
                 <div className={cx('floor')}>
                     <button onClick={clickAddTask} className={cx('floorBtn')}>+Add Task</button>
                 </div>

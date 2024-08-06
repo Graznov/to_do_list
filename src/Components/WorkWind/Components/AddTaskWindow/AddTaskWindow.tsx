@@ -1,6 +1,7 @@
 import styles from './addTaskWindow.module.css'
 import classNames from "classnames/bind";
 import {useEffect, useState} from "react";
+import {ReactComponent as CloseSvg} from "/src/assets/close-square-svgrepo-com.svg";
 
 type Props = {
     visibleAddTask:boolean
@@ -26,10 +27,14 @@ export const AddTaskWindow = (Props:Props) => {
     return (
         <form className={ClassAddTask}>
 
+            <button type='button' className={cx('close')}>
+                <CloseSvg/>
+            </button>
+
             <div className={cx('AddTaskContainerTop')}>
                 <input
                     type='text'
-                    placeholder='Add Task'
+                    placeholder='Add Tag'
                     onChange={(e)=>{
                         setVall({
                             ...vall,
