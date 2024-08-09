@@ -17,6 +17,7 @@ export const AddTaskWindow = (Props:Props) => {
     const [vall, setVall] = useState({
         tag:'',
         date:'',
+        time:'',
         text:''
     })
 
@@ -35,34 +36,46 @@ export const AddTaskWindow = (Props:Props) => {
                 <input
                     type='text'
                     placeholder='Add Tag'
-                    onChange={(e)=>{
+                    onChange={(e) => {
                         setVall({
                             ...vall,
                             tag: e.target.value
                         })
                     }}
                 />
-                <input
-                    type="date"
-                    onChange={(e)=>{
-                        setVall({
-                            ...vall,
-                            date: e.target.value
-                        })
-                    }}
-                />
+                <div className={cx('AddTaskContainerTop_dateTimecontainer')}>
+                    <input
+                        type="date"
+                        onChange={(e) => {
+                            setVall({
+                                ...vall,
+                                date: e.target.value
+                            })
+                        }}
+                    />
+                    <input
+                        type="time"
+                        onChange={(e) => {
+                            setVall({
+                                ...vall,
+                                time: e.target.value
+                            })
+                        }}
+                    />
+                </div>
+
             </div>
 
             <textarea
                 placeholder='Text'
                 rows='4'
-                onChange={(e)=>{
+                onChange={(e) => {
                     setVall({
                         ...vall,
                         text: e.target.value
                     })
                 }}/>
-            <button className={cx('AddTaskContainerBtn')}>Add</button>
+            <button onSubmit={()=>setVall(...vall)} className={cx('AddTaskContainerBtn')}>Add</button>
 
         </form>
     );
