@@ -26,7 +26,7 @@ interface MissionProps {
 export function Mission({tag, text, color, listName, id, isCompleted}:MissionProps) {
 
     const list = useAppSelector(state => state.defSlice.tasks)
-    const styleWindAddTask = useAppSelector(state => state.styleSlice.visibleAddTask)
+    // const styleWindAddTask = useAppSelector(state => state.styleSlice.visibleAddTask)
 
     // const changedTask = useAppSelector(state => state.styleSlice.changedTask)
     const yourDate = new Date().toISOString().split('T')[0]
@@ -41,7 +41,7 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
         isCompleted:false,
         title:"___"
     })
-    console.log(vall)
+    // console.log(vall)
 
     const serColor = (e: { target: { textContent: string; }; }) => {
         setVall({

@@ -88,7 +88,21 @@ function WorkWind() {
     //     },0)
     // }
 
-
+    // console.log(new Date().toLocaleString('ru'))
+    var options = {
+        // era: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long',
+        timezone: 'UTC',
+        // hour: 'numeric',
+        // minute: 'numeric',
+        // second: 'numeric'
+    };
+    let dat = new Date().toISOString()
+    console.log(dat)
+    console.log(new Date(dat).toLocaleString('en', options))
 
 
     return (
