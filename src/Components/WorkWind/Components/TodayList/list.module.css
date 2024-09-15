@@ -6,6 +6,10 @@
     overflow: auto;
     margin: 120px auto 90px auto;
 
+    .adaptiveNameList{
+        display: none;
+    }
+
     .content{
         margin-top: 15px;
         min-width: 370px;
@@ -85,6 +89,9 @@
   .cont{
       /*width: 80%;*/
       /*margin: 0 auto;*/
+      .adaptiveNameList{
+          display: block;
+      }
 
       .content{
           /*margin-top: 5px;*/

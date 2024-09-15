@@ -200,7 +200,7 @@
                     left: 10px;
                     background: none;
                     border: none;
-                    cursor: pointer;
+                    /*cursor: pointer;*/
                     width: 25px;
                     height: 25px;
                 }
@@ -322,6 +322,9 @@
                 height: 90px;
 
                 .inputContainer{
+                    .searchBtn{
+
+                    }
                     /*text-align: center;*/
                     /*width: 50%;*/
                     /*max-width: 500px;*/
@@ -336,6 +339,16 @@
                 /*display: flex;*/
                 .floorBtn{
                     /*width: 200px;*/
+                    height: 50px;
+                    font-size: 19px;
+                    position: absolute;
+                    bottom: -3px;
+                    right: 10px;
+                    left: 60px;
+                    padding: 0;
+                    text-align: center;
+                    /*padding: 1px 135px;*/
+                    /*margin-bottom: 0px;*/
                 }
                 .floorBtnMenu{
                     z-index: 2;

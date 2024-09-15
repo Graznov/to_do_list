@@ -1,19 +1,12 @@
 import {createSlice} from '@reduxjs/toolkit'
+import {Task} from "./defSlice.ts";
 
 export interface StyleState {
     visibleAddTask:boolean,
-    // visibleChangeForm:boolean,
     styleDeletedWind:boolean,
     styleAdaptiveVisible:boolean,
-    // changedTask:{
-    //     id: string,
-    //     title: string,
-    //     description: string,
-    //     dueDate: string,
-    //     category: string,
-    //     color: string,
-    //     isCompleted: boolean
-    // },
+    styleSearchStatus:boolean,
+    styleSearchList:Array<Task>,
     listTasks:string,
     styleTagActive:Array<string>,
     tags:Array<string>,
@@ -33,18 +26,10 @@ export interface StyleState {
 
 const initialState:StyleState = {
     visibleAddTask:false, //для включенья/выключения окна добавления задач
-    // visibleChangeForm:false, //для включенья/выключения окна изменения задач
     styleDeletedWind:false,
     styleAdaptiveVisible:false,
-    // changedTask:    {
-    //     category:"___",
-    //     color:"___",
-    //     description:"___",
-    //     dueDate:"0000-00-00",
-    //     id:"___.",
-    //     isCompleted:false,
-    //     title:"___"
-    // },
+    styleSearchStatus:false,
+    styleSearchList:[],
     listTasks:'Today',
     styleTagActive:[],
     tags:[], //теги для My List в меню
@@ -153,9 +138,18 @@ const styleSlice = createSlice({
         },
         setAdaptiveVisible(state, action){
             state.styleAdaptiveVisible=action.payload
+        },
+        setSearchStatus(state, action){
+                state.styleSearchStatus=action.payload
+        },
+        setStyleSearchList(state, action){
+                state.styleSearchList = action.payload
         }
 
-    }
+
+    },
+
+
 
 
 })
@@ -170,7 +164,9 @@ export const {
     setNumberTasksMenu,
     setStyleTagActive,
     setStyleDeletedWind,
-    setAdaptiveVisible
+    setAdaptiveVisible,
+    setSearchStatus,
+    setStyleSearchList
 
 } = styleSlice.actions;
 export default styleSlice.reducer

@@ -18,12 +18,10 @@ import {AddTaskWindow} from "./Components/AddTaskWindow/AddTaskWindow.tsx";
 import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
 import {
     changeTaskList,
-    // changeVisibleChangeForm,
     plusTag, setAdaptiveVisible,
-    setNumberTasksMenu, setStyleTagActive,
+    setNumberTasksMenu, setSearchStatus, setStyleSearchList, setStyleTagActive,
     styleVisibleAddTask
 } from "../../Store/styleSlise.ts";
-import ChangeForm from "./Components/ChangeForm/ChangeForm.tsx";
 import {Task} from "../../Store/defSlice.ts";
 import Btn from "../ui-kit/Btn.tsx";
 
@@ -42,11 +40,14 @@ function WorkWind() {
     const listName = useAppSelector(state => state.styleSlice.listTasks)
     const ActyveTag = useAppSelector(state => state.styleSlice.styleTagActive)
     const styleAdaptiveVisible = useAppSelector(state => state.styleSlice.styleAdaptiveVisible)
+    const styleSearchStatus = useAppSelector(state => state.styleSlice.styleSearchStatus)
 
     useEffect(() => {
         list.forEach((e:Task)=> dispatch(plusTag(e.category)))
         dispatch(setNumberTasksMenu(list))
     }, [dispatch, list]);
+
+    const [searchInput, setSearchInput] = useState('');
 
     // useEffect(() => {
     //     console.log(numberTasksMenu)
@@ -106,6 +107,8 @@ function WorkWind() {
     // console.log(new Date(dat).toLocaleString('en', options))
 
 
+    let searchTaskArr:Array<Task> = []
+
     return (
 
         <>
@@ -136,6 +139,11 @@ function WorkWind() {
                         Click={()=>{
                             // setIndex(0)
                             dispatch(changeTaskList('Today'))
+                            dispatch(setSearchStatus(false))
+                            dispatch(setStyleSearchList([]))
+                            setSearchInput('')
+
+
                             // dispatch(setStyleTagActive(undefined))
                         }}
                         adress={'/workwindow/today'}
@@ -152,6 +160,9 @@ function WorkWind() {
                         })}
                         Click={()=>{
                             dispatch(changeTaskList('Next 7 days'))
+                            dispatch(setSearchStatus(false))
+                            dispatch(setStyleSearchList([]))
+                            setSearchInput('')
                             // dispatch(setStyleTagActive(undefined))
 
                         }}
@@ -170,7 +181,9 @@ function WorkWind() {
                         Click={()=>{
                             dispatch(changeTaskList('All'))
                             // dispatch(setStyleTagActive(undefined))
-
+                            dispatch(setSearchStatus(false))
+                            dispatch(setStyleSearchList([]))
+                            setSearchInput('')
                         }}
                         adress={'/workwindow/alllist'}
                         logo={<LogoAll className={cx('logogo')}
@@ -201,6 +214,9 @@ function WorkWind() {
 
                                         Click={()=>{
                                             dispatch(setStyleTagActive(title))
+                                            dispatch(setSearchStatus(false))
+                                            dispatch(setStyleSearchList([]))
+                                            setSearchInput('')
                                         }}
 
                                         key={title}
@@ -228,7 +244,9 @@ function WorkWind() {
                         Click={()=>{
                             dispatch(changeTaskList('Completed'))
                             // dispatch(setStyleTagActive(undefined))
-
+                            dispatch(setSearchStatus(false))
+                            dispatch(setStyleSearchList([]))
+                            setSearchInput('')
                         }}
                         adress={'/workwindow/completed'}
                         logo={<LogoCompleted className={cx('logogo')}
@@ -244,7 +262,9 @@ function WorkWind() {
                         Click={()=>{
                             dispatch(changeTaskList('Trash'))
                             // dispatch(setStyleTagActive(undefined))
-
+                            dispatch(setSearchStatus(false))
+                            dispatch(setStyleSearchList([]))
+                            setSearchInput('')
                         }}
                         adress={'/workwindow/trash'}
                                   logo={<LogoTrash className={cx('logogo')}
@@ -271,16 +291,32 @@ function WorkWind() {
                         placeholder=''
                         hidden='Search'
                         classNameBtn={cx('searchBtn')}
+                        BTNdisabled={true}
                         reactSvg={<LogoSearch/>}
+                        value={searchInput}
+
                         onChange={(event)=>{
-                            // if (event.target.value.length > 5) {
-                                console.log(event.target.value);
+
+                            setSearchInput(event.target.value)
+
+                            if (event.target.value.length > 1) {
+
+                                searchTaskArr = []
+
+                                dispatch(setSearchStatus(true))
+
                                 list.forEach((elem)=>{
-                                    if(elem.title.includes(event.target.value)){
-                                        console.log(elem)
+                                    if(elem.title.includes(searchInput)){
+                                        searchTaskArr.push(elem)
+
                                     }
+
                                 })
-                            // }
+                                dispatch(setStyleSearchList(searchTaskArr))
+                            } else {
+                                dispatch(setSearchStatus(false))
+                            }
+
                         }}
 
                         onClickBtn={()=>{
@@ -348,7 +384,6 @@ function WorkWind() {
 
         </div>
             <AddTaskWindow/>
-            {/*<ChangeForm/>*/}
         </>
 
 

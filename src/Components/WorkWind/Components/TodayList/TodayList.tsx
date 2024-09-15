@@ -11,9 +11,10 @@ function TodayList() {
     const list = useAppSelector(state => state.defSlice.tasks)
     const listName = useAppSelector(state => state.styleSlice.listTasks)
     const ActyveTag = useAppSelector(state => state.styleSlice.styleTagActive)
+    const styleSearchStatus = useAppSelector(state => state.styleSlice.styleSearchStatus)
+    const styleSearchList = useAppSelector(state => state.styleSlice.styleSearchList)
 
 
-    // const dispatch = useAppDispatch()
     let filtredArr = list.filter(item=>!item.isCompleted)
     const options = {
         // era: 'long',
@@ -40,15 +41,34 @@ function TodayList() {
 
     useEffect(() => {
 
-    }, [list]);
+    }, [list, styleSearchList]);
 
     const date:Date = new Date()
     const yourDate = date.toISOString().split('T')[0]
 
+    if(styleSearchStatus){
 
+        return (
+            <div className={cx('cont')}>
+                <h1>{'Search'}</h1>
+                <div className={cx('content')}>
+                    {
+                        styleSearchList.map((item) => (
+                            <Mission
+                                id={item.id}
+                                tag={item.category}
+                                text={item.title}
+                                key={item.id}
+                                color={item.color}
+                                isCompleted={item.isCompleted}
+                            />
+                        ))
+                    }
+                </div>
+            </div>
+        );
 
-
-
+    }
 
         if(listName==='All'){
 
@@ -58,7 +78,7 @@ function TodayList() {
 
             return (
                 <div className={cx('cont')}>
-                        {/*<h1>{listName}</h1>*/}
+                    <h1 className={cx('adaptiveNameList')}>{listName}</h1>
 
                     <div className={cx('content')}>
                         {
@@ -84,7 +104,7 @@ function TodayList() {
 
             return (
                 <div className={cx('cont')}>
-                    {/*<h1>{listName}</h1>*/}
+                    <h1 className={cx('adaptiveNameList')}>{listName}</h1>
                     <div className={cx('content')}>
                         {
                             filterCompletedArr.map((item) => (
@@ -110,7 +130,7 @@ function TodayList() {
 
             return (
                 <div className={cx('cont')}>
-                    {/*<h1>{listName}</h1>*/}
+                    <h1 className={cx('adaptiveNameList')}>{listName}</h1>
                     <div className={cx('content')}>
                         {
                             filterCompletedArr.map((item) => (
@@ -147,7 +167,7 @@ function TodayList() {
             return (
                 <div className={cx('cont')}>
                     <h1>
-                        {/*<div>{listName}</div>*/}
+                        <div className={cx('adaptiveNameList')}>{listName}</div>
                         <div className={cx('cont_date')}> {new Date(new Date().toISOString()).toLocaleString('en', options)} </div>
                     </h1>
                     <div className={cx('content')}>
@@ -171,139 +191,139 @@ function TodayList() {
 
             return (
                 <>
-                    {/*<h1>{listName}</h1>*/}
+
 
                     <div className={cx('cont', 'sevenDaysCont')}>
+                        <h1 className={cx('adaptiveNameList')}>{listName}</h1>
+                        <div className={cx('sevenDaysContainerData')}>
+                            <h1 className={cx('cont_date')}>{new Date(getDateRange(2)).toLocaleString('en', options)}</h1>
+                            <div className={cx('content', 'sevenDaysContainer')}>
 
-                            <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{new Date(getDateRange(2)).toLocaleString('en', options)}</h1>
-                                <div className={cx('content', 'sevenDaysContainer')}>
+                                {
+                                    daysMission(getDateRange(2)).map((item) => (
+                                        <Mission
+                                            id={item.id}
+                                            tag={item.category}
+                                            text={item.title}
+                                            key={item.id}
+                                            color={item.color}
+                                            isCompleted={item.isCompleted}
+                                        />
+                                    ))
+                                }
 
-                                    {
-                                        daysMission(getDateRange(2)).map((item) => (
-                                            <Mission
-                                                id={item.id}
-                                                tag={item.category}
-                                                text={item.title}
-                                                key={item.id}
-                                                color={item.color}
-                                                isCompleted={item.isCompleted}
-                                            />
-                                        ))
-                                    }
-
-                                </div>
                             </div>
-
-                            <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{new Date(getDateRange(3)).toLocaleString('en', options)}</h1>
-                                <div className={cx('content', 'sevenDaysContainer')}>
-                                    {
-                                        daysMission(getDateRange(3)).map((item) => (
-                                            <Mission
-                                                id={item.id}
-                                                tag={item.category}
-                                                text={item.title}
-                                                key={item.id}
-                                                color={item.color}
-                                                isCompleted={item.isCompleted}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
-                            <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{new Date(getDateRange(4)).toLocaleString('en', options)}</h1>
-                                <div className={cx('content', 'sevenDaysContainer')}>
-                                    {
-                                        daysMission(getDateRange(4)).map((item) => (
-                                            <Mission
-                                                id={item.id}
-                                                tag={item.category}
-                                                text={item.title}
-                                                key={item.id}
-                                                color={item.color}
-                                                isCompleted={item.isCompleted}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
-                            <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{new Date(getDateRange(5)).toLocaleString('en', options)}</h1>
-                                <div className={cx('content', 'sevenDaysContainer')}>
-                                    {
-                                        daysMission(getDateRange(5)).map((item) => (
-                                            <Mission
-                                                id={item.id}
-                                                tag={item.category}
-                                                text={item.title}
-                                                key={item.id}
-                                                color={item.color}
-                                                isCompleted={item.isCompleted}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
-                            <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{new Date(getDateRange(6)).toLocaleString('en', options)}</h1>
-                                <div className={cx('content', 'sevenDaysContainer')}>
-                                    {
-                                        daysMission(getDateRange(6)).map((item) => (
-                                            <Mission
-                                                id={item.id}
-                                                tag={item.category}
-                                                text={item.title}
-                                                key={item.id}
-                                                color={item.color}
-                                                isCompleted={item.isCompleted}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
-                            <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{new Date(getDateRange(7)).toLocaleString('en', options)}</h1>
-                                <div className={cx('content', 'sevenDaysContainer')}>
-                                    {
-                                        daysMission(getDateRange(7)).map((item) => (
-                                            <Mission
-                                                id={item.id}
-                                                tag={item.category}
-                                                text={item.title}
-                                                key={item.id}
-                                                color={item.color}
-                                                isCompleted={item.isCompleted}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
-                            <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{new Date(getDateRange(8)).toLocaleString('en', options)}</h1>
-                                <div className={cx('content', 'sevenDaysContainer')}>
-                                    {
-                                        daysMission(getDateRange(8)).map((item) => (
-                                            <Mission
-                                                id={item.id}
-                                                tag={item.category}
-                                                text={item.title}
-                                                key={item.id}
-                                                color={item.color}
-                                                isCompleted={item.isCompleted}
-                                            />
-                                        ))
-                                    }
-                                </div>
-                            </div>
-
                         </div>
+
+                        <div className={cx('sevenDaysContainerData')}>
+                            <h1 className={cx('cont_date')}>{new Date(getDateRange(3)).toLocaleString('en', options)}</h1>
+                            <div className={cx('content', 'sevenDaysContainer')}>
+                                {
+                                    daysMission(getDateRange(3)).map((item) => (
+                                        <Mission
+                                            id={item.id}
+                                            tag={item.category}
+                                            text={item.title}
+                                            key={item.id}
+                                            color={item.color}
+                                            isCompleted={item.isCompleted}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <div className={cx('sevenDaysContainerData')}>
+                            <h1 className={cx('cont_date')}>{new Date(getDateRange(4)).toLocaleString('en', options)}</h1>
+                            <div className={cx('content', 'sevenDaysContainer')}>
+                                {
+                                    daysMission(getDateRange(4)).map((item) => (
+                                        <Mission
+                                            id={item.id}
+                                            tag={item.category}
+                                            text={item.title}
+                                            key={item.id}
+                                            color={item.color}
+                                            isCompleted={item.isCompleted}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <div className={cx('sevenDaysContainerData')}>
+                            <h1 className={cx('cont_date')}>{new Date(getDateRange(5)).toLocaleString('en', options)}</h1>
+                            <div className={cx('content', 'sevenDaysContainer')}>
+                                {
+                                    daysMission(getDateRange(5)).map((item) => (
+                                        <Mission
+                                            id={item.id}
+                                            tag={item.category}
+                                            text={item.title}
+                                            key={item.id}
+                                            color={item.color}
+                                            isCompleted={item.isCompleted}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <div className={cx('sevenDaysContainerData')}>
+                            <h1 className={cx('cont_date')}>{new Date(getDateRange(6)).toLocaleString('en', options)}</h1>
+                            <div className={cx('content', 'sevenDaysContainer')}>
+                                {
+                                    daysMission(getDateRange(6)).map((item) => (
+                                        <Mission
+                                            id={item.id}
+                                            tag={item.category}
+                                            text={item.title}
+                                            key={item.id}
+                                            color={item.color}
+                                            isCompleted={item.isCompleted}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <div className={cx('sevenDaysContainerData')}>
+                            <h1 className={cx('cont_date')}>{new Date(getDateRange(7)).toLocaleString('en', options)}</h1>
+                            <div className={cx('content', 'sevenDaysContainer')}>
+                                {
+                                    daysMission(getDateRange(7)).map((item) => (
+                                        <Mission
+                                            id={item.id}
+                                            tag={item.category}
+                                            text={item.title}
+                                            key={item.id}
+                                            color={item.color}
+                                            isCompleted={item.isCompleted}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                        <div className={cx('sevenDaysContainerData')}>
+                            <h1 className={cx('cont_date')}>{new Date(getDateRange(8)).toLocaleString('en', options)}</h1>
+                            <div className={cx('content', 'sevenDaysContainer')}>
+                                {
+                                    daysMission(getDateRange(8)).map((item) => (
+                                        <Mission
+                                            id={item.id}
+                                            tag={item.category}
+                                            text={item.title}
+                                            key={item.id}
+                                            color={item.color}
+                                            isCompleted={item.isCompleted}
+                                        />
+                                    ))
+                                }
+                            </div>
+                        </div>
+
+                    </div>
                 </>
             );
 
