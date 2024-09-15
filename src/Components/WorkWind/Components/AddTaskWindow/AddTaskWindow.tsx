@@ -87,6 +87,8 @@ export const AddTaskWindow = () => {
 
     // let yourDate = new Date()
     const yourDate = new Date().toISOString().split('T')[0]
+    // let yourDate = new Date().toISOString()
+
 
     return (
         <form className={ClassAddTask}>
@@ -179,13 +181,32 @@ export const AddTaskWindow = () => {
                         // type="datetime-local"
                         type='date'
                         min={yourDate}
-                        value={vall.dueDate}
+                        // min="2024-09-15T08:30"
+                        value={vall.dueDate.split('T')[0]}
                         onChange={(e) => {
-                            // const date = Date.now()
-                            // console.log(date)
-                            // const res = Date(e.target.value)
-                            // console.log(res)
-                            // console.log(e.target.value)
+
+                            // const options = {
+                            //     // era: 'long',
+                            //     year: 'numeric',
+                            //     month: 'long',
+                            //     day: 'numeric',
+                            //     weekday: 'long',
+                            //     timezone: 'UTC',
+                            //     // hour: 'numeric',
+                            //     // minute: 'numeric',
+                            //     // second: 'numeric'
+                            // };
+                            //
+                            // console.log(e.target.value+ '00:00:00.000Z')
+                            //
+                            // console.log(`yourDate: ${yourDate}`)
+                            //
+                            // let setDate = new Date(e.target.value).toISOString()
+                            // console.log(`setDate:  ${setDate}`)
+                            //
+                            // // console.log(new Date(e.target.value).toISOString())
+                            // // console.log(new Date(setDate).toLocaleString('en', options))
+
                             setVall({
                                 ...vall,
                                 dueDate: e.target.value
@@ -223,7 +244,7 @@ export const AddTaskWindow = () => {
                                     id: `${vall.title} ${Math.floor(Math.random() * 1000)}`,
                                     title: vall.title,
                                     description: vall.description,
-                                    dueDate: vall.dueDate,
+                                    dueDate: vall.dueDate+'T00:00:00.000Z',
                                     category: vall.category,
                                     color: vall.color,
                                     isCompleted: false

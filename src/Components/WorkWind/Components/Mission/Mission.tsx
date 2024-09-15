@@ -156,7 +156,7 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                             'input-Disabled':disabled
                         })}
                         disabled={disabled}
-                        value={vall.dueDate}
+                        value={vall.dueDate.split('T')[0]}
                         type="date"
                         min={yourDate}
                         onChange={(e) => {

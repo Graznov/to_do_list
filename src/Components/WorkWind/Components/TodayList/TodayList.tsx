@@ -15,16 +15,27 @@ function TodayList() {
 
     // const dispatch = useAppDispatch()
     let filtredArr = list.filter(item=>!item.isCompleted)
-
+    const options = {
+        // era: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long',
+        timezone: 'UTC',
+        // hour: 'numeric',
+        // minute: 'numeric',
+        // second: 'numeric'
+    };
     function getDateRange(range:number):string {
         const currentDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()+range).toISOString().split('');
         currentDate.splice(10)
+        // console.log(new Date(currentDate.join('')).toLocaleString('en', options))
         return currentDate.join('')
     }
 
     function daysMission(dat:string):Task[] {
         if(ActyveTag.length) filtredArr = filtredArr.filter(item=>ActyveTag.includes(item.category))
-        return filtredArr.filter(item=>item.dueDate===dat)
+        return filtredArr.filter(item=>item.dueDate.split('T')[0]===dat)
     }
 
     useEffect(() => {
@@ -33,6 +44,11 @@ function TodayList() {
 
     const date:Date = new Date()
     const yourDate = date.toISOString().split('T')[0]
+
+
+
+
+
 
         if(listName==='All'){
 
@@ -124,17 +140,15 @@ function TodayList() {
             // console.log(currentDate)
 
             const completedFilterArr = list.filter(item=>!item.isCompleted)
-            let TodayfilterArr = completedFilterArr.filter(item=>item.dueDate===currentDate)
+            // let TodayfilterArr = completedFilterArr.filter(item=>item.dueDate===currentDate)
+            let TodayfilterArr = completedFilterArr.filter(item=>item.dueDate.split('T')[0]===currentDate)
             if(ActyveTag.length) TodayfilterArr = TodayfilterArr.filter(item=>ActyveTag.includes(item.category))
-
-
-
 
             return (
                 <div className={cx('cont')}>
                     <h1>
                         {/*<div>{listName}</div>*/}
-                        <div className={cx('cont_date')}> {yourDate} </div>
+                        <div className={cx('cont_date')}> {new Date(new Date().toISOString()).toLocaleString('en', options)} </div>
                     </h1>
                     <div className={cx('content')}>
                         {
@@ -162,7 +176,7 @@ function TodayList() {
                     <div className={cx('cont', 'sevenDaysCont')}>
 
                             <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{getDateRange(2)}</h1>
+                                <h1 className={cx('cont_date')}>{new Date(getDateRange(2)).toLocaleString('en', options)}</h1>
                                 <div className={cx('content', 'sevenDaysContainer')}>
 
                                     {
@@ -182,7 +196,7 @@ function TodayList() {
                             </div>
 
                             <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{getDateRange(3)}</h1>
+                                <h1 className={cx('cont_date')}>{new Date(getDateRange(3)).toLocaleString('en', options)}</h1>
                                 <div className={cx('content', 'sevenDaysContainer')}>
                                     {
                                         daysMission(getDateRange(3)).map((item) => (
@@ -200,7 +214,7 @@ function TodayList() {
                             </div>
 
                             <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{getDateRange(4)}</h1>
+                                <h1 className={cx('cont_date')}>{new Date(getDateRange(4)).toLocaleString('en', options)}</h1>
                                 <div className={cx('content', 'sevenDaysContainer')}>
                                     {
                                         daysMission(getDateRange(4)).map((item) => (
@@ -218,7 +232,7 @@ function TodayList() {
                             </div>
 
                             <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{getDateRange(5)}</h1>
+                                <h1 className={cx('cont_date')}>{new Date(getDateRange(5)).toLocaleString('en', options)}</h1>
                                 <div className={cx('content', 'sevenDaysContainer')}>
                                     {
                                         daysMission(getDateRange(5)).map((item) => (
@@ -236,7 +250,7 @@ function TodayList() {
                             </div>
 
                             <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{getDateRange(6)}</h1>
+                                <h1 className={cx('cont_date')}>{new Date(getDateRange(6)).toLocaleString('en', options)}</h1>
                                 <div className={cx('content', 'sevenDaysContainer')}>
                                     {
                                         daysMission(getDateRange(6)).map((item) => (
@@ -254,7 +268,7 @@ function TodayList() {
                             </div>
 
                             <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{getDateRange(7)}</h1>
+                                <h1 className={cx('cont_date')}>{new Date(getDateRange(7)).toLocaleString('en', options)}</h1>
                                 <div className={cx('content', 'sevenDaysContainer')}>
                                     {
                                         daysMission(getDateRange(7)).map((item) => (
@@ -272,7 +286,7 @@ function TodayList() {
                             </div>
 
                             <div className={cx('sevenDaysContainerData')}>
-                                <h1 className={cx('cont_date')}>{getDateRange(8)}</h1>
+                                <h1 className={cx('cont_date')}>{new Date(getDateRange(8)).toLocaleString('en', options)}</h1>
                                 <div className={cx('content', 'sevenDaysContainer')}>
                                     {
                                         daysMission(getDateRange(8)).map((item) => (

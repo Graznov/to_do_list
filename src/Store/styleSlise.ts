@@ -128,16 +128,16 @@ const styleSlice = createSlice({
 
             action.payload.forEach((e: { dueDate: string | number | Date | string[]; isCompleted: boolean }) => {
 
-                if(e.dueDate === currentDate && !e.isCompleted){
+                if(e.dueDate.split('T')[0] === currentDate && !e.isCompleted){
                     state.numberTasksMenu.today++
                 }
                 if(e.isCompleted){
                     state.numberTasksMenu.completed++
                 }
-                if(!e.isCompleted){
+                if(e.dueDate.split('T')[0] >= currentDate && !e.isCompleted){
                     state.numberTasksMenu.all++
                 }
-                if(new Date(e.dueDate)<afterDay){
+                if(new Date(e.dueDate.split('T')[0])<afterDay){
                     state.numberTasksMenu.trash++
                 }
                 if(e.dueDate>=minData && e.dueDate<=maxData && !e.isCompleted){
