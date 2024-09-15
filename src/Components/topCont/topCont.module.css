@@ -1,0 +1,9 @@
+.top_cont{
+    display: flex;
+    gap: 10px;
+    width: 80%;
+    margin: 0 auto;
+    .image{
+        width: 35px;
+    }
+}

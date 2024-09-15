@@ -1,0 +1,11 @@
+.work_container_leftPanel_user{
+    display: flex;
+    gap: 10px;
+    align-items:center;
+
+    img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%
+    }
+}

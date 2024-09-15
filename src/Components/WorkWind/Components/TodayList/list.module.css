@@ -1,0 +1,101 @@
+.cont{
+    color: #717171;
+    border-radius: 10px;
+    padding: 20px;
+    /*height: 10vh;*/
+    overflow: auto;
+    margin: 120px auto 90px auto;
+
+    .content{
+        margin-top: 15px;
+        min-width: 370px;
+        height: max-content;
+
+    }
+    .cont_date{
+        font-size: 21px;
+    }
+
+
+}
+.cont::-webkit-scrollbar,
+.sevenDaysCont::-webkit-scrollbar,
+.content::-webkit-scrollbar {
+    width: 5px;               /* ширина scrollbar */
+}
+.sevenDaysCont::-webkit-scrollbar-track,
+.cont::-webkit-scrollbar-track,
+.content::-webkit-scrollbar-track {
+    background: none;        /* цвет дорожки */
+}
+.sevenDaysCont::-webkit-scrollbar-thumb,
+.cont::-webkit-scrollbar-thumb,
+.content::-webkit-scrollbar-thumb {
+    background-color: rgba(141, 140, 140, 0.5);    /* цвет плашки */
+    border-radius: 10px;       /* закругления плашки */
+    border: none;  /* padding вокруг плашки */
+}
+/*.sevenDaysCont{*/
+/*    !*border: 1px solid black;*!*/
+
+/*    !*width:  500px;*!*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    gap: 10px;*/
+/*    height: 80vh;*/
+/*    overflow: auto;*/
+
+/*    .sevenDaysContainerData{*/
+/*        !*height: fit-content;*!*/
+/*        .sevenDaysContainer{*/
+/*            !*height: fit-content;*!*/
+
+/*            !*border: 1px solid red;*!*/
+/*            height: 70vh;*/
+/*        }*/
+
+/*        .content{*/
+/*            !*border: 1px solid red;*!*/
+
+/*        }*/
+
+/*        .sevenDaysContainer{*/
+/*            !*min-width: 370px;*!*/
+/*        }*/
+/*    }*/
+
+
+
+/*}*/
+
+/*.sevenDaysCont::-webkit-scrollbar {*/
+/*    width: 5px;               !* ширина scrollbar *!*/
+/*}*/
+/*.sevenDaysCont::-webkit-scrollbar-track{*/
+/*    background: none;        !* цвет дорожки *!*/
+/*}*/
+/*.sevenDaysCont::-webkit-scrollbar-thumb{*/
+/*    background-color: rgba(141, 140, 140, 0.5);    !* цвет плашки *!*/
+/*    border-radius: 10px;       !* закругления плашки *!*/
+/*    border: none;  !* padding вокруг плашки *!*/
+/*}*/
+
+
+@media screen and (min-width:413px) and (max-width:650px){
+  .cont{
+      /*width: 80%;*/
+      /*margin: 0 auto;*/
+
+      .content{
+          /*margin-top: 5px;*/
+          /*min-width: 370px;*/
+          /*overflow: auto;*/
+          /*height: 70vh;*/
+          /*padding-top: 0;*/
+          /*padding-bottom: 0;*/
+      }
+  }
+}
+@media screen and (min-width:0px) and (max-width:413px){
+
+}
