@@ -298,19 +298,13 @@ function WorkWind() {
                         onChange={(event)=>{
 
                             setSearchInput(event.target.value)
-
+                            searchTaskArr = []
                             if (event.target.value.length > 1) {
-
-                                searchTaskArr = []
-
                                 dispatch(setSearchStatus(true))
-
                                 list.forEach((elem)=>{
-                                    if(elem.title.includes(searchInput)){
+                                    if(elem.title.includes(event.target.value)){
                                         searchTaskArr.push(elem)
-
                                     }
-
                                 })
                                 dispatch(setStyleSearchList(searchTaskArr))
                             } else {

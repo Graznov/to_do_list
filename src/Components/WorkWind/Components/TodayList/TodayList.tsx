@@ -14,6 +14,7 @@ function TodayList() {
     const styleSearchStatus = useAppSelector(state => state.styleSlice.styleSearchStatus)
     const styleSearchList = useAppSelector(state => state.styleSlice.styleSearchList)
 
+    console.log(styleSearchList)
 
     let filtredArr = list.filter(item=>!item.isCompleted)
     const options = {
