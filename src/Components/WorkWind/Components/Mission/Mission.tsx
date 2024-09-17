@@ -5,12 +5,8 @@ import {checkTask, defChangeTask, defDelitTask, Task} from "../../../../Store/de
 import {useState} from "react";
 import {ReactComponent as LogoTrash} from "/src/assets/trash.svg";
 import {ReactComponent as Pencil} from "/public/pencil.svg";
-import {styleVisibleAddTask} from "../../../../Store/styleSlise.ts";
-
 
 const cx = classNames.bind(styles);
-
-type id = { id: string; }
 
 interface MissionProps {
     tag:string,
@@ -21,14 +17,9 @@ interface MissionProps {
     isCompleted:boolean
 }
 
-
-
 export function Mission({tag, text, color, listName, id, isCompleted}:MissionProps) {
 
     const list = useAppSelector(state => state.defSlice.tasks)
-    // const styleWindAddTask = useAppSelector(state => state.styleSlice.visibleAddTask)
-
-    // const changedTask = useAppSelector(state => state.styleSlice.changedTask)
     const yourDate = new Date().toISOString().split('T')[0]
 
     const check = !!isCompleted
@@ -41,17 +32,8 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
         isCompleted:false,
         title:"___"
     })
-    // console.log(vall)
-
-    const serColor = (e: { target: { textContent: string; }; }) => {
-        setVall({
-            ...vall,
-            color: e.target.textContent
-        })
-    }
 
     const [DeletedWind, setDeletedWind] = useState<boolean>(false)
-
 
     const [disabled, setDisabled] = useState<boolean>(true)
 
@@ -66,8 +48,6 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
         missTagGray:color===''
     })
     const [isOpen, setIsOpen] = useState(false)
-
-
 
     let miss:Task
 
@@ -91,8 +71,8 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                 </label>
                 <div
                     onClick={() => {
-                        list.forEach((element: id) => {
-                            if (element.id === id) miss = element
+                        list.forEach((element) => {
+                            if (element.id === id) miss=element
                         })
                         setIsOpen(!isOpen)
                         setDisabled(true)
@@ -173,34 +153,70 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                     <div
 
                         className={cx('AddTaskContainerTop_colrs_btnArea')}>
-                        <button                         disabled={disabled}
-                                                        onClick={serColor} type='button' className={cx('AddTaskContainerTop_colrs_btn', 'red', {
-                            colorActive: vall.color === 'red'
-                        })}>red
+                        <button
+                            disabled={disabled}
+                            onClick={()=>{
+                                setVall({
+                                    ...vall,
+                                    color: 'red'
+                                })
+                            }}
+                            type='button'
+                            className={cx('AddTaskContainerTop_colrs_btn', 'red', {
+                                colorActive: vall.color === 'red'
+                            })}>
                         </button>
-                        <button                         disabled={disabled}
-                                                        onClick={serColor} type='button'
-                                className={cx('AddTaskContainerTop_colrs_btn', 'green', {
+                        <button
+                            disabled={disabled}
+                            onClick={()=>{
+                                setVall({
+                                    ...vall,
+                                    color: 'green'
+                                })
+                            }}
+                            type='button'
+                            className={cx('AddTaskContainerTop_colrs_btn', 'green', {
                                     colorActive: vall.color === 'green'
-                                })}>green
+                            })}>
                         </button>
-                        <button                         disabled={disabled}
-                                                        onClick={serColor} type='button'
-                                className={cx('AddTaskContainerTop_colrs_btn', 'blue', {
-                                    colorActive: vall.color === 'blue'
-                                })}>blue
+                        <button
+                            disabled={disabled}
+                            onClick={()=>{
+                                setVall({
+                                    ...vall,
+                                    color: 'blue'
+                                })
+                            }}
+                            type='button'
+                            className={cx('AddTaskContainerTop_colrs_btn', 'blue', {
+                                colorActive: vall.color === 'blue'
+                            })}>
                         </button>
-                        <button                         disabled={disabled}
-                                                        onClick={serColor} type='button'
-                                className={cx('AddTaskContainerTop_colrs_btn', 'yellow', {
-                                    colorActive: vall.color === 'yellow'
-                                })}>yellow
+                        <button
+                            disabled={disabled}
+                            onClick={()=>{
+                                setVall({
+                                    ...vall,
+                                    color: 'yellow'
+                                })
+                            }}
+                            type='button'
+                            className={cx('AddTaskContainerTop_colrs_btn', 'yellow', {
+                                colorActive: vall.color === 'yellow'
+                            })}>
                         </button>
-                        <button                         disabled={disabled}
-                                                        onClick={serColor} type='button'
-                                className={cx('AddTaskContainerTop_colrs_btn', 'purple', {
-                                    colorActive: vall.color === 'purple'
-                                })}>purple
+                        <button
+                            disabled={disabled}
+                            onClick={()=>{
+                                setVall({
+                                    ...vall,
+                                    color: 'purple'
+                                })
+                            }}
+                            type='button'
+                            className={cx('AddTaskContainerTop_colrs_btn', 'purple', {
+                                colorActive: vall.color === 'purple'
+                            })}>
                         </button>
                     </div>
                 </div>

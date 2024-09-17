@@ -6,6 +6,13 @@ import {useEffect} from "react";
 import {Task} from "../../../../Store/defSlice.ts";
 
 const cx = classNames.bind(styles);
+interface parametrOptions{
+    year: string,
+    month: string,
+    day: string,
+    weekday: string,
+    timezone: string,
+}
 
 function TodayList() {
     const list = useAppSelector(state => state.defSlice.tasks)
@@ -14,10 +21,8 @@ function TodayList() {
     const styleSearchStatus = useAppSelector(state => state.styleSlice.styleSearchStatus)
     const styleSearchList = useAppSelector(state => state.styleSlice.styleSearchList)
 
-    console.log(styleSearchList)
-
     let filtredArr = list.filter(item=>!item.isCompleted)
-    const options = {
+    const options:parametrOptions = {
         // era: 'long',
         year: 'numeric',
         month: 'long',
@@ -44,8 +49,8 @@ function TodayList() {
 
     }, [list, styleSearchList]);
 
-    const date:Date = new Date()
-    const yourDate = date.toISOString().split('T')[0]
+    // const date:Date = new Date()
+    // const yourDate = date.toISOString().split('T')[0]
 
     if(styleSearchStatus){
 

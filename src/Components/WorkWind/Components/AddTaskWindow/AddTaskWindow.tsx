@@ -70,12 +70,7 @@ export const AddTaskWindow = () => {
         setVall(vall)
     }
 
-    const color = (e: { target: { textContent: string; }; }) => {
-        setVall({
-            ...vall,
-            color: e.target.textContent
-        })
-    }
+
 
     const addTagFromTagsBtn = (e: { target: { innerHTML: string; }; }) => {
         setVall({
@@ -138,7 +133,12 @@ export const AddTaskWindow = () => {
                     <div className={cx("dropdown-content")}>
                         {
                             arrayTags.map(tag =>
-                                <button onClick={addTagFromTagsBtn} type='button' key={tag}>{tag}</button>
+                                <button
+                                    onClick={addTagFromTagsBtn}
+                                    type='button'
+                                    key={tag}>
+                                {tag}
+                                </button>
                             )
                         }
                     </div>
@@ -150,25 +150,65 @@ export const AddTaskWindow = () => {
                     className={cx('AddTaskContainerTop_colrs')}>
                     <p>Add color:</p>
                     <div className={cx('AddTaskContainerTop_colrs_btnArea')}>
-                        <button onClick={color} type='button' className={cx('AddTaskContainerTop_colrs_btn', 'red', {
-                            colorActive: vall.color === 'red'
-                        })}>red
+                        <button
+                                onClick={()=>{
+                                    setVall({
+                                        ...vall,
+                                        color: '#FF0000FF'
+                                    })
+                                }}
+                                type='button'
+                                className={cx('AddTaskContainerTop_colrs_btn', 'red', {
+                                    colorActive: vall.color === '#FF0000FF'
+                                })}>
                         </button>
-                        <button onClick={color} type='button' className={cx('AddTaskContainerTop_colrs_btn', 'green', {
-                            colorActive: vall.color === 'green'
-                        })}>green
+                        <button
+                                onClick={()=>{
+                                    setVall({
+                                        ...vall,
+                                        color: '#008000FF'
+                                    })
+                                }}
+                                type='button'
+                                className={cx('AddTaskContainerTop_colrs_btn', 'green', {
+                                    colorActive: vall.color === '#008000FF'
+                        })}>
                         </button>
-                        <button onClick={color} type='button' className={cx('AddTaskContainerTop_colrs_btn', 'blue', {
-                            colorActive: vall.color === 'blue'
-                        })}>blue
+                        <button
+                                onClick={()=>{
+                                    setVall({
+                                        ...vall,
+                                        color: '#0000FFFF'
+                                    })
+                                }}
+                                type='button'
+                                className={cx('AddTaskContainerTop_colrs_btn', 'blue', {
+                                    colorActive: vall.color === '#0000FFFF'
+                        })}>
                         </button>
-                        <button onClick={color} type='button' className={cx('AddTaskContainerTop_colrs_btn', 'yellow', {
-                            colorActive: vall.color === 'yellow'
-                        })}>yellow
+                        <button
+                            onClick={()=>{
+                                setVall({
+                                    ...vall,
+                                    color: '#FFFF00FF'
+                                })
+                            }}
+                            type='button'
+                            className={cx('AddTaskContainerTop_colrs_btn', 'yellow', {
+                                colorActive: vall.color === '#FFFF00FF'
+                        })}>
                         </button>
-                        <button onClick={color} type='button' className={cx('AddTaskContainerTop_colrs_btn', 'purple', {
-                            colorActive: vall.color === 'purple'
-                        })}>purple
+                        <button
+                            onClick={()=>{
+                                setVall({
+                                    ...vall,
+                                    color: '#800080FF'
+                                })
+                            }}
+                            type='button'
+                            className={cx('AddTaskContainerTop_colrs_btn', 'purple', {
+                                colorActive: vall.color === '#800080FF'
+                        })}>
                         </button>
                     </div>
 

@@ -113,21 +113,24 @@ const styleSlice = createSlice({
 
             action.payload.forEach((e: { dueDate: string | number | Date | string[]; isCompleted: boolean }) => {
 
-                if(e.dueDate.split('T')[0] === currentDate && !e.isCompleted){
-                    state.numberTasksMenu.today++
+                if(typeof e.dueDate === 'string'){
+                    if(e.dueDate.split('T')[0] === currentDate && !e.isCompleted){
+                        state.numberTasksMenu.today++
+                    }
+                    if(e.isCompleted){
+                        state.numberTasksMenu.completed++
+                    }
+                    if(e.dueDate.split('T')[0] >= currentDate && !e.isCompleted){
+                        state.numberTasksMenu.all++
+                    }
+                    if(new Date(e.dueDate.split('T')[0])<afterDay){
+                        state.numberTasksMenu.trash++
+                    }
+                    if(e.dueDate>=minData && e.dueDate<=maxData && !e.isCompleted){
+                        state.numberTasksMenu.sevenDays++
+                    }
                 }
-                if(e.isCompleted){
-                    state.numberTasksMenu.completed++
-                }
-                if(e.dueDate.split('T')[0] >= currentDate && !e.isCompleted){
-                    state.numberTasksMenu.all++
-                }
-                if(new Date(e.dueDate.split('T')[0])<afterDay){
-                    state.numberTasksMenu.trash++
-                }
-                if(e.dueDate>=minData && e.dueDate<=maxData && !e.isCompleted){
-                    state.numberTasksMenu.sevenDays++
-                }
+
 
             })
 

@@ -5,13 +5,13 @@ import {NavLink} from "react-router-dom";
 const cx = classNames.bind(styles);
 
 interface propsLeftPanelBtn {
-    className:string,
-    Click,
+    className:string|undefined,
+    Click: any,
     adress:string,
     text_btn:string,
-    number:string,
-    logo,
-    logo2
+    number:string|undefined,
+    logo: any,
+    logo2: any
 }
 
 

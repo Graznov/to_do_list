@@ -40,7 +40,6 @@ function WorkWind() {
     const listName = useAppSelector(state => state.styleSlice.listTasks)
     const ActyveTag = useAppSelector(state => state.styleSlice.styleTagActive)
     const styleAdaptiveVisible = useAppSelector(state => state.styleSlice.styleAdaptiveVisible)
-    const styleSearchStatus = useAppSelector(state => state.styleSlice.styleSearchStatus)
 
     useEffect(() => {
         list.forEach((e:Task)=> dispatch(plusTag(e.category)))
@@ -63,7 +62,7 @@ function WorkWind() {
     const navigate = useNavigate()
     useEffect(()=>{
         navigate('/workwindow/today')
-    },[])
+    },[navigate])
 
     const clickAddTask = () => {
         // setVisibleAddTask(!visibleAddTask)
@@ -151,7 +150,7 @@ function WorkWind() {
                                        width={'30px'}
                                        heidth={'30px'}/>}
                         text_btn={'Today'}
-                        number={numberTasksMenu.today}
+                        number={numberTasksMenu.today.toString()}
                         logo2={undefined}/>
 
                     <LeftPanelBtn
@@ -172,7 +171,7 @@ function WorkWind() {
                                          width={'30px'}
                                          heidth={'30px'}/>}
                         text_btn={'Next 7 days'}
-                        number={numberTasksMenu.sevenDays}/>
+                        number={numberTasksMenu.sevenDays.toString()}/>
 
                     <LeftPanelBtn
                         className={cx('button',{
@@ -191,7 +190,7 @@ function WorkWind() {
                                        heidth={'30px'}/>}
 
                         text_btn={'All'}
-                        number={numberTasksMenu.all}
+                        number={numberTasksMenu.all.toString()}
                         logo2={undefined}/>
 
                 </div>
@@ -253,7 +252,7 @@ function WorkWind() {
                                                    width={'25px'}
                                                    heidth={'25px'}/>}
                         text_btn={'Completed'}
-                        number={numberTasksMenu.completed}
+                        number={numberTasksMenu.completed.toString()}
                         logo2={undefined}/>
                     <LeftPanelBtn
                         className={cx('button',{
@@ -271,7 +270,7 @@ function WorkWind() {
                                                    width={'30px'}
                                                    heidth={'30px'}/>}
                                   text_btn={'Trash'}
-                        number={numberTasksMenu.trash}
+                        number={numberTasksMenu.trash.toString()}
                         logo2={undefined}/>
 
                 </div>
