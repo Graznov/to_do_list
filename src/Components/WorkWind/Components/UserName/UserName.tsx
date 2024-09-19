@@ -2,9 +2,12 @@ import classNames from "classnames/bind";
 import styles from "./userName.module.css";
 
 const cx = classNames.bind(styles);
+interface propsUserNames{
+    pathAvaImg:any,
+    userName:string
+}
 
-
-function UserName({pathAvaImg, userName}) {
+function UserName({pathAvaImg, userName}:propsUserNames) {
     return (
         <div className={cx('work_container_leftPanel_user')}>
             <img

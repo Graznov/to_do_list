@@ -6,12 +6,21 @@ import {useEffect} from "react";
 import {Task} from "../../../../Store/defSlice.ts";
 
 const cx = classNames.bind(styles);
-interface parametrOptions{
-    year: string,
-    month: string,
-    day: string,
-    weekday: string,
-    timezone: string,
+
+function getDateRange(range:number):string {
+    const currentDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()+range).toISOString().split('');
+    currentDate.splice(10)
+    return currentDate.join('')
+}
+
+function createDate(n:number):string{
+    return new Date(new Date(getDateRange(n)).toISOString()).toLocaleString('en', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        weekday: 'long',
+        // timezone: 'UTC',
+    })
 }
 
 function TodayList() {
@@ -22,23 +31,6 @@ function TodayList() {
     const styleSearchList = useAppSelector(state => state.styleSlice.styleSearchList)
 
     let filtredArr = list.filter(item=>!item.isCompleted)
-    const options:parametrOptions = {
-        // era: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        weekday: 'long',
-        timezone: 'UTC',
-        // hour: 'numeric',
-        // minute: 'numeric',
-        // second: 'numeric'
-    };
-    function getDateRange(range:number):string {
-        const currentDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()+range).toISOString().split('');
-        currentDate.splice(10)
-        // console.log(new Date(currentDate.join('')).toLocaleString('en', options))
-        return currentDate.join('')
-    }
 
     function daysMission(dat:string):Task[] {
         if(ActyveTag.length) filtredArr = filtredArr.filter(item=>ActyveTag.includes(item.category))
@@ -46,11 +38,7 @@ function TodayList() {
     }
 
     useEffect(() => {
-
     }, [list, styleSearchList]);
-
-    // const date:Date = new Date()
-    // const yourDate = date.toISOString().split('T')[0]
 
     if(styleSearchStatus){
 
@@ -130,7 +118,7 @@ function TodayList() {
             );
         } else if(listName==='Completed'){
 
-            let filterCompletedArr = list.filter(item=>item.isCompleted===true)
+            let filterCompletedArr = list.filter(item=>item.isCompleted)
             if(ActyveTag.length) filterCompletedArr = filterCompletedArr.filter(item=>ActyveTag.includes(item.category))
 
 
@@ -147,7 +135,6 @@ function TodayList() {
                                     key={item.id}
                                     color={item.color}
                                     isCompleted={item.isCompleted}
-
                                 />
                             ))
                         }
@@ -157,16 +144,11 @@ function TodayList() {
 
         } else if(listName==='Today'){
 
-            // const afterDay = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()-1, 23,59,59)//вчерашний день, все что меньше - просрочено
-
             const currentDatearr = new Date().toISOString().split('');
             currentDatearr.splice(10)
             const currentDate=currentDatearr.join('')
 
-            // console.log(currentDate)
-
             const completedFilterArr = list.filter(item=>!item.isCompleted)
-            // let TodayfilterArr = completedFilterArr.filter(item=>item.dueDate===currentDate)
             let TodayfilterArr = completedFilterArr.filter(item=>item.dueDate.split('T')[0]===currentDate)
             if(ActyveTag.length) TodayfilterArr = TodayfilterArr.filter(item=>ActyveTag.includes(item.category))
 
@@ -174,7 +156,7 @@ function TodayList() {
                 <div className={cx('cont')}>
                     <h1>
                         <div className={cx('adaptiveNameList')}>{listName}</div>
-                        <div className={cx('cont_date')}> {new Date(new Date().toISOString()).toLocaleString('en', options)} </div>
+                        <div className={cx('cont_date')}> {createDate(1)} </div>
                     </h1>
                     <div className={cx('content')}>
                         {
@@ -197,12 +179,10 @@ function TodayList() {
 
             return (
                 <>
-
-
                     <div className={cx('cont', 'sevenDaysCont')}>
                         <h1 className={cx('adaptiveNameList')}>{listName}</h1>
                         <div className={cx('sevenDaysContainerData')}>
-                            <h1 className={cx('cont_date')}>{new Date(getDateRange(2)).toLocaleString('en', options)}</h1>
+                            <h1 className={cx('cont_date')}>{createDate(2)}</h1>
                             <div className={cx('content', 'sevenDaysContainer')}>
 
                                 {
@@ -222,7 +202,7 @@ function TodayList() {
                         </div>
 
                         <div className={cx('sevenDaysContainerData')}>
-                            <h1 className={cx('cont_date')}>{new Date(getDateRange(3)).toLocaleString('en', options)}</h1>
+                            <h1 className={cx('cont_date')}>{createDate(3)}</h1>
                             <div className={cx('content', 'sevenDaysContainer')}>
                                 {
                                     daysMission(getDateRange(3)).map((item) => (
@@ -240,7 +220,7 @@ function TodayList() {
                         </div>
 
                         <div className={cx('sevenDaysContainerData')}>
-                            <h1 className={cx('cont_date')}>{new Date(getDateRange(4)).toLocaleString('en', options)}</h1>
+                            <h1 className={cx('cont_date')}>{createDate(4)}</h1>
                             <div className={cx('content', 'sevenDaysContainer')}>
                                 {
                                     daysMission(getDateRange(4)).map((item) => (
@@ -258,7 +238,7 @@ function TodayList() {
                         </div>
 
                         <div className={cx('sevenDaysContainerData')}>
-                            <h1 className={cx('cont_date')}>{new Date(getDateRange(5)).toLocaleString('en', options)}</h1>
+                            <h1 className={cx('cont_date')}>{createDate(5)}</h1>
                             <div className={cx('content', 'sevenDaysContainer')}>
                                 {
                                     daysMission(getDateRange(5)).map((item) => (
@@ -276,7 +256,7 @@ function TodayList() {
                         </div>
 
                         <div className={cx('sevenDaysContainerData')}>
-                            <h1 className={cx('cont_date')}>{new Date(getDateRange(6)).toLocaleString('en', options)}</h1>
+                            <h1 className={cx('cont_date')}>{createDate(6)}</h1>
                             <div className={cx('content', 'sevenDaysContainer')}>
                                 {
                                     daysMission(getDateRange(6)).map((item) => (
@@ -294,7 +274,7 @@ function TodayList() {
                         </div>
 
                         <div className={cx('sevenDaysContainerData')}>
-                            <h1 className={cx('cont_date')}>{new Date(getDateRange(7)).toLocaleString('en', options)}</h1>
+                            <h1 className={cx('cont_date')}>{createDate(7)}</h1>
                             <div className={cx('content', 'sevenDaysContainer')}>
                                 {
                                     daysMission(getDateRange(7)).map((item) => (
@@ -312,7 +292,7 @@ function TodayList() {
                         </div>
 
                         <div className={cx('sevenDaysContainerData')}>
-                            <h1 className={cx('cont_date')}>{new Date(getDateRange(8)).toLocaleString('en', options)}</h1>
+                            <h1 className={cx('cont_date')}>{createDate(8)}</h1>
                             <div className={cx('content', 'sevenDaysContainer')}>
                                 {
                                     daysMission(getDateRange(8)).map((item) => (
@@ -332,11 +312,7 @@ function TodayList() {
                     </div>
                 </>
             );
-
-
         }
-
-    // }
 
 }
 

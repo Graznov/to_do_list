@@ -70,20 +70,7 @@ export const AddTaskWindow = () => {
         setVall(vall)
     }
 
-
-
-    const addTagFromTagsBtn = (e: { target: { innerHTML: string; }; }) => {
-        setVall({
-            ...vall,
-            category: e.target.innerHTML
-        })
-    }
-
-
-    // let yourDate = new Date()
     const yourDate = new Date().toISOString().split('T')[0]
-    // let yourDate = new Date().toISOString()
-
 
     return (
         <form className={ClassAddTask}>
@@ -125,16 +112,18 @@ export const AddTaskWindow = () => {
                     }}
                 />
 
-                {/*<div>*/}
-                {/*    сделать выбор тега*/}
-
                 <div className={cx("dropdown")}>
                     <button type='button' className={cx("dropbtn")}>Tags:</button>
                     <div className={cx("dropdown-content")}>
                         {
                             arrayTags.map(tag =>
                                 <button
-                                    onClick={addTagFromTagsBtn}
+                                    onClick={()=>{
+                                        setVall({
+                                            ...vall,
+                                            category: tag
+                                        })
+                                    }}
                                     type='button'
                                     key={tag}>
                                 {tag}
@@ -144,8 +133,6 @@ export const AddTaskWindow = () => {
                     </div>
                 </div>
 
-                {/*</div>*/}
-
                 <div
                     className={cx('AddTaskContainerTop_colrs')}>
                     <p>Add color:</p>
@@ -154,60 +141,60 @@ export const AddTaskWindow = () => {
                                 onClick={()=>{
                                     setVall({
                                         ...vall,
-                                        color: '#FF0000FF'
+                                        color: 'red'
                                     })
                                 }}
                                 type='button'
                                 className={cx('AddTaskContainerTop_colrs_btn', 'red', {
-                                    colorActive: vall.color === '#FF0000FF'
+                                    colorActive: vall.color === 'red'
                                 })}>
                         </button>
                         <button
                                 onClick={()=>{
                                     setVall({
                                         ...vall,
-                                        color: '#008000FF'
+                                        color: 'green'
                                     })
                                 }}
                                 type='button'
                                 className={cx('AddTaskContainerTop_colrs_btn', 'green', {
-                                    colorActive: vall.color === '#008000FF'
+                                    colorActive: vall.color === 'green'
                         })}>
                         </button>
                         <button
                                 onClick={()=>{
                                     setVall({
                                         ...vall,
-                                        color: '#0000FFFF'
+                                        color: 'blue'
                                     })
                                 }}
                                 type='button'
                                 className={cx('AddTaskContainerTop_colrs_btn', 'blue', {
-                                    colorActive: vall.color === '#0000FFFF'
+                                    colorActive: vall.color === 'blue'
                         })}>
                         </button>
                         <button
                             onClick={()=>{
                                 setVall({
                                     ...vall,
-                                    color: '#FFFF00FF'
+                                    color: 'yellow'
                                 })
                             }}
                             type='button'
                             className={cx('AddTaskContainerTop_colrs_btn', 'yellow', {
-                                colorActive: vall.color === '#FFFF00FF'
+                                colorActive: vall.color === 'yellow'
                         })}>
                         </button>
                         <button
                             onClick={()=>{
                                 setVall({
                                     ...vall,
-                                    color: '#800080FF'
+                                    color: 'purple'
                                 })
                             }}
                             type='button'
                             className={cx('AddTaskContainerTop_colrs_btn', 'purple', {
-                                colorActive: vall.color === '#800080FF'
+                                colorActive: vall.color === 'purple'
                         })}>
                         </button>
                     </div>
@@ -221,32 +208,8 @@ export const AddTaskWindow = () => {
                         // type="datetime-local"
                         type='date'
                         min={yourDate}
-                        // min="2024-09-15T08:30"
                         value={vall.dueDate.split('T')[0]}
                         onChange={(e) => {
-
-                            // const options = {
-                            //     // era: 'long',
-                            //     year: 'numeric',
-                            //     month: 'long',
-                            //     day: 'numeric',
-                            //     weekday: 'long',
-                            //     timezone: 'UTC',
-                            //     // hour: 'numeric',
-                            //     // minute: 'numeric',
-                            //     // second: 'numeric'
-                            // };
-                            //
-                            // console.log(e.target.value+ '00:00:00.000Z')
-                            //
-                            // console.log(`yourDate: ${yourDate}`)
-                            //
-                            // let setDate = new Date(e.target.value).toISOString()
-                            // console.log(`setDate:  ${setDate}`)
-                            //
-                            // // console.log(new Date(e.target.value).toISOString())
-                            // // console.log(new Date(setDate).toLocaleString('en', options))
-
                             setVall({
                                 ...vall,
                                 dueDate: e.target.value
@@ -275,9 +238,6 @@ export const AddTaskWindow = () => {
                     console.log('evt.preventDefault()')
                     if (vall.title && vall.category && vall.dueDate) {
                         dispatch(styleVisibleAddTask(false))
-                        // if(!arrayTags.includes(vall.category)){
-                        //     dispatch(plusTag(vall.category))
-                        // }
 
                         dispatch(
                             addTask({
@@ -301,7 +261,6 @@ export const AddTaskWindow = () => {
                         if (!vall.dueDate) {
                             dispatch(change_input_AddTaskWind('NO DATA'))
                         }
-
 
                     }
 

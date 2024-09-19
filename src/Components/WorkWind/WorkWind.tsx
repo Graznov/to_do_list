@@ -260,7 +260,6 @@ function WorkWind() {
                         })}
                         Click={()=>{
                             dispatch(changeTaskList('Trash'))
-                            // dispatch(setStyleTagActive(undefined))
                             dispatch(setSearchStatus(false))
                             dispatch(setStyleSearchList([]))
                             setSearchInput('')

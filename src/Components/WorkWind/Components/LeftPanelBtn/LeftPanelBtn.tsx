@@ -10,11 +10,9 @@ interface propsLeftPanelBtn {
     adress:string,
     text_btn:string,
     number:string|undefined,
-    logo: any,
-    logo2: any
+    logo?: JSX.Element,
+    logo2?: JSX.Element
 }
-
-
 
 function LeftPanelBtn({className, Click, adress, text_btn, number, logo, logo2}:propsLeftPanelBtn) {
 
