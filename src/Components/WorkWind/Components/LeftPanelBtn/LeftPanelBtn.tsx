@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 interface propsLeftPanelBtn {
     className:string|undefined,
-    Click: any,
+    Click: ()=>void,
     adress:string,
     text_btn:string,
     number:string|undefined,

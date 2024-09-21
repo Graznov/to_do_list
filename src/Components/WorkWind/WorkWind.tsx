@@ -55,6 +55,9 @@ function WorkWind() {
     const [pushed, setPushed] = useState(false)
 
 
+    // let aaa = 'aaaaAaaAAA'
+    // console.log(aaa.toLowerCase())
+    // console.log(aaa)
 
     // const [visibleAddTask, setVisibleAddTask] = useState(false)
 
@@ -300,7 +303,7 @@ function WorkWind() {
                             if (event.target.value.length > 1) {
                                 dispatch(setSearchStatus(true))
                                 list.forEach((elem)=>{
-                                    if(elem.title.includes(event.target.value)){
+                                    if(elem.title.toLowerCase().includes(event.target.value.toLowerCase())){
                                         searchTaskArr.push(elem)
                                     }
                                 })

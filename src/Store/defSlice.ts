@@ -473,18 +473,18 @@ const defSlice = createSlice({
     reducers:{
 
         addTask (state, {payload}:PayloadAction<Task>)  {
-            console.log(payload)
+            // console.log(payload)
             state.tasks.push(payload)
         },
         checkTask (state, action){
-            console.log(`CHEKED tasks "${action.payload}"`)
+            // console.log(`CHEKED tasks "${action.payload}"`)
             state.tasks.forEach(e => {
                 if (e.id === action.payload) e.isCompleted = !e.isCompleted;
             })
         },
         defChangeTask (state, action){
-            console.log(`defChangeTask: ${action.payload}`)
-            console.log(action.payload)
+            // console.log(`defChangeTask: ${action.payload}`)
+            // console.log(action.payload)
             state.tasks.forEach((e,i)=>{
                 if(e.id === action.payload.id) {
                     state.tasks.splice(i,1,action.payload)
