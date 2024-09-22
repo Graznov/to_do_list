@@ -22,6 +22,8 @@ export interface StyleState {
         completed:number,
         trash:number
     },
+    language:string,
+    darkTheme:boolean,
 }
 
 const initialState:StyleState = {
@@ -44,7 +46,9 @@ const initialState:StyleState = {
         all:0,
         completed:0,
         trash:0
-    }
+    },
+    language:'en',
+    darkTheme:false,
 }
 
 const styleSlice = createSlice({
@@ -147,13 +151,17 @@ const styleSlice = createSlice({
         },
         setStyleSearchList(state, action){
                 state.styleSearchList = action.payload
+        },
+        setTheme(state){
+            state.darkTheme=!state.darkTheme
+            // console.log(state.darkTheme)
+        },
+        setLang(state, action){
+            state.language=action.payload
         }
 
 
     },
-
-
-
 
 })
 
@@ -169,7 +177,9 @@ export const {
     setStyleDeletedWind,
     setAdaptiveVisible,
     setSearchStatus,
-    setStyleSearchList
+    setStyleSearchList,
+    setTheme,
+    setLang
 
 } = styleSlice.actions;
 export default styleSlice.reducer

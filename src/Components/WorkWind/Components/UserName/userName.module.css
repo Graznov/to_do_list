@@ -28,18 +28,13 @@
 .menu{
     position: absolute;
     display: none;
+    width: 100%;
     background: rgba(218, 218, 218, 0.9); ;
     padding: 0px;
 
     li{
-        /*display: flex;*/
-        /*flex-direction: row;*/
-        /*justify-content: space-between;*/
 
-        /*span{*/
-        /*    cursor: default;*/
-        /*}*/
-        border-bottom: 1px solid #00040c;
+        /*border-bottom: 1px solid #00040c;*/
 
     }
 
@@ -49,13 +44,15 @@
 
         a{
             color: black;
+            margin: 10px;
         }
 
             .btn_menu{
+                width: 100%;
                 padding: 10px;
                 display: flex;
                 font-size: 25px;
-                /*flex-direction: row;*/
+                flex-direction: row;
                 justify-content: space-between;
                 background: none;
                 border: none;
@@ -72,6 +69,12 @@
             }
 
         }
+    /*li{*/
+    /*    height: 40px;*/
+    /*}*/
+    li:hover{
+        background: #5e5e5e;
+    }
 
 
 }

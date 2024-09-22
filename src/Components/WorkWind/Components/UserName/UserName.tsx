@@ -1,6 +1,8 @@
 import classNames from "classnames/bind";
 import styles from "./userName.module.css";
 import {useState} from "react";
+import {useAppDispatch} from "../../../../Store/hooks.ts";
+import {setLang, setTheme} from "../../../../Store/styleSlise.ts";
 
 const cx = classNames.bind(styles);
 interface propsUserNames{
@@ -10,22 +12,26 @@ interface propsUserNames{
 
 const light:string = '/src/assets/day-theme.svg'
 const dark:string = '/src/assets/night-theme.svg'
-
 const us:string = '/src/assets/flag-us-svgrepo-com.svg'
 const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 
 function UserName({pathAvaImg, userName}:propsUserNames) {
+    const dispatch = useAppDispatch()
+    // const theme = useAppSelector(state => state.styleSlice.darkTheme)
+    // const lang = useAppSelector(state => state.styleSlice.language)
+
 
     const [pathImgLang, setPathImgLang] = useState(us)
     const [pathImgTheme, setPathImgTheme] = useState(light);
     const [visibleMenu, setVisibleMenu] = useState(false);
     const changeTheme = () => {
         (pathImgTheme===light)?setPathImgTheme(dark):setPathImgTheme(light);
+        dispatch(setTheme())
     }
     const changeLanguage = () => {
         (pathImgLang===us)?setPathImgLang(ru):setPathImgLang(us);
+        (pathImgLang===us)?dispatch(setLang('ru')):dispatch(setLang('us'))
     }
-
 
     return (
 
@@ -59,7 +65,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
                     <button
                         className={cx('btn_menu')}
                         onClick={changeLanguage}>
-                        <span>lang</span>
+                        <span>Lang</span>
                         <img className={cx({'us': pathImgLang === us})} src={pathImgLang} alt=""/>
                     </button>
                 </li>
