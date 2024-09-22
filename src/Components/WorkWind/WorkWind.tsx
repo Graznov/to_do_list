@@ -58,6 +58,7 @@ function WorkWind() {
 
     return (
 
+
         <>
 
             <div className={cx('work_container',{

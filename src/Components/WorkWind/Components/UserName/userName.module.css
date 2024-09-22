@@ -13,7 +13,8 @@
 
         img{
             width: 40px;
-            border-radius: 50%
+            border-radius: 50%;
+            background: none;
         }
 
     }
@@ -27,8 +28,10 @@
 
 .menu{
     position: absolute;
+    left: -20px;
+    right: 0;
     display: none;
-    width: 100%;
+    /*width: 100%;*/
     background: rgba(218, 218, 218, 0.9); ;
     padding: 0px;
 
@@ -40,18 +43,22 @@
 
     ul,li{
             list-style: none;
-            font-size: 30px;
+            font-size: 25px;
+            font-weight: 800;
+
 
         a{
             color: black;
-            margin: 10px;
+
+            /*margin: 10px;*/
         }
 
             .btn_menu{
                 width: 100%;
-                padding: 10px;
+                /*padding: 10px;*/
                 display: flex;
                 font-size: 25px;
+                font-weight: 600;
                 flex-direction: row;
                 justify-content: space-between;
                 background: none;
@@ -68,12 +75,14 @@
                 color: black;
             }
 
-        }
-    /*li{*/
-    /*    height: 40px;*/
-    /*}*/
+    }
+    li{
+        height: 50px;
+        padding: 10px;
+        border: 1px solid rgba(66,66,66,0.6);
+    }
     li:hover{
-        background: #5e5e5e;
+        background: rgba(141, 140, 140, 0.5); ;
     }
 
 
@@ -81,5 +90,5 @@
 .visibleMenu{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    /*gap: 10px;*/
 }

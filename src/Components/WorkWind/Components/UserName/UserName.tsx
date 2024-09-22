@@ -15,11 +15,12 @@ const dark:string = '/src/assets/night-theme.svg'
 const us:string = '/src/assets/flag-us-svgrepo-com.svg'
 const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 
+
+
 function UserName({pathAvaImg, userName}:propsUserNames) {
     const dispatch = useAppDispatch()
     // const theme = useAppSelector(state => state.styleSlice.darkTheme)
     // const lang = useAppSelector(state => state.styleSlice.language)
-
 
     const [pathImgLang, setPathImgLang] = useState(us)
     const [pathImgTheme, setPathImgTheme] = useState(light);
@@ -33,10 +34,19 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
         (pathImgLang===us)?dispatch(setLang('ru')):dispatch(setLang('us'))
     }
 
+    document.addEventListener('mouseup', (e) => {
+        const container = document.getElementById('mainID');
+        if (!container.contains(e.target)) {
+            setVisibleMenu(false)
+        }
+    });
+    
     return (
 
 
-        <div className={cx('work_container_leftPanel_user')}>
+        <div
+            className={cx('work_container_leftPanel_user')}
+            id='mainID'>
             <button
                 className={cx('btn_user')}
                 onClick={() => setVisibleMenu(!visibleMenu)}
@@ -69,7 +79,9 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
                         <img className={cx({'us': pathImgLang === us})} src={pathImgLang} alt=""/>
                     </button>
                 </li>
-                <li><a href="#" onClick={() => {
+                <li><a
+                    href="#"
+                    onClick={() => {
                     setVisibleMenu(!visibleMenu)
                 }}>Exit</a></li>
             </ul>
