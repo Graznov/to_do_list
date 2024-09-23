@@ -28,6 +28,7 @@ import {Language} from "../../Store/language.ts";
 
 const cx = classNames.bind(styles);
 
+
 function WorkWind() {
     const dispatch = useAppDispatch()
     const list = useAppSelector(state => state.defSlice.tasks)
@@ -39,6 +40,11 @@ function WorkWind() {
     const styleAdaptiveVisible = useAppSelector(state => state.styleSlice.styleAdaptiveVisible)
 
     const lang = useAppSelector(state => state.styleSlice.language)
+    // const lang = localStorage.getItem('lang')
+
+
+    // localStorage.clear()
+
 
     useEffect(() => {
         list.forEach((e:Task)=> dispatch(plusTag(e.category)))

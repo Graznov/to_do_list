@@ -23,6 +23,9 @@ function TodayList() {
     const styleSearchStatus = useAppSelector(state => state.styleSlice.styleSearchStatus)
     const styleSearchList = useAppSelector(state => state.styleSlice.styleSearchList)
     const lang = useAppSelector(state => state.styleSlice.language)
+    // const lang = localStorage.getItem('lang')
+
+    // console.log(lang)
 
     let filtredArr = list.filter(item=>!item.isCompleted)
     function createDate(n:number):string{

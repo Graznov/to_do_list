@@ -13,6 +13,7 @@ const cx = classNames.bind(styles);
 export const AddTaskWindow = () => {
 
     const lang = useAppSelector(state => state.styleSlice.language)
+    // const lang = localStorage.getItem('lang')
 
 
     const arrayTags: Array<string> = useAppSelector(state => state.styleSlice.tags)

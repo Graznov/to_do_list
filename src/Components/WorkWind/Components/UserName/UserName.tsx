@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./userName.module.css";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../../../Store/hooks.ts";
 import {setLang, setTheme} from "../../../../Store/styleSlise.ts";
 import {Language} from "../../../../Store/language.ts";
@@ -16,13 +16,25 @@ const dark:string = '/src/assets/night-theme.svg'
 const us:string = '/src/assets/flag-us-svgrepo-com.svg'
 const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 
-
-
 function UserName({pathAvaImg, userName}:propsUserNames) {
     const dispatch = useAppDispatch()
     const lang = useAppSelector(state => state.styleSlice.language)
+    // useEffect(() => {
+    //
+    // }, [localStorage.getItem('lang')]);
+    // const lang = localStorage.getItem('lang')
+    // useEffect(() => {
+        // dispatch(setLang(localStorage.getItem('lang')))
+    // }, []);
 
+    // if(localStorage.getItem('lang')){
+    //     console.log(`lang-Good: ${localStorage.getItem('lang')}`)
+    // } else {
+    //     console.log(`lang-Bad: ${localStorage.getItem('lang')}`)
+    //     localStorage.setItem('lang',lang)
+    // }
 
+    // localStorage.clear()
 
     const [pathImgLang, setPathImgLang] = useState(us)
     const [pathImgTheme, setPathImgTheme] = useState(light);
@@ -34,6 +46,20 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
     const changeLanguage = () => {
         (pathImgLang===us)?setPathImgLang(ru):setPathImgLang(us);
         (pathImgLang===us)?dispatch(setLang('ru')):dispatch(setLang('en'))
+
+        // if(pathImgLang===us){
+        //     // setPathImgLang(ru)
+        //     localStorage.setItem('lang', 'en')
+        //     dispatch(setLang(localStorage.getItem('lang')))
+        // } else {
+        //     // setPathImgLang(us)
+        //     localStorage.setItem('lang', 'ru')
+        // }
+        //
+        // dispatch(setLang(localStorage.getItem('lang')))
+
+        // localStorage.setItem('lang', lang)
+        // console.log(localStorage.getItem('lang'))
     }
 
     document.addEventListener('mouseup', (e) => {

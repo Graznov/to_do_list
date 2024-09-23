@@ -20,6 +20,7 @@ interface MissionProps {
 
 export function Mission({tag, text, color, listName, id, isCompleted}:MissionProps) {
     const lang = useAppSelector(state => state.styleSlice.language)
+    // const lang = localStorage.getItem('lang')
 
     const list = useAppSelector(state => state.defSlice.tasks)
     const yourDate = new Date().toISOString().split('T')[0]
