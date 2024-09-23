@@ -5,6 +5,7 @@ import {checkTask, defChangeTask, defDelitTask, Task} from "../../../../Store/de
 import {useState} from "react";
 import {ReactComponent as LogoTrash} from "/src/assets/trash.svg";
 import {ReactComponent as Pencil} from "/public/pencil.svg";
+import {Language} from "../../../../Store/language.ts";
 
 const cx = classNames.bind(styles);
 
@@ -18,6 +19,7 @@ interface MissionProps {
 }
 
 export function Mission({tag, text, color, listName, id, isCompleted}:MissionProps) {
+    const lang = useAppSelector(state => state.styleSlice.language)
 
     const list = useAppSelector(state => state.defSlice.tasks)
     const yourDate = new Date().toISOString().split('T')[0]
@@ -92,7 +94,9 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                 <div className={cx('input-area_content',{
 
                 })}>
-                    <p>Title:</p>
+                    <p>
+                        {(lang==='en')?Language.en.change_task_wind_title:Language.ru.change_task_wind_title}
+                    </p>
                     <input
                         className={cx({
                             'input-Disabled':disabled
@@ -110,7 +114,9 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                 </div>
 
                 <div className={cx('input-area_content')}>
-                    <p>Tag:</p>
+                    <p>
+                        {(lang==='en')?Language.en.change_task_wind_tag:Language.ru.change_task_wind_tag}
+                    </p>
                     <input
                         className={cx({
                             'input-Disabled':disabled
@@ -130,7 +136,9 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
 
                 <div className={cx('input-area_content')}>
-                    <p>Date:</p>
+                    <p>
+                        {(lang==='en')?Language.en.change_task_wind_date:Language.ru.change_task_wind_date}
+                    </p>
                     <input
                         className={cx({
                             'input-Disabled':disabled
@@ -149,7 +157,9 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
                 <div
                     className={cx('AddTaskContainerTop_colrs')}>
-                    <p>Color:</p>
+                    <p>
+                        {(lang==='en')?Language.en.change_task_wind_color:Language.ru.change_task_wind_color}
+                    </p>
                     <div
 
                         className={cx('AddTaskContainerTop_colrs_btnArea')}>
@@ -220,10 +230,10 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                         </button>
                     </div>
                 </div>
-                Description:
+                {(lang==='en')?Language.en.change_task_wind_description:Language.ru.change_task_wind_description}
                 <textarea
                     disabled={disabled}
-                    placeholder='Text'
+                    placeholder={(lang==='en')?Language.en.change_task_wind_descriptionPlacehold:Language.ru.change_task_wind_descriptionPlacehold}
                     rows={4}
                     value={vall.description}
                     onChange={(e) => {
@@ -266,16 +276,20 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                 <div className={cx('askDel', {
                     'askDel_visible': DeletedWind
                 })}>
-                    <div>Delete task?</div>
+                    <div>
+                        {(lang==='en')?Language.en.change_task_wind_deleted_title:Language.ru.change_task_wind_deleted_title}
+                    </div>
                     <div className={cx('askDel_btn_area')}>
                         <button onClick={() => {
                             dispatch(defDelitTask(vall.id))
                             setDeletedWind(false)
-                        }}>Delete
+                        }}>
+                            {(lang==='en')?Language.en.change_task_wind_deleted_OK:Language.ru.change_task_wind_deleted_OK}
                         </button>
                         <button onClick={() => {
                             setDeletedWind(false)
-                        }}>Cancel
+                        }}>
+                            {(lang==='en')?Language.en.change_task_wind_deleted_NO:Language.ru.change_task_wind_deleted_NO}
                         </button>
                     </div>
                 </div>

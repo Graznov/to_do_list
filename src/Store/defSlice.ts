@@ -13,7 +13,7 @@ const Temp:Array<Task> = [
         category:"Week",
         color:"yellow",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-19T00:00:00.000Z",
+        dueDate:"2024-09-29T00:00:00.000Z",
         id:"sdfsdsааghjaddf 424.",
         isCompleted:false,
         title:"2 Поспать"
@@ -22,7 +22,7 @@ const Temp:Array<Task> = [
         category:"Game",
         color:"blue",
         description:"Lorem ipsum dolor sit amet",
-        dueDate:"2024-09-16T00:00:00.000Z",
+        dueDate:"2024-09-26T00:00:00.000Z",
         id:"sdfsdsрвапрkвaddf 4264.",
         isCompleted:false,
         title:"3 постирать"
@@ -40,7 +40,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"blue",
         description:"Lorem ipsum dolor sit amet",
-        dueDate:"2024-09-20T00:00:00.000Z",
+        dueDate:"2024-09-23T00:00:00.000Z",
         id:"sdfkjkjhkhsdf 4g24",
         isCompleted:false,
         title:"5 забить болт"
@@ -49,7 +49,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"green",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-20T00:00:00.000Z",
+        dueDate:"2024-09-24T00:00:00.000Z",
         id:"sdfsdf 42hljkjl4",
         isCompleted:false,
         title:"6 выпить пиваса"
@@ -121,7 +121,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-21T00:00:00.000Z",
+        dueDate:"2024-09-25T00:00:00.000Z",
         id:"sdf  khjk  hjjsdf 42m,4",
         isCompleted:false,
         title:"14 поиграть в компьютер"
@@ -130,7 +130,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"blue",
         description:"Lorem ",
-        dueDate:"2024-09-22T00:00:00.000Z",
+        dueDate:"2024-09-25T00:00:00.000Z",
         id:"sdfsd kjhk kf 42./4",
         isCompleted:false,
         title:"15 почитать книгу"
@@ -139,7 +139,7 @@ const Temp:Array<Task> = [
         category:"Game",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-20T00:00:00.000Z",
+        dueDate:"2024-09-23T00:00:00.000Z",
         id:"sddfsd kjh kjh saddk789df 424.",
         isCompleted:false,
         title:"16 полить газон"
@@ -148,7 +148,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-21T00:00:00.000Z",
+        dueDate:"2024-09-23T00:00:00.000Z",
         id:"sdf khj kjh ghks df 424.",
         isCompleted:false,
         title:"17 заплатить за работу"
@@ -175,7 +175,7 @@ const Temp:Array<Task> = [
         category:"Game",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-19T00:00:00.000Z",
+        dueDate:"2024-09-28T00:00:00.000Z",
         id:"sdfsds kjghfkadfdd99f 4k24.",
         isCompleted:false,
         title:"20 купить книгу"
@@ -184,7 +184,7 @@ const Temp:Array<Task> = [
         category:"Game",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-21T00:00:00.000Z",
+        dueDate:"2024-09-25T00:00:00.000Z",
         id:"sdfsdd kjfhjk sfsadd876f h424.",
         isCompleted:false,
         title:"21 посмотреть телевизор"
@@ -265,7 +265,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"green",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-20T00:00:00.000Z",
+        dueDate:"2024-09-29T00:00:00.000Z",
         id:"sdfhfd gdhsdf 42hljkjl 4",
         isCompleted:false,
         title:"30 сходить в магазин"
@@ -301,7 +301,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-21T00:00:00.000Z",
+        dueDate:"2024-09-24T00:00:00.000Z",
         id:"sdfs kh g jk hdfm 42n4",
         isCompleted:false,
         title:"34 вызвать курьера"
@@ -355,7 +355,7 @@ const Temp:Array<Task> = [
         category:"Game",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-21T00:00:00.000Z",
+        dueDate:"2024-09-28T00:00:00.000Z",
         id:"sddg s fsd kjh kjh saddk789df 424.",
         isCompleted:false,
         title:"40 прокатиться в город на велосипеде"
@@ -391,7 +391,7 @@ const Temp:Array<Task> = [
         category:"Game",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-19T00:00:00.000Z",
+        dueDate:"2024-10-19T00:00:00.000Z",
         id:"sdfsds kjg gheg ge4563tg hfkadfdd99f 4k24.",
         isCompleted:false,
         title:"44 выспаться"
@@ -418,7 +418,7 @@ const Temp:Array<Task> = [
         category:"Week",
         color:"red",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-22T00:00:00.000Z",
+        dueDate:"2024-09-27T00:00:00.000Z",
         id:"sdfsds kjhf addf dsfg4f75hg gdfhg 4435 67gfsd624.",
         isCompleted:false,
         title:"47 позвонить по важному вопросу"
@@ -427,7 +427,7 @@ const Temp:Array<Task> = [
         category:"Week",
         color:"red",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-21T00:00:00.000Z",
+        dueDate:"2024-09-23T00:00:00.000Z",
         id:"sdfsds kjhf adddg g 43 5 dghjklgd6654sf dsfg4fgfsd274.",
         isCompleted:false,
         title:"48 поиграть в приставку"
@@ -436,7 +436,7 @@ const Temp:Array<Task> = [
         category:"Game",
         color:"red",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-19T00:00:00.000Z",
+        dueDate:"2024-09-26T00:00:00.000Z",
         id:"sdfsds kjhf ad f f fddg g 43 5 dghjklgd6654sf dsfg4fgfsd274.",
         isCompleted:false,
         title:"49 Поиграть в шашки"
@@ -445,7 +445,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"red",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-09-19T00:00:00.000Z",
+        dueDate:"2024-09-25T00:00:00.000Z",
         id:"sdfsds kjhf add аdg g 43 5 dghjkдлртlgd6654sf dsfg4fgfsd274.",
         isCompleted:false,
         title:"50 Выполнить домашнее задание"

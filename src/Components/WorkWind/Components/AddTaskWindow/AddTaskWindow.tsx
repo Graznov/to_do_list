@@ -5,11 +5,14 @@ import {ReactComponent as CloseSvg} from "/src/assets/close-square-svgrepo-com.s
 import {addTask} from "../../../../Store/defSlice.ts";
 import {useAppDispatch, useAppSelector} from "../../../../Store/hooks.ts";
 import {change_input_AddTaskWind, styleVisibleAddTask} from "../../../../Store/styleSlise.ts";
+import {Language} from "../../../../Store/language.ts";
 
 
 const cx = classNames.bind(styles);
 
 export const AddTaskWindow = () => {
+
+    const lang = useAppSelector(state => state.styleSlice.language)
 
 
     const arrayTags: Array<string> = useAppSelector(state => state.styleSlice.tags)
@@ -89,7 +92,7 @@ export const AddTaskWindow = () => {
                     })}
                     type='text'
                     value={vall.title}
-                    placeholder='Add title'
+                    placeholder={(lang==='en')?Language.en.add_task_wind_title:Language.ru.add_task_wind_title}
                     onChange={(e) => {
                         setVall({
                             ...vall,
@@ -102,7 +105,7 @@ export const AddTaskWindow = () => {
                         'addTaskContainerTopInput_RED': !errorInput.inputTag
                     })}
                     type='text'
-                    placeholder='Add Tag'
+                    placeholder={(lang==='en')?Language.en.add_task_wind_tag:Language.ru.add_task_wind_tag}
                     value={vall.category}
                     onChange={(e) => {
                         setVall({
@@ -113,7 +116,9 @@ export const AddTaskWindow = () => {
                 />
 
                 <div className={cx("dropdown")}>
-                    <button type='button' className={cx("dropbtn")}>Tags:</button>
+                    <button type='button' className={cx("dropbtn")}>
+                        {(lang==='en')?Language.en.add_task_wind_btnTag:Language.ru.add_task_wind_btnTag}
+                    </button>
                     <div className={cx("dropdown-content")}>
                         {
                             arrayTags.map(tag =>
@@ -135,7 +140,9 @@ export const AddTaskWindow = () => {
 
                 <div
                     className={cx('AddTaskContainerTop_colrs')}>
-                    <p>Add color:</p>
+                    <span>
+                        {(lang==='en')?Language.en.add_task_wind_addColor:Language.ru.add_task_wind_addColor}
+                    </span>
                     <div className={cx('AddTaskContainerTop_colrs_btnArea')}>
                         <button
                                 onClick={()=>{
@@ -222,7 +229,7 @@ export const AddTaskWindow = () => {
             </div>
 
             <textarea
-                placeholder='Text'
+                placeholder={(lang==='en')?Language.en.add_task_wind_description:Language.ru.add_task_wind_description}
                 rows={4}
                 value={vall.description}
                 onChange={(e) => {
@@ -264,7 +271,10 @@ export const AddTaskWindow = () => {
 
                     }
 
-                }} className={cx('AddTaskContainerBtn')}>Add
+                }} className={cx('AddTaskContainerBtn')}>
+                <span>
+                    {(lang==='en')?Language.en.add_task_wind_btnAdd:Language.ru.add_task_wind_btnAdd}
+                </span>
             </button>
 
         </form>

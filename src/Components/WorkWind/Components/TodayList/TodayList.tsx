@@ -4,6 +4,7 @@ import {Mission} from "../Mission/Mission.tsx";
 import {useAppSelector} from "../../../../Store/hooks.ts";
 import {useEffect} from "react";
 import {Task} from "../../../../Store/defSlice.ts";
+import {Language} from "../../../../Store/language.ts";
 
 const cx = classNames.bind(styles);
 
@@ -13,15 +14,7 @@ function getDateRange(range:number):string {
     return currentDate.join('')
 }
 
-function createDate(n:number):string{
-    return new Date(new Date(getDateRange(n)).toISOString()).toLocaleString('en', {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        weekday: 'long',
-        // timezone: 'UTC',
-    })
-}
+
 
 function TodayList() {
     const list = useAppSelector(state => state.defSlice.tasks)
@@ -29,9 +22,18 @@ function TodayList() {
     const ActyveTag = useAppSelector(state => state.styleSlice.styleTagActive)
     const styleSearchStatus = useAppSelector(state => state.styleSlice.styleSearchStatus)
     const styleSearchList = useAppSelector(state => state.styleSlice.styleSearchList)
+    const lang = useAppSelector(state => state.styleSlice.language)
 
     let filtredArr = list.filter(item=>!item.isCompleted)
-
+    function createDate(n:number):string{
+        return new Date(new Date(getDateRange(n)).toISOString()).toLocaleString(lang, {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            weekday: 'long',
+            // timezone: 'UTC',
+        })
+    }
     function daysMission(dat:string):Task[] {
         if(ActyveTag.length) filtredArr = filtredArr.filter(item=>ActyveTag.includes(item.category))
         return filtredArr.filter(item=>item.dueDate.split('T')[0]===dat)
@@ -44,7 +46,7 @@ function TodayList() {
 
         return (
             <div className={cx('cont')}>
-                <h1>{'Search'}</h1>
+                <h1>{(lang==='en')?Language.en.search:Language.ru.search}</h1>
                 <div className={cx('content')}>
                     {
                         styleSearchList.map((item) => (
@@ -72,7 +74,7 @@ function TodayList() {
 
             return (
                 <div className={cx('cont')}>
-                    <h1 className={cx('adaptiveNameList')}>{listName}</h1>
+                    <h1 className={cx('adaptiveNameList')}>{(lang==='en')?Language.en.all:Language.ru.all}</h1>
 
                     <div className={cx('content')}>
                         {
@@ -98,7 +100,7 @@ function TodayList() {
 
             return (
                 <div className={cx('cont')}>
-                    <h1 className={cx('adaptiveNameList')}>{listName}</h1>
+                    <h1 className={cx('adaptiveNameList')}>{(lang==='en')?Language.en.trash:Language.ru.trash}</h1>
                     <div className={cx('content')}>
                         {
                             filterCompletedArr.map((item) => (
@@ -124,7 +126,7 @@ function TodayList() {
 
             return (
                 <div className={cx('cont')}>
-                    <h1 className={cx('adaptiveNameList')}>{listName}</h1>
+                    <h1 className={cx('adaptiveNameList')}>{(lang==='en')?Language.en.completed:Language.ru.completed}</h1>
                     <div className={cx('content')}>
                         {
                             filterCompletedArr.map((item) => (
@@ -155,7 +157,7 @@ function TodayList() {
             return (
                 <div className={cx('cont')}>
                     <h1>
-                        <div className={cx('adaptiveNameList')}>{listName}</div>
+                        <div className={cx('adaptiveNameList')}>{(lang==='en')?Language.en.today:Language.ru.today}</div>
                         <div className={cx('cont_date')}> {createDate(1)} </div>
                     </h1>
                     <div className={cx('content')}>
@@ -180,7 +182,7 @@ function TodayList() {
             return (
                 <>
                     <div className={cx('cont', 'sevenDaysCont')}>
-                        <h1 className={cx('adaptiveNameList')}>{listName}</h1>
+                        <h1 className={cx('adaptiveNameList')}>{(lang==='en')?Language.en.nextSevenDays:Language.ru.nextSevenDays}</h1>
                         <div className={cx('sevenDaysContainerData')}>
                             <h1 className={cx('cont_date')}>{createDate(2)}</h1>
                             <div className={cx('content', 'sevenDaysContainer')}>

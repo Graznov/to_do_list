@@ -1,8 +1,9 @@
 import classNames from "classnames/bind";
 import styles from "./userName.module.css";
 import {useState} from "react";
-import {useAppDispatch} from "../../../../Store/hooks.ts";
+import {useAppDispatch, useAppSelector} from "../../../../Store/hooks.ts";
 import {setLang, setTheme} from "../../../../Store/styleSlise.ts";
+import {Language} from "../../../../Store/language.ts";
 
 const cx = classNames.bind(styles);
 interface propsUserNames{
@@ -19,8 +20,9 @@ const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 
 function UserName({pathAvaImg, userName}:propsUserNames) {
     const dispatch = useAppDispatch()
-    // const theme = useAppSelector(state => state.styleSlice.darkTheme)
-    // const lang = useAppSelector(state => state.styleSlice.language)
+    const lang = useAppSelector(state => state.styleSlice.language)
+
+
 
     const [pathImgLang, setPathImgLang] = useState(us)
     const [pathImgTheme, setPathImgTheme] = useState(light);
@@ -31,7 +33,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
     }
     const changeLanguage = () => {
         (pathImgLang===us)?setPathImgLang(ru):setPathImgLang(us);
-        (pathImgLang===us)?dispatch(setLang('ru')):dispatch(setLang('us'))
+        (pathImgLang===us)?dispatch(setLang('ru')):dispatch(setLang('en'))
     }
 
     document.addEventListener('mouseup', (e) => {
@@ -66,7 +68,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
                     <button
                         className={cx('btn_menu')}
                         onClick={changeTheme}>
-                        <span>Theme</span>
+                        <span>{(lang==='en')?Language.en.work_left_theme:Language.ru.work_left_theme}</span>
                         <img src={pathImgTheme} alt=""/>
                     </button>
                 </li>
@@ -75,7 +77,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
                     <button
                         className={cx('btn_menu')}
                         onClick={changeLanguage}>
-                        <span>Lang</span>
+                        <span>{(lang==='en')?Language.en.work_left_lang:Language.ru.work_left_lang}</span>
                         <img className={cx({'us': pathImgLang === us})} src={pathImgLang} alt=""/>
                     </button>
                 </li>
@@ -83,7 +85,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
                     href="#"
                     onClick={() => {
                     setVisibleMenu(!visibleMenu)
-                }}>Exit</a></li>
+                }}>{(lang==='en')?Language.en.work_left_exit:Language.ru.work_left_exit}</a></li>
             </ul>
         </div>
 
