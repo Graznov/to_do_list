@@ -22,7 +22,7 @@ export interface StyleState {
         completed:number,
         trash:number
     },
-    language:string|null,
+    language:string,
     darkTheme:boolean,
 }
 

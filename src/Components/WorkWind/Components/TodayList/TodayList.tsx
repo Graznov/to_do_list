@@ -25,7 +25,7 @@ function TodayList() {
     const lang = useAppSelector(state => state.styleSlice.language)
     // const lang = localStorage.getItem('lang')
 
-    // console.log(lang)
+    console.log(lang)
 
     let filtredArr = list.filter(item=>!item.isCompleted)
     function createDate(n:number):string{

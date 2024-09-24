@@ -19,22 +19,11 @@ const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 function UserName({pathAvaImg, userName}:propsUserNames) {
     const dispatch = useAppDispatch()
     const lang = useAppSelector(state => state.styleSlice.language)
-    // useEffect(() => {
-    //
-    // }, [localStorage.getItem('lang')]);
-    // const lang = localStorage.getItem('lang')
-    // useEffect(() => {
-        // dispatch(setLang(localStorage.getItem('lang')))
-    // }, []);
 
-    // if(localStorage.getItem('lang')){
-    //     console.log(`lang-Good: ${localStorage.getItem('lang')}`)
-    // } else {
-    //     console.log(`lang-Bad: ${localStorage.getItem('lang')}`)
-    //     localStorage.setItem('lang',lang)
-    // }
-
-    // localStorage.clear()
+    useEffect(()=>{
+        dispatch(setLang(localStorage.getItem('lang')));
+        (lang==='ru')?setPathImgLang(ru):setPathImgLang(us)
+    },[dispatch, lang])
 
     const [pathImgLang, setPathImgLang] = useState(us)
     const [pathImgTheme, setPathImgTheme] = useState(light);
@@ -42,24 +31,18 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
     const changeTheme = () => {
         (pathImgTheme===light)?setPathImgTheme(dark):setPathImgTheme(light);
         dispatch(setTheme())
+        localStorage.setItem('theme', String(true))
     }
     const changeLanguage = () => {
-        (pathImgLang===us)?setPathImgLang(ru):setPathImgLang(us);
-        (pathImgLang===us)?dispatch(setLang('ru')):dispatch(setLang('en'))
-
-        // if(pathImgLang===us){
-        //     // setPathImgLang(ru)
-        //     localStorage.setItem('lang', 'en')
-        //     dispatch(setLang(localStorage.getItem('lang')))
-        // } else {
-        //     // setPathImgLang(us)
-        //     localStorage.setItem('lang', 'ru')
-        // }
-        //
-        // dispatch(setLang(localStorage.getItem('lang')))
-
-        // localStorage.setItem('lang', lang)
-        // console.log(localStorage.getItem('lang'))
+        if(pathImgLang===us){
+            setPathImgLang(ru)
+            dispatch(setLang('ru'))
+            localStorage.setItem('lang', 'ru')
+        } else if(pathImgLang===ru){
+            setPathImgLang(us)
+            dispatch(setLang('en'))
+            localStorage.setItem('lang', 'en')
+        }
     }
 
     document.addEventListener('mouseup', (e) => {
@@ -95,6 +78,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
                         className={cx('btn_menu')}
                         onClick={changeTheme}>
                         <span>{(lang==='en')?Language.en.work_left_theme:Language.ru.work_left_theme}</span>
+                        {/*<span>{Language.[lang].work_left_theme}</span>*/}
                         <img src={pathImgTheme} alt=""/>
                     </button>
                 </li>

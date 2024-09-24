@@ -42,6 +42,7 @@ function WorkWind() {
     const lang = useAppSelector(state => state.styleSlice.language)
     // const lang = localStorage.getItem('lang')
 
+    console.log(lang)
 
     // localStorage.clear()
 
