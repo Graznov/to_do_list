@@ -5,7 +5,8 @@ import {checkTask, defChangeTask, defDelitTask, Task} from "../../../../Store/de
 import {useState} from "react";
 import {ReactComponent as LogoTrash} from "/src/assets/trash.svg";
 import {ReactComponent as Pencil} from "/public/pencil.svg";
-import {Language} from "../../../../Store/language.ts";
+import {eng} from "../../../../Store/En.ts";
+import {russ} from "../../../../Store/Ru.ts";
 
 const cx = classNames.bind(styles);
 
@@ -54,6 +55,9 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
     let miss:Task
 
+    const langMap = lang === 'ru' ? russ:eng
+
+
     return (
         
         <div className={cx('mission',{
@@ -96,7 +100,7 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
                 })}>
                     <p>
-                        {(lang==='en')?Language.en.change_task_wind_title:Language.ru.change_task_wind_title}
+                        {langMap.change_task_wind_title}
                     </p>
                     <input
                         className={cx({
@@ -116,7 +120,7 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
                 <div className={cx('input-area_content')}>
                     <p>
-                        {(lang==='en')?Language.en.change_task_wind_tag:Language.ru.change_task_wind_tag}
+                        {langMap.change_task_wind_tag}
                     </p>
                     <input
                         className={cx({
@@ -138,7 +142,7 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
                 <div className={cx('input-area_content')}>
                     <p>
-                        {(lang==='en')?Language.en.change_task_wind_date:Language.ru.change_task_wind_date}
+                        {langMap.change_task_wind_date}
                     </p>
                     <input
                         className={cx({
@@ -159,7 +163,7 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                 <div
                     className={cx('AddTaskContainerTop_colrs')}>
                     <p>
-                        {(lang==='en')?Language.en.change_task_wind_color:Language.ru.change_task_wind_color}
+                        {langMap.change_task_wind_color}
                     </p>
                     <div
 
@@ -231,10 +235,10 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                         </button>
                     </div>
                 </div>
-                {(lang==='en')?Language.en.change_task_wind_description:Language.ru.change_task_wind_description}
+                {langMap.change_task_wind_description}
                 <textarea
                     disabled={disabled}
-                    placeholder={(lang==='en')?Language.en.change_task_wind_descriptionPlacehold:Language.ru.change_task_wind_descriptionPlacehold}
+                    placeholder={langMap.change_task_wind_descriptionPlacehold}
                     rows={4}
                     value={vall.description}
                     onChange={(e) => {
@@ -278,19 +282,19 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                     'askDel_visible': DeletedWind
                 })}>
                     <div>
-                        {(lang==='en')?Language.en.change_task_wind_deleted_title:Language.ru.change_task_wind_deleted_title}
+                        {langMap.change_task_wind_deleted_title}
                     </div>
                     <div className={cx('askDel_btn_area')}>
                         <button onClick={() => {
                             dispatch(defDelitTask(vall.id))
                             setDeletedWind(false)
                         }}>
-                            {(lang==='en')?Language.en.change_task_wind_deleted_OK:Language.ru.change_task_wind_deleted_OK}
+                            {langMap.change_task_wind_deleted_OK}
                         </button>
                         <button onClick={() => {
                             setDeletedWind(false)
                         }}>
-                            {(lang==='en')?Language.en.change_task_wind_deleted_NO:Language.ru.change_task_wind_deleted_NO}
+                            {langMap.change_task_wind_deleted_NO}
                         </button>
                     </div>
                 </div>

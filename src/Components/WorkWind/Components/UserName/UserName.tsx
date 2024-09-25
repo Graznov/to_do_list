@@ -3,7 +3,9 @@ import styles from "./userName.module.css";
 import {useEffect, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../../../Store/hooks.ts";
 import {setLang, setTheme} from "../../../../Store/styleSlise.ts";
-import {Language} from "../../../../Store/language.ts";
+import {NavLink} from "react-router-dom";
+import {eng} from "../../../../Store/En.ts";
+import {russ} from "../../../../Store/Ru.ts";
 
 const cx = classNames.bind(styles);
 interface propsUserNames{
@@ -11,25 +13,32 @@ interface propsUserNames{
     userName:string
 }
 
-const light:string = '/src/assets/day-theme.svg'
-const dark:string = '/src/assets/night-theme.svg'
+const lightThemePath:string = '/src/assets/day-theme.svg'
+const darkThemePath:string = '/src/assets/night-theme.svg'
 const us:string = '/src/assets/flag-us-svgrepo-com.svg'
 const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 
 function UserName({pathAvaImg, userName}:propsUserNames) {
     const dispatch = useAppDispatch()
     const lang = useAppSelector(state => state.styleSlice.language)
+    console.log(lang)
 
     useEffect(()=>{
+        if(!localStorage.getItem('lang')){
+            localStorage.setItem('lang', lang)
+        }
         dispatch(setLang(localStorage.getItem('lang')));
         (lang==='ru')?setPathImgLang(ru):setPathImgLang(us)
-    },[dispatch, lang])
+        // (lang==='en')?setPathImgLang(us):setPathImgLang(ru)
+    })
+
+// localStorage.clear()
 
     const [pathImgLang, setPathImgLang] = useState(us)
-    const [pathImgTheme, setPathImgTheme] = useState(light);
+    const [pathImgTheme, setPathImgTheme] = useState(lightThemePath);
     const [visibleMenu, setVisibleMenu] = useState(false);
     const changeTheme = () => {
-        (pathImgTheme===light)?setPathImgTheme(dark):setPathImgTheme(light);
+        (pathImgTheme===lightThemePath)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath);
         dispatch(setTheme())
         localStorage.setItem('theme', String(true))
     }
@@ -37,10 +46,12 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
         if(pathImgLang===us){
             setPathImgLang(ru)
             dispatch(setLang('ru'))
+            console.log(lang)
             localStorage.setItem('lang', 'ru')
         } else if(pathImgLang===ru){
             setPathImgLang(us)
             dispatch(setLang('en'))
+            console.log(lang)
             localStorage.setItem('lang', 'en')
         }
     }
@@ -51,6 +62,8 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
             setVisibleMenu(false)
         }
     });
+
+    const langMap = lang === 'ru' ? russ:eng
     
     return (
 
@@ -77,7 +90,10 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
                     <button
                         className={cx('btn_menu')}
                         onClick={changeTheme}>
-                        <span>{(lang==='en')?Language.en.work_left_theme:Language.ru.work_left_theme}</span>
+                        <span>
+                            {/*{(lang==='en')?en.work_left_theme:ru.work_left_theme}*/}
+                            {langMap.work_left_theme}
+                        </span>
                         {/*<span>{Language.[lang].work_left_theme}</span>*/}
                         <img src={pathImgTheme} alt=""/>
                     </button>
@@ -87,15 +103,20 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
                     <button
                         className={cx('btn_menu')}
                         onClick={changeLanguage}>
-                        <span>{(lang==='en')?Language.en.work_left_lang:Language.ru.work_left_lang}</span>
+                        <span>{langMap.work_left_lang}</span>
                         <img className={cx({'us': pathImgLang === us})} src={pathImgLang} alt=""/>
                     </button>
                 </li>
-                <li><a
-                    href="#"
-                    onClick={() => {
-                    setVisibleMenu(!visibleMenu)
-                }}>{(lang==='en')?Language.en.work_left_exit:Language.ru.work_left_exit}</a></li>
+                <li>
+                    <NavLink
+                        to={'/'}
+                            onClick={() => {
+                                setVisibleMenu(!visibleMenu)
+                            }
+                        }>
+                        {langMap.work_left_exit}
+                    </NavLink>
+                </li>
             </ul>
         </div>
 

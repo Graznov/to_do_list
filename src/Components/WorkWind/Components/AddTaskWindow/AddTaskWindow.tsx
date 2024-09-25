@@ -5,7 +5,8 @@ import {ReactComponent as CloseSvg} from "/src/assets/close-square-svgrepo-com.s
 import {addTask} from "../../../../Store/defSlice.ts";
 import {useAppDispatch, useAppSelector} from "../../../../Store/hooks.ts";
 import {change_input_AddTaskWind, styleVisibleAddTask} from "../../../../Store/styleSlise.ts";
-import {Language} from "../../../../Store/language.ts";
+import {eng} from "../../../../Store/En.ts";
+import {russ} from "../../../../Store/Ru.ts";
 
 
 const cx = classNames.bind(styles);
@@ -76,6 +77,8 @@ export const AddTaskWindow = () => {
 
     const yourDate = new Date().toISOString().split('T')[0]
 
+    const langMap = lang === 'ru' ? russ:eng
+
     return (
         <form className={ClassAddTask}>
 
@@ -93,7 +96,7 @@ export const AddTaskWindow = () => {
                     })}
                     type='text'
                     value={vall.title}
-                    placeholder={(lang==='en')?Language.en.add_task_wind_title:Language.ru.add_task_wind_title}
+                    placeholder={langMap.add_task_wind_title}
                     onChange={(e) => {
                         setVall({
                             ...vall,
@@ -106,7 +109,7 @@ export const AddTaskWindow = () => {
                         'addTaskContainerTopInput_RED': !errorInput.inputTag
                     })}
                     type='text'
-                    placeholder={(lang==='en')?Language.en.add_task_wind_tag:Language.ru.add_task_wind_tag}
+                    placeholder={langMap.add_task_wind_tag}
                     value={vall.category}
                     onChange={(e) => {
                         setVall({
@@ -118,7 +121,7 @@ export const AddTaskWindow = () => {
 
                 <div className={cx("dropdown")}>
                     <button type='button' className={cx("dropbtn")}>
-                        {(lang==='en')?Language.en.add_task_wind_btnTag:Language.ru.add_task_wind_btnTag}
+                        {langMap.add_task_wind_btnTag}
                     </button>
                     <div className={cx("dropdown-content")}>
                         {
@@ -142,7 +145,7 @@ export const AddTaskWindow = () => {
                 <div
                     className={cx('AddTaskContainerTop_colrs')}>
                     <span>
-                        {(lang==='en')?Language.en.add_task_wind_addColor:Language.ru.add_task_wind_addColor}
+                        {langMap.add_task_wind_addColor}
                     </span>
                     <div className={cx('AddTaskContainerTop_colrs_btnArea')}>
                         <button
@@ -230,7 +233,7 @@ export const AddTaskWindow = () => {
             </div>
 
             <textarea
-                placeholder={(lang==='en')?Language.en.add_task_wind_description:Language.ru.add_task_wind_description}
+                placeholder={langMap.add_task_wind_description}
                 rows={4}
                 value={vall.description}
                 onChange={(e) => {
@@ -274,7 +277,7 @@ export const AddTaskWindow = () => {
 
                 }} className={cx('AddTaskContainerBtn')}>
                 <span>
-                    {(lang==='en')?Language.en.add_task_wind_btnAdd:Language.ru.add_task_wind_btnAdd}
+                    {langMap.add_task_wind_btnAdd}
                 </span>
             </button>
 

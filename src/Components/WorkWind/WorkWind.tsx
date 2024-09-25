@@ -24,7 +24,8 @@ import {
 } from "../../Store/styleSlise.ts";
 import {Task} from "../../Store/defSlice.ts";
 import Btn from "../ui-kit/Btn.tsx";
-import {Language} from "../../Store/language.ts";
+import {eng} from "../../Store/En.ts";
+import {russ} from "../../Store/Ru.ts";
 
 const cx = classNames.bind(styles);
 
@@ -42,7 +43,7 @@ function WorkWind() {
     const lang = useAppSelector(state => state.styleSlice.language)
     // const lang = localStorage.getItem('lang')
 
-    console.log(lang)
+    // console.log(lang)
 
     // localStorage.clear()
 
@@ -65,6 +66,9 @@ function WorkWind() {
         dispatch(styleVisibleAddTask(true))
     }
     let searchTaskArr:Array<Task> = []
+
+    const langMap = lang === 'ru' ? russ:eng
+
 
     return (
 
@@ -102,7 +106,10 @@ function WorkWind() {
                             logo={<LogoOne className={cx('logogo')}
                                            width={'30px'}
                                            heidth={'30px'}/>}
-                            text_btn={(lang==='en')?Language.en.today:Language.ru.today}
+
+                            // text_btn={(lang==='en')?Language.en.today:Language.ru.today}
+                            text_btn={langMap.today}
+
                             number={numberTasksMenu.today.toString()}
                             logo2={undefined}/>
 
@@ -123,7 +130,7 @@ function WorkWind() {
                             logo={<LogoSeven className={cx('logogo')}
                                              width={'30px'}
                                              heidth={'30px'}/>}
-                            text_btn={(lang==='en')?Language.en.nextSevenDays:Language.ru.nextSevenDays}
+                            text_btn={langMap.nextSevenDays}
                             number={numberTasksMenu.sevenDays.toString()}/>
 
                         <LeftPanelBtn
@@ -141,7 +148,7 @@ function WorkWind() {
                                            width={'30px'}
                                            heidth={'30px'}/>}
 
-                            text_btn={(lang==='en')?Language.en.all:Language.ru.all}
+                            text_btn={langMap.all}
                             number={numberTasksMenu.all.toString()}
                             logo2={undefined}/>
 
@@ -149,7 +156,7 @@ function WorkWind() {
 
                     <div className={cx('work_container_leftPanel_TagsList')}>
 
-                        <h2 className={cx('MyList')}>{(lang==='en')?Language.en.myList:Language.ru.myList}</h2>
+                        <h2 className={cx('MyList')}>{langMap.myList}</h2>
 
                         <div className={cx('tags')}>
 
@@ -202,7 +209,7 @@ function WorkWind() {
                             logo={<LogoCompleted className={cx('logogo')}
                                                        width={'25px'}
                                                        heidth={'25px'}/>}
-                            text_btn={(lang==='en')?Language.en.completed:Language.ru.completed}
+                            text_btn={langMap.completed}
                             number={numberTasksMenu.completed.toString()}
                             logo2={undefined}/>
                         <LeftPanelBtn
@@ -219,7 +226,7 @@ function WorkWind() {
                                       logo={<LogoTrash className={cx('logogo')}
                                                        width={'30px'}
                                                        heidth={'30px'}/>}
-                                      text_btn={(lang==='en')?Language.en.trash:Language.ru.trash}
+                                      text_btn={langMap.trash}
                             number={numberTasksMenu.trash.toString()}
                             logo2={undefined}/>
 
@@ -238,7 +245,7 @@ function WorkWind() {
                             classNameLabel={cx('searchLabel')}
                             classNameInput={cx('searchInput')}
                             placeholder=''
-                            hidden={(lang==='en')?Language.en.hiddenSearch:Language.ru.hiddenSearch}
+                            hidden={langMap.hiddenSearch}
                             classNameBtn={cx('searchBtn')}
                             BTNdisabled={true}
                             reactSvg={<LogoSearch/>}
@@ -316,7 +323,7 @@ function WorkWind() {
                         <button
                             onClick={clickAddTask}
                             className={cx('floorBtn')}>
-                            {(lang==='en')?Language.en.addTask:Language.ru.addTask}
+                            {langMap.addTask}
                         </button>
 
                     </div>
