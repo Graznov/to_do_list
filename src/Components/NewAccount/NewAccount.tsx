@@ -4,12 +4,30 @@ import Btn from "../ui-kit/Btn.tsx";
 import {useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import {NavLink} from "react-router-dom";
-import Title_3 from "../ui-kit/title_3.tsx";
+import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
+import {setLang} from "../../Store/styleSlise.ts";
+import {russ} from "../../Store/Ru.ts";
+import {eng} from "../../Store/En.ts";
 
 const cx = classNames.bind(styles);
 
 
 export const NewAccount = () => {
+
+    const dispatch = useAppDispatch()
+
+    const lang = useAppSelector(state => state.styleSlice.language)
+
+    useEffect(()=>{
+        if(!localStorage.getItem('lang')){
+            localStorage.setItem('lang', lang)
+        } else {
+            dispatch(setLang(localStorage.getItem('lang')));
+
+        }
+    })
+    console.log(lang)
+    const langMap = lang === 'ru' ? russ:eng
 
     const [form, setForm] = useState({
         name:'',
@@ -27,17 +45,17 @@ export const NewAccount = () => {
     const [nameCorrectSimbol, setNameCorrectSimbol] = useState(false)
     const [nameDirty, setNameDirty] = useState(false)
     const [nameBorder, setNameBorder] = useState(false)
-    const [nameError, setNameError] = useState('Поле не может быть пустым')
+    const [nameError, setNameError] = useState(langMap.RegistrWinNameError)
 
     const [emailDirty, setEmailDirty] = useState(false)
     const [emailBorder, setEmailBorder] = useState(false)
-    const [emailError, setEmailError] = useState('Поле не может быть пустым')
+    const [emailError, setEmailError] = useState(langMap.RegistrWinNameError)
 
     const [passOneDirty, setPassOneDirty] = useState(false)
-    const [passOneError, setPassOneError] = useState('Поле не может быть пустым')
+    const [passOneError, setPassOneError] = useState(langMap.RegistrWinNameError)
 
     const [passTwoDirty, setPassTwoDirty] = useState(false)
-    const [passTwoError, setPassTwoError] = useState('Поле не может быть пустым')
+    const [passTwoError, setPassTwoError] = useState(langMap.RegistrWinNameError)
 
 
 
@@ -50,7 +68,7 @@ export const NewAccount = () => {
                         name: temp
                     })
                 } else {
-                    setNameError('Должно быть неменее 6 символов')
+                    setNameError(langMap.RegistrWinNameErrorOne)
                     setNameDirty(true)
                     setNameBorder(true)
                 }
@@ -65,7 +83,7 @@ export const NewAccount = () => {
             case 'passOne':
                 if (passOne.length<6 || passOne.length>250){
                     setPassOneDirty(true)
-                    setPassOneError('не менее 6 и не более 250 символов')
+                    setPassOneError(langMap.RegistrWinPassOneError)
                     break
                 }
                 if(numberInPass && upper){
@@ -75,7 +93,7 @@ export const NewAccount = () => {
                     break
                 } else {
                     setPassOneDirty(true)
-                    setPassOneError('должна быть заглавная буква и цифра')
+                    setPassOneError(langMap.RegistrWinPassOneErrorOne)
                 }
                 break
             case 'passTwo':
@@ -85,7 +103,7 @@ export const NewAccount = () => {
                     setPassTwoDirty(false)
                 }
                 if(!passTwo){
-                    setPassTwoError('Поле не может быть пустым')
+                    setPassTwoError(langMap.RegistrWinNameError)
                     setPassTwoDirty(true)
                 }
                 break
@@ -143,7 +161,7 @@ export const NewAccount = () => {
             setNameError('')
             setNameBorder(false)
         } else {
-            setNameError('Некорректный символ')
+            setNameError(langMap.RegistrWinErrorSimbol)
             setNameDirty(true)
             setNameBorder(true)
             setNameCorrectSimbol(true)
@@ -169,7 +187,7 @@ export const NewAccount = () => {
             setEmailBorder(false)
             setEmailError('')
         } else {
-            setEmailError('Некорректный емейл')
+            setEmailError(langMap.RegistrWinInvalidEmail)
             setEmailBorder(true)
         }
     }
@@ -181,7 +199,7 @@ export const NewAccount = () => {
     const [passTwo,  setPassTwo] = useState('')
 
     // const [len, setLen] = useState(true)
-    const [equality, setEquality] = useState(true)
+    // const [equality, setEquality] = useState(true)
 
     const changePassOne = (e) => {
         const elem = e.target.value
@@ -208,7 +226,7 @@ export const NewAccount = () => {
             setPassTwoError('')
             setPassTwoDirty(false)
         } else {
-            setPassTwoError('Пароли не совпадают')
+            setPassTwoError(langMap.RegistrWinErrorPasswords)
             setPassTwoDirty(true)
         }
     }
@@ -247,7 +265,7 @@ export const NewAccount = () => {
                     classNameInput={ClassInput}
                     placeholder=''
                     type='text'
-                    hidden='Username'
+                    hidden={langMap.RegistrWinUserName}
                     ClassDivError={cx('ClassDivError',{
                         ClassDivErrorVisibl:nameDirty
                     })}
@@ -265,7 +283,7 @@ export const NewAccount = () => {
                     classNameInput={ClassInputEmail}
                     placeholder=''
                     type='email'
-                    hidden='Email'
+                    hidden={langMap.RegistrWinEmail}
                     ClassDivError={cx('ClassDivError',{
                         ClassDivErrorVisibl:emailDirty
                     })}
@@ -282,7 +300,7 @@ export const NewAccount = () => {
                     classNameInput={ClassInputPass}
                     placeholder=''
                     type={isShown ? "text" : "password"}
-                    hidden='Set Password'
+                    hidden={langMap.RegistrWinSetPassword}
                     ClassDivError={cx('ClassDivError',{
                         ClassDivErrorVisibl:passOneDirty
                     })}
@@ -303,7 +321,7 @@ export const NewAccount = () => {
                     placeholder=''
                     // type='password'
                     type={isShownTwo ? "text" : "password"}
-                    hidden='Confirm Password'
+                    hidden={langMap.RegistrWinConfirmPassword}
                     ClassDivError={cx('ClassDivError',{
                         ClassDivErrorVisibl:passTwoDirty
                     })}
@@ -317,10 +335,10 @@ export const NewAccount = () => {
 
                 <Btn
                     ClassNameBtn={ClassBtn}
-                    Btn_text='registration'
+                    Btn_text={langMap.RegistrWinBtnRegistr}
                     type='submit'
                 />
-                <div className={styles.toLogin}>Already have an account? <NavLink to={'/login'}>Login</NavLink></div>
+                <div className={styles.toLogin}>{langMap.RegistrWinAlrHavAnAcc}<NavLink to={'/login'}>{langMap.RegistrWinBtnLogIn}</NavLink></div>
 
             </form>
 

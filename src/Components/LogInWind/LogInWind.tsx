@@ -4,11 +4,30 @@ import Btn from "../ui-kit/Btn.tsx";
 import {useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import {NavLink} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
+import {russ} from "../../Store/Ru.ts";
+import {eng} from "../../Store/En.ts";
+import {setLang} from "../../Store/styleSlise.ts";
 
 const cx = classNames.bind(styles);
 
 
 export const LogInWind = () => {
+    const dispatch = useAppDispatch()
+
+    const lang = useAppSelector(state => state.styleSlice.language)
+
+    useEffect(()=>{
+        if(!localStorage.getItem('lang')){
+            localStorage.setItem('lang', lang)
+        } else {
+            dispatch(setLang(localStorage.getItem('lang')));
+
+        }
+    })
+    console.log(lang)
+    const langMap = lang === 'ru' ? russ:eng
+
 
     const [formLogin, setFormLogin] = useState({
         email:'',
@@ -24,10 +43,10 @@ export const LogInWind = () => {
 
     const [emailDirty, setEmailDirty] = useState(false)
     const [emailBorder, setEmailBorder] = useState(false)
-    const [emailError, setEmailError] = useState('Поле не может быть пустым')
+    const [emailError, setEmailError] = useState(langMap.logInWindEmailError)
 
     const [passOneDirty, setPassOneDirty] = useState(false)
-    const [passOneError, setPassOneError] = useState('Поле не может быть пустым')
+    const [passOneError, setPassOneError] = useState(langMap.logInWindPassError)
 
     const blurHandler = (e) => {
         switch (e.target.name){
@@ -40,12 +59,12 @@ export const LogInWind = () => {
             case 'passOne':
                 if (passOne.length<6 || passOne.length>250){
                     setPassOneDirty(true)
-                    setPassOneError('не менее 6 и не более 250 символов')
+                    setPassOneError(langMap.logInWindPassErrorOne)
                     break
                 } else if(!numberInPass && !upper){
                     // console.log(`passOne: ${passOne} is good`)
                     setPassOneDirty(true)
-                    setPassOneError('должна быть заглавная буква и цифра')
+                    setPassOneError(langMap.logInWindPassErrorTwo)
                 } else if(passOne.length>6 && numberInPass && upper){
                     setPassOneDirty(false)
                     setPassOneError('')
@@ -89,7 +108,7 @@ export const LogInWind = () => {
             setEmailBorder(false)
             setEmailError('')
         } else {
-            setEmailError('Некорректный емейл')
+            setEmailError(langMap.logInWindEmailErrorOne)
             setEmailBorder(true)
         }
     }
@@ -139,7 +158,7 @@ export const LogInWind = () => {
                     classNameInput={ClassInputEmail}
                     placeholder=''
                     type='email'
-                    hidden='Email'
+                    hidden={langMap.logInWindHiddenEmail}
                     ClassDivError={cx('ClassDivError',{
                         ClassDivErrorVisibl:emailDirty
                     })}
@@ -156,7 +175,7 @@ export const LogInWind = () => {
                     classNameInput={ClassInputPass}
                     placeholder=''
                     type={isShown ? "text" : "password"}
-                    hidden='Set Password'
+                    hidden={langMap.logInWindPassHidden}
                     ClassDivError={cx('ClassDivError',{
                         ClassDivErrorVisibl:passOneDirty
                     })}
@@ -169,10 +188,10 @@ export const LogInWind = () => {
 
                 <Btn
                     ClassNameBtn={ClassBtn}
-                    Btn_text='Sign In'
+                    Btn_text={langMap.logInWindBtn}
                     type='submit'
                 />
-                <div className={styles.toLogin}>I don't have an account <NavLink to={'/'}>Registration</NavLink></div>
+                <div className={styles.toLogin}>{langMap.logInWinIDont}<NavLink to={'/'}>{langMap.logInWinRegistr}</NavLink></div>
 
             </form>
     )

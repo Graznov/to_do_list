@@ -1,33 +1,56 @@
-interface lang {
-        work_left_theme:string,
-        work_left_lang:string,
-        work_left_exit:string,
-        today:string,
-        nextSevenDays:string,
-        all:string,
-        myList:string,
-        completed:string,
-        trash:string,
-        search:string,
-        hiddenSearch:string,
-        addTask:string,
-        add_task_wind_title:string,
-        add_task_wind_tag:string,
-        add_task_wind_btnTag:string,
-        add_task_wind_addColor:string,
-        add_task_wind_description:string,
-        add_task_wind_btnAdd:string,
-        change_task_wind_title:string,
-        change_task_wind_tag:string,
-        change_task_wind_date:string,
-        change_task_wind_color:string,
-        change_task_wind_description:string,
-        change_task_wind_descriptionPlacehold:string,
-        change_task_wind_deleted_title:string,
-        change_task_wind_deleted_OK:string,
-        change_task_wind_deleted_NO:string,
-}
-export const russ:lang = {
+export const russ:{
+        work_left_exit: string;
+        RegistrWinPassOneErrorOne: string;
+        change_task_wind_color: string;
+        RegistrWinUserName: string;
+        logInWindEmailErrorOne: string;
+        change_task_wind_title: string;
+        RegistrWinSetPassword: string;
+        RegistrWinBtnLogIn: string;
+        change_task_wind_deleted_OK: string;
+        RegistrWinErrorSimbol: string;
+        RegistrWinPassOneError: string;
+        RegistrWinInvalidEmail: string;
+        logInWindPassErrorOne: string;
+        add_task_wind_btnAdd: string;
+        all: string;
+        add_task_wind_description: string;
+        myList: string;
+        work_left_theme: string;
+        completed: string;
+        change_task_wind_tag: string;
+        trash: string;
+        add_task_wind_title: string;
+        logInWinRegistr: string;
+        change_task_wind_description: string;
+        logInWindPassError: string;
+        logInWinIDont: string;
+        RegistrWinNameErrorOne: string;
+        logInWindEmailError: string;
+        logInWindPassHidden: string;
+        RegistrWinConfirmPassword: string;
+        addTask: string;
+        search: string;
+        work_left_lang: string;
+        change_task_wind_deleted_title: string;
+        today: string;
+        add_task_wind_btnTag: string;
+        RegistrWinErrorPasswords: string;
+        change_task_wind_date: string;
+        nextSevenDays: string;
+        RegistrWinEmail: string;
+        change_task_wind_descriptionPlacehold: string;
+        add_task_wind_tag: string;
+        change_task_wind_deleted_NO: string;
+        RegistrWinBtnRegistr: string;
+        hiddenSearch: string;
+        add_task_wind_addColor: string;
+        logInWindPassErrorTwo: string;
+        RegistrWinAlrHavAnAcc: string;
+        logInWindHiddenEmail: string;
+        RegistrWinNameError: string;
+        logInWindBtn: string
+} = {
         work_left_theme:'Тема',
         work_left_lang:'Язык',
         work_left_exit:'Выход',
@@ -55,4 +78,28 @@ export const russ:lang = {
         change_task_wind_deleted_title:'Удалить запись?',
         change_task_wind_deleted_OK:'Удалить',
         change_task_wind_deleted_NO:'Отмена',
+        logInWindHiddenEmail:'Почта',
+        logInWindEmailError:'Поле не может быть пустым',
+        logInWindEmailErrorOne:'Некорректный емейл',
+        logInWindPassError:'Поле не может быть пустым',
+        logInWindPassErrorOne:'не менее 6 и не более 250 символов',
+        logInWindPassErrorTwo:'должна быть заглавная буква и цифра',
+        logInWindPassHidden:'Установите пароль',
+        logInWindBtn:'Войти',
+        logInWinIDont:'У меня нет аккаунта ',
+        logInWinRegistr:'Регистрация',
+        RegistrWinNameError:'Поле не может быть пустым',
+        RegistrWinNameErrorOne:'Должно быть неменее 6 символов',
+        RegistrWinPassOneError:'не менее 6 и не более 250 символов',
+        RegistrWinPassOneErrorOne:'должна быть заглавная буква и цифра',
+        RegistrWinErrorSimbol:'Некорректный символ',
+        RegistrWinInvalidEmail:'Некорректный емейл',
+        RegistrWinErrorPasswords:'Пароли не совпадают',
+        RegistrWinUserName:'Имя пользователя',
+        RegistrWinEmail:'Почта',
+        RegistrWinSetPassword:'Установите пароль',
+        RegistrWinConfirmPassword:'Подтвердите пароль',
+        RegistrWinBtnRegistr:'Регистрация',
+        RegistrWinAlrHavAnAcc:'У вас уже есть аккаунт? ',
+        RegistrWinBtnLogIn:'Вход',
 }
