@@ -152,9 +152,8 @@ const styleSlice = createSlice({
         setStyleSearchList(state, action){
                 state.styleSearchList = action.payload
         },
-        setTheme(state){
-            state.darkTheme=!state.darkTheme
-            // console.log(state.darkTheme)
+        setTheme(state,action){
+            state.darkTheme=action.payload
         },
         setLang(state, action){
             state.language=action.payload

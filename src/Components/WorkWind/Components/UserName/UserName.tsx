@@ -21,6 +21,8 @@ const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 function UserName({pathAvaImg, userName}:propsUserNames) {
     const dispatch = useAppDispatch()
     const lang = useAppSelector(state => state.styleSlice.language)
+    const darkTheme = useAppSelector(state => state.styleSlice.darkTheme)
+
 
     useEffect(()=>{
         if(!localStorage.getItem('lang')){
@@ -28,19 +30,30 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
         }
         dispatch(setLang(localStorage.getItem('lang')));
         (lang==='ru')?setPathImgLang(ru):setPathImgLang(us)
-        // (lang==='en')?setPathImgLang(us):setPathImgLang(ru)
-    })
 
+        if(!localStorage.getItem('darkTheme')){
+            localStorage.setItem('darkTheme',  String(darkTheme))
+            // dispatch(setTheme(localStorage.getItem('darkTheme')))
+        } else {
+            dispatch(setTheme(localStorage.getItem('darkTheme')));
+            (darkTheme)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath)
+        }
+    })
+    console.log(darkTheme)
 // localStorage.clear()
 
     const [pathImgLang, setPathImgLang] = useState(us)
     const [pathImgTheme, setPathImgTheme] = useState(lightThemePath);
     const [visibleMenu, setVisibleMenu] = useState(false);
+
     const changeTheme = () => {
-        (pathImgTheme===lightThemePath)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath);
-        dispatch(setTheme())
-        localStorage.setItem('theme', String(true))
+        // (pathImgTheme===lightThemePath)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath);
+
+        // (darkTheme)?dispatch(setTheme(false)):dispatch(setTheme(true));
+        // (darkTheme)?setPathImgTheme(lightThemePath):setPathImgTheme(darkThemePath)
+        localStorage.setItem('darkTheme', String(!darkTheme))
     }
+
     const changeLanguage = () => {
         if(pathImgLang===us){
             setPathImgLang(ru)
@@ -59,7 +72,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
             if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-                console.log('Клик вне компонента');
+                // console.log('Клик вне компонента');
                 setVisibleMenu(false)
                 // Логика закрытия или другого действия
             }
