@@ -7,10 +7,10 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     ClassDivError?:string;
     message?:string;
     classNameBtn?:string;
-    hidden:string;
-    onClickBtn;
-    reactSvg?;
-    BTNdisabled?
+    hiddenStr:string;
+    onClickBtn?:()=>void;
+    reactSvg?: JSX.Element;
+    BTNdisabled?: boolean
 }
 
 export const Input = (
@@ -19,7 +19,7 @@ export const Input = (
         classNameInput,
         classNameLabel,
         onChange,
-        hidden,
+        hiddenStr,
         name,
         value,
         placeholder,
@@ -49,7 +49,7 @@ export const Input = (
             />
             <label
                 className={classNameLabel}
-            >{hidden}</label>
+            >{hiddenStr}</label>
             <div className={ClassDivError}>{message}</div>
             <button
                 disabled={BTNdisabled}

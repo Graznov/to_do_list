@@ -49,7 +49,9 @@ export const eng:{
         RegistrWinAlrHavAnAcc: string;
         logInWindHiddenEmail: string;
         RegistrWinNameError: string;
-        logInWindBtn: string
+        logInWindBtn: string;
+        registration:string;
+        logIn:string
 } = {
         work_left_theme:'Theme',
         work_left_lang:'Lang',
@@ -102,4 +104,6 @@ export const eng:{
         RegistrWinBtnRegistr:'Registration',
         RegistrWinAlrHavAnAcc:'Already have an account? ',
         RegistrWinBtnLogIn:'Login',
+        registration:'Sign Up',
+        logIn:'Log In'
 }

@@ -1,13 +1,14 @@
 import styles from "./logInWind.module.css";
 import {Input} from "../ui-kit/Input.tsx";
 import Btn from "../ui-kit/Btn.tsx";
-import {useEffect, useState} from "react";
+import {FocusEvent, useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import {NavLink} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
 import {russ} from "../../Store/Ru.ts";
 import {eng} from "../../Store/En.ts";
 import {setLang} from "../../Store/styleSlise.ts";
+import Title_3 from "../ui-kit/title_3.tsx";
 
 const cx = classNames.bind(styles);
 
@@ -17,25 +18,24 @@ export const LogInWind = () => {
 
     const lang = useAppSelector(state => state.styleSlice.language)
 
-    useEffect(()=>{
-        if(!localStorage.getItem('lang')){
+    useEffect(() => {
+        if (!localStorage.getItem('lang')) {
             localStorage.setItem('lang', lang)
         } else {
             dispatch(setLang(localStorage.getItem('lang')));
 
         }
     })
-    console.log(lang)
-    const langMap = lang === 'ru' ? russ:eng
+    const langMap = lang === 'ru' ? russ : eng
 
 
     const [formLogin, setFormLogin] = useState({
-        email:'',
-        password:'',
+        email: '',
+        password: '',
     })
 
-    const ClassBtn = cx('classNameBtn',{
-        classNameBtnDiss:(!formLogin.email || !formLogin.password)
+    const ClassBtn = cx('classNameBtn', {
+        classNameBtnDiss: (!formLogin.email || !formLogin.password)
     })
     const [upper, setUpper] = useState(false) //для загл буквы пароля
     const [numberInPass, setNumberInPass] = useState(false)
@@ -48,7 +48,7 @@ export const LogInWind = () => {
     const [passOneDirty, setPassOneDirty] = useState(false)
     const [passOneError, setPassOneError] = useState(langMap.logInWindPassError)
 
-    const blurHandler = (e) => {
+    const blurHandler = (e: FocusEvent<HTMLInputElement, Element>) => {
         switch (e.target.name){
             case 'email':
                 if(!formLogin.email){
@@ -94,9 +94,9 @@ export const LogInWind = () => {
 
 
 // проверка почты...
-    const changeEmail = (e) => {
+    const changeEmail = (e: { target: { value: string; }; }) => {
         const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-        function isEmailValid (value){
+        function isEmailValid (value: string){
             return EMAIL_REGEXP.test(value);
         }
         if(isEmailValid(e.target.value)){
@@ -118,15 +118,15 @@ export const LogInWind = () => {
 
     const [passOne,  setPassOne] = useState('')
 
-    const changePassOne = (e) => {
+    const changePassOne = (e: { target: { value: string; }; }) => {
         const elem = e.target.value
         setPassOne(elem)
     }
     useEffect(()=>{
         passOne.split('').forEach(i =>{
-            if (!isNaN(i)){
+            if (!isNaN(Number(i))){
                 setNumberInPass(true)
-            }else if(isNaN(i) && i===i.toUpperCase()) {
+            }else if(isNaN(Number(i)) && i===i.toUpperCase()) {
                 setUpper(true)
             }
 
@@ -147,6 +147,14 @@ export const LogInWind = () => {
 // ... показать/скрыть пароль
 
     return(
+
+        <div className={cx('containerLogIn')}>
+
+
+            <Title_3
+                ClassNameTitle_3={styles.input_area_Zag}
+                title_text={langMap.logIn}
+            />
             <form className={styles.input_area}>
 
                 <Input
@@ -158,7 +166,7 @@ export const LogInWind = () => {
                     classNameInput={ClassInputEmail}
                     placeholder=''
                     type='email'
-                    hidden={langMap.logInWindHiddenEmail}
+                    hiddenStr={langMap.logInWindHiddenEmail}
                     ClassDivError={cx('ClassDivError',{
                         ClassDivErrorVisibl:emailDirty
                     })}
@@ -175,7 +183,7 @@ export const LogInWind = () => {
                     classNameInput={ClassInputPass}
                     placeholder=''
                     type={isShown ? "text" : "password"}
-                    hidden={langMap.logInWindPassHidden}
+                    hiddenStr={langMap.logInWindPassHidden}
                     ClassDivError={cx('ClassDivError',{
                         ClassDivErrorVisibl:passOneDirty
                     })}
@@ -194,5 +202,6 @@ export const LogInWind = () => {
                 <div className={styles.toLogin}>{langMap.logInWinIDont}<NavLink to={'/'}>{langMap.logInWinRegistr}</NavLink></div>
 
             </form>
+        </div>
     )
 }

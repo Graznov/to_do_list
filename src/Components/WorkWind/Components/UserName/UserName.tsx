@@ -1,6 +1,6 @@
 import classNames from "classnames/bind";
 import styles from "./userName.module.css";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useAppDispatch, useAppSelector} from "../../../../Store/hooks.ts";
 import {setLang, setTheme} from "../../../../Store/styleSlise.ts";
 import {NavLink} from "react-router-dom";
@@ -21,7 +21,6 @@ const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 function UserName({pathAvaImg, userName}:propsUserNames) {
     const dispatch = useAppDispatch()
     const lang = useAppSelector(state => state.styleSlice.language)
-    console.log(lang)
 
     useEffect(()=>{
         if(!localStorage.getItem('lang')){
@@ -56,12 +55,24 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
         }
     }
 
-    document.addEventListener('mouseup', (e) => {
-        const container = document.getElementById('mainID');
-        if (!container.contains(e.target)) {
-            setVisibleMenu(false)
+    const menuRef = useRef<HTMLDivElement | null>(null);
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+                console.log('Клик вне компонента');
+                setVisibleMenu(false)
+                // Логика закрытия или другого действия
+            }
         }
-    });
+
+        // Добавляем обработчик событий при монтировании компонента
+        document.addEventListener('mousedown', handleClickOutside);
+
+        // Убираем обработчик событий при размонтировании компонента
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     const langMap = lang === 'ru' ? russ:eng
     
@@ -69,6 +80,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
 
 
         <div
+            ref={menuRef}
             className={cx('work_container_leftPanel_user')}
             id='mainID'>
             <button

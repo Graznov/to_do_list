@@ -1,13 +1,14 @@
 import styles from "./newAccount.module.css";
 import {Input} from "../ui-kit/Input.tsx";
 import Btn from "../ui-kit/Btn.tsx";
-import {useEffect, useState} from "react";
+import {FocusEvent, useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import {NavLink} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
 import {setLang} from "../../Store/styleSlise.ts";
 import {russ} from "../../Store/Ru.ts";
 import {eng} from "../../Store/En.ts";
+import Title_3 from "../ui-kit/title_3.tsx";
 
 const cx = classNames.bind(styles);
 
@@ -18,25 +19,24 @@ export const NewAccount = () => {
 
     const lang = useAppSelector(state => state.styleSlice.language)
 
-    useEffect(()=>{
-        if(!localStorage.getItem('lang')){
+    useEffect(() => {
+        if (!localStorage.getItem('lang')) {
             localStorage.setItem('lang', lang)
         } else {
             dispatch(setLang(localStorage.getItem('lang')));
 
         }
     })
-    console.log(lang)
-    const langMap = lang === 'ru' ? russ:eng
+    const langMap = lang === 'ru' ? russ : eng
 
     const [form, setForm] = useState({
-        name:'',
-        email:'',
-        password:'',
+        name: '',
+        email: '',
+        password: '',
     })
 
-    const ClassBtn = cx('classNameBtn',{
-        classNameBtnDiss:(!form.name || !form.email || !form.password)
+    const ClassBtn = cx('classNameBtn', {
+        classNameBtnDiss: (!form.name || !form.email || !form.password)
     })
     const [upper, setUpper] = useState(false) //для загл буквы пароля
     const [numberInPass, setNumberInPass] = useState(false)
@@ -58,8 +58,7 @@ export const NewAccount = () => {
     const [passTwoError, setPassTwoError] = useState(langMap.RegistrWinNameError)
 
 
-
-    const blurHandler = (e) => {
+    const blurHandler = (e: FocusEvent<HTMLInputElement, Element>) => {
         switch (e.target.name){
             case 'name':
                 if(temp.length>5){
@@ -152,7 +151,7 @@ export const NewAccount = () => {
     },[nameCorrectSimbol])
 
 
-    const changeName = (e) => {
+    const changeName = (e: { target: { value: string; }; }) => {
 
         const elem = e.target.value
         if(elem.length===0)setTemp('')
@@ -173,9 +172,9 @@ export const NewAccount = () => {
 // ...проверка имени
 
 // проверка почты...
-    const changeEmail = (e) => {
+    const changeEmail = (e: { target: { value: string; }; }) => {
         const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
-        function isEmailValid (value){
+        function isEmailValid (value: string){
             return EMAIL_REGEXP.test(value);
         }
         if(isEmailValid(e.target.value)){
@@ -201,20 +200,20 @@ export const NewAccount = () => {
     // const [len, setLen] = useState(true)
     // const [equality, setEquality] = useState(true)
 
-    const changePassOne = (e) => {
+    const changePassOne = (e: { target: { value: string; }; }) => {
         const elem = e.target.value
         setPassOne(elem)
     }
     useEffect(()=>{
         passOne.split('').forEach(i =>{
-            if (!isNaN(i)){
+            if (!isNaN(Number(i))){
                 setNumberInPass(true)
-            }else if(isNaN(i) && i===i.toUpperCase()) {
+            }else if(isNaN(Number(i)) && i===i.toUpperCase()) {
                 setUpper(true)
             }
         }, [passOne])
     })
-    const changePassTwo = (e) => {
+    const changePassTwo = (e: { target: { value: string; }; }) => {
         const elem = e.target.value
         setPassTwo(elem)
 
@@ -253,94 +252,103 @@ export const NewAccount = () => {
 
     return(
 
-            <form className={styles.input_area}>
+        <div className={cx('registrContainer')}>
 
-                <Input
-                    name='name'
-                    value={temp}
-                    onBlur={e => blurHandler(e)}
-                    onChange={changeName}
-                    classNameContainer={styles.classNameContainer}
-                    classNameLabel={ClassLabel}
-                    classNameInput={ClassInput}
-                    placeholder=''
-                    type='text'
-                    hidden={langMap.RegistrWinUserName}
-                    ClassDivError={cx('ClassDivError',{
-                        ClassDivErrorVisibl:nameDirty
-                    })}
-                    message={nameError}
-                    classNameBtn={styles.classInputBtn}
 
+                <Title_3
+                    ClassNameTitle_3={styles.input_area_Zag}
+                    title_text={langMap.registration}
                 />
 
-                <Input
-                    name='email'
-                    onBlur={e => blurHandler(e)}
-                    onChange={changeEmail}
-                    classNameContainer={styles.classNameContainer}
-                    classNameLabel={ClassLabelEmail}
-                    classNameInput={ClassInputEmail}
-                    placeholder=''
-                    type='email'
-                    hidden={langMap.RegistrWinEmail}
-                    ClassDivError={cx('ClassDivError',{
-                        ClassDivErrorVisibl:emailDirty
-                    })}
-                    message={emailError}
-                    classNameBtn={styles.classInputBtn}
+                <form className={styles.input_area}>
 
-                />
-                <Input
-                    name='passOne'
-                    onBlur={e => blurHandler(e)}
-                    onChange={changePassOne}
-                    classNameContainer={styles.classNameContainer}
-                    classNameLabel={ClassLabelPass}
-                    classNameInput={ClassInputPass}
-                    placeholder=''
-                    type={isShown ? "text" : "password"}
-                    hidden={langMap.RegistrWinSetPassword}
-                    ClassDivError={cx('ClassDivError',{
-                        ClassDivErrorVisibl:passOneDirty
-                    })}
-                    message={passOneError}
 
-                    onClickBtn={isShowChange}
-                    src={adress}
-                    classNameBtn={styles.classInputBtn}
-                />
+                    <Input
+                        name='name'
+                        value={temp}
+                        onBlur={e => blurHandler(e)}
+                        onChange={changeName}
+                        classNameContainer={styles.classNameContainer}
+                        classNameLabel={ClassLabel}
+                        classNameInput={ClassInput}
+                        placeholder=''
+                        type='text'
+                        hiddenStr={langMap.RegistrWinUserName}
+                        ClassDivError={cx('ClassDivError',{
+                            ClassDivErrorVisibl:nameDirty
+                        })}
+                        message={nameError}
+                        classNameBtn={styles.classInputBtn}
 
-                <Input
-                    name='passTwo'
-                    onBlur={e => blurHandler(e)}
-                    onChange={changePassTwo}
-                    classNameContainer={styles.classNameContainer}
-                    classNameLabel={ClassLabelPassTwo}
-                    classNameInput={ClassInputPassTwo}
-                    placeholder=''
-                    // type='password'
-                    type={isShownTwo ? "text" : "password"}
-                    hidden={langMap.RegistrWinConfirmPassword}
-                    ClassDivError={cx('ClassDivError',{
-                        ClassDivErrorVisibl:passTwoDirty
-                    })}
-                    message={passTwoError}
-                    src={adressTwo}
-                    onClickBtn={isShowChangeTwo}
-                    btnImg={adressTwo}
-                    // alt="show/hide icon"/>)}
-                    classNameBtn={styles.classInputBtn}
-                />
+                    />
 
-                <Btn
-                    ClassNameBtn={ClassBtn}
-                    Btn_text={langMap.RegistrWinBtnRegistr}
-                    type='submit'
-                />
-                <div className={styles.toLogin}>{langMap.RegistrWinAlrHavAnAcc}<NavLink to={'/login'}>{langMap.RegistrWinBtnLogIn}</NavLink></div>
+                    <Input
+                        name='email'
+                        onBlur={e => blurHandler(e)}
+                        onChange={changeEmail}
+                        classNameContainer={styles.classNameContainer}
+                        classNameLabel={ClassLabelEmail}
+                        classNameInput={ClassInputEmail}
+                        placeholder=''
+                        type='email'
+                        hiddenStr={langMap.RegistrWinEmail}
+                        ClassDivError={cx('ClassDivError',{
+                            ClassDivErrorVisibl:emailDirty
+                        })}
+                        message={emailError}
+                        classNameBtn={styles.classInputBtn}
 
-            </form>
+                    />
+                    <Input
+                        name='passOne'
+                        onBlur={e => blurHandler(e)}
+                        onChange={changePassOne}
+                        classNameContainer={styles.classNameContainer}
+                        classNameLabel={ClassLabelPass}
+                        classNameInput={ClassInputPass}
+                        placeholder=''
+                        type={isShown ? "text" : "password"}
+                        hiddenStr={langMap.RegistrWinSetPassword}
+                        ClassDivError={cx('ClassDivError',{
+                            ClassDivErrorVisibl:passOneDirty
+                        })}
+                        message={passOneError}
 
+                        onClickBtn={isShowChange}
+                        src={adress}
+                        classNameBtn={styles.classInputBtn}
+                    />
+
+                    <Input
+                        name='passTwo'
+                        onBlur={e => blurHandler(e)}
+                        onChange={changePassTwo}
+                        classNameContainer={styles.classNameContainer}
+                        classNameLabel={ClassLabelPassTwo}
+                        classNameInput={ClassInputPassTwo}
+                        placeholder=''
+                        // type='password'
+                        type={isShownTwo ? "text" : "password"}
+                        hiddenStr={langMap.RegistrWinConfirmPassword}
+                        ClassDivError={cx('ClassDivError',{
+                            ClassDivErrorVisibl:passTwoDirty
+                        })}
+                        message={passTwoError}
+                        src={adressTwo}
+                        onClickBtn={isShowChangeTwo}
+                        // btnImg={adressTwo}
+                        // alt="show/hide icon"/>)}
+                        classNameBtn={styles.classInputBtn}
+                    />
+
+                    <Btn
+                        ClassNameBtn={ClassBtn}
+                        Btn_text={langMap.RegistrWinBtnRegistr}
+                        type='submit'
+                    />
+                    <div className={styles.toLogin}>{langMap.RegistrWinAlrHavAnAcc}<NavLink to={'/login'}>{langMap.RegistrWinBtnLogIn}</NavLink></div>
+
+                </form>
+            </div>
     )
 }

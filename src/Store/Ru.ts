@@ -49,7 +49,9 @@ export const russ:{
         RegistrWinAlrHavAnAcc: string;
         logInWindHiddenEmail: string;
         RegistrWinNameError: string;
-        logInWindBtn: string
+        logInWindBtn: string;
+        registration:string;
+        logIn:string
 } = {
         work_left_theme:'Тема',
         work_left_lang:'Язык',
@@ -102,4 +104,6 @@ export const russ:{
         RegistrWinBtnRegistr:'Регистрация',
         RegistrWinAlrHavAnAcc:'У вас уже есть аккаунт? ',
         RegistrWinBtnLogIn:'Вход',
+        registration:'Создать аккаунт',
+        logIn:'Войти'
 }
