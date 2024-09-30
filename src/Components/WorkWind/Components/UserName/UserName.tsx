@@ -23,6 +23,7 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
     const lang = useAppSelector(state => state.styleSlice.language)
     const darkTheme = useAppSelector(state => state.styleSlice.darkTheme)
 
+    console.log(darkTheme)
 
     useEffect(()=>{
         if(!localStorage.getItem('lang')){
@@ -33,25 +34,36 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
 
         if(!localStorage.getItem('darkTheme')){
             localStorage.setItem('darkTheme',  String(darkTheme))
-            // dispatch(setTheme(localStorage.getItem('darkTheme')))
         } else {
-            dispatch(setTheme(localStorage.getItem('darkTheme')));
-            (darkTheme)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath)
+        //     dispatch(setTheme(localStorage.getItem('darkTheme')));
+            // (!darkTheme)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath)
         }
+        // (!darkTheme)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath)
+        console.log(`localStorage.getItem('darkTheme'): ${localStorage.getItem('darkTheme')}`)
+
     })
-    console.log(darkTheme)
+
 // localStorage.clear()
 
     const [pathImgLang, setPathImgLang] = useState(us)
     const [pathImgTheme, setPathImgTheme] = useState(lightThemePath);
     const [visibleMenu, setVisibleMenu] = useState(false);
 
-    const changeTheme = () => {
-        // (pathImgTheme===lightThemePath)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath);
+    console.log(`darkTheme: ${darkTheme},\npathImgTheme: ${pathImgTheme}`)
 
-        // (darkTheme)?dispatch(setTheme(false)):dispatch(setTheme(true));
-        // (darkTheme)?setPathImgTheme(lightThemePath):setPathImgTheme(darkThemePath)
-        localStorage.setItem('darkTheme', String(!darkTheme))
+    const changeTheme = () => {
+
+        if(pathImgTheme===lightThemePath) {
+            setPathImgTheme(darkThemePath)
+            dispatch(setTheme(true))
+            localStorage.setItem('darkTheme', String(true))
+        } else if(pathImgTheme===darkThemePath) {
+            setPathImgTheme(lightThemePath);
+            dispatch(setTheme(false))
+            localStorage.setItem('darkTheme', String(false))
+        }
+
+        // console.log('changeTheme');
     }
 
     const changeLanguage = () => {
