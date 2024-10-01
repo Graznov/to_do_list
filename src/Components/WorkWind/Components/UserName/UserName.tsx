@@ -30,18 +30,19 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
             localStorage.setItem('lang', lang)
         }
         dispatch(setLang(localStorage.getItem('lang')));
-        (lang==='ru')?setPathImgLang(ru):setPathImgLang(us)
-
+        (lang==='ru')?setPathImgLang(ru):setPathImgLang(us);
+    }, [dispatch, lang])
+    
+    useEffect(() => {
         if(!localStorage.getItem('darkTheme')){
-            localStorage.setItem('darkTheme',  String(darkTheme))
+            localStorage.setItem('darkTheme', String(darkTheme))
         } else {
-        //     dispatch(setTheme(localStorage.getItem('darkTheme')));
-            // (!darkTheme)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath)
+            dispatch(setTheme(localStorage.getItem('darkTheme')));
         }
-        // (!darkTheme)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath)
+        (darkTheme)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath)
         console.log(`localStorage.getItem('darkTheme'): ${localStorage.getItem('darkTheme')}`)
 
-    })
+    }, [darkTheme, dispatch]);
 
 // localStorage.clear()
 
@@ -53,15 +54,18 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
 
     const changeTheme = () => {
 
-        if(pathImgTheme===lightThemePath) {
+        if(!darkTheme) {
             setPathImgTheme(darkThemePath)
             dispatch(setTheme(true))
             localStorage.setItem('darkTheme', String(true))
-        } else if(pathImgTheme===darkThemePath) {
+        } else if(darkTheme) {
             setPathImgTheme(lightThemePath);
             dispatch(setTheme(false))
             localStorage.setItem('darkTheme', String(false))
+
         }
+        console.log(`localStorage.getItem('darkTheme'): ${localStorage.getItem('darkTheme')}`)
+
 
         // console.log('changeTheme');
     }
