@@ -39,6 +39,7 @@ function WorkWind() {
     const listName = useAppSelector(state => state.styleSlice.listTasks)
     const ActyveTag = useAppSelector(state => state.styleSlice.styleTagActive)
     const styleAdaptiveVisible = useAppSelector(state => state.styleSlice.styleAdaptiveVisible)
+    const theme = useAppSelector(state => state.styleSlice.theme)
 
     const lang = useAppSelector(state => state.styleSlice.language)
     // const lang = localStorage.getItem('lang')
@@ -76,7 +77,8 @@ function WorkWind() {
         <>
 
             <div className={cx('work_container',{
-                'work_container_opasity':styleWindAddTask
+                'work_container_opasity':styleWindAddTask,
+                'darkTheme':theme==='dark'
             })}>
 
                 <div className={cx('work_container_leftPanel',{
@@ -94,7 +96,7 @@ function WorkWind() {
 
                         <LeftPanelBtn
                             className={cx('button',{
-                                'MyListBtn_Active':listName==='Today'
+                                'MyListBtn_Active':listName==='Today',
                             })}
                             Click={()=>{
                                 dispatch(changeTaskList('Today'))
@@ -238,14 +240,18 @@ function WorkWind() {
                 <div className={cx('work_container_rightPanel',{
                     work_container_PanelDeactive:styleWindAddTask
                 })}>
-                    <div className={cx('head')}>
+                    <div className={cx('head',{
+                        'head_dark':theme==='dark'
+                    })}>
                         <Input
                             name='search'
                             classNameContainer={cx('inputContainer')}
                             classNameLabel={cx('searchLabel')}
-                            classNameInput={cx('searchInput')}
+                            classNameInput={cx('searchInput',{
+                                'searchInput_dark':theme==='dark'
+                            })}
                             placeholder=''
-                            hidden={langMap.hiddenSearch}
+                            hiddenStr={langMap.hiddenSearch}
                             classNameBtn={cx('searchBtn')}
                             BTNdisabled={true}
                             reactSvg={<LogoSearch/>}

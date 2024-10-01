@@ -23,7 +23,7 @@ export interface StyleState {
         trash:number
     },
     language:string,
-    darkTheme:boolean,
+    theme:string,
 }
 
 const initialState:StyleState = {
@@ -48,7 +48,7 @@ const initialState:StyleState = {
         trash:0
     },
     language:'en',
-    darkTheme:false,
+    theme:'light',
 }
 
 const styleSlice = createSlice({
@@ -153,7 +153,7 @@ const styleSlice = createSlice({
                 state.styleSearchList = action.payload
         },
         setTheme(state,action){
-            state.darkTheme=action.payload
+            state.theme=action.payload
         },
         setLang(state, action){
             state.language=action.payload

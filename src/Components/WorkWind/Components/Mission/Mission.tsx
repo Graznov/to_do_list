@@ -2,7 +2,7 @@ import styles from './mission.module.css'
 import classNames from "classnames/bind";
 import {useAppDispatch, useAppSelector} from "../../../../Store/hooks.ts";
 import {checkTask, defChangeTask, defDelitTask, Task} from "../../../../Store/defSlice.ts";
-import {useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {ReactComponent as LogoTrash} from "/src/assets/trash.svg";
 import {ReactComponent as Pencil} from "/public/pencil.svg";
 import {eng} from "../../../../Store/En.ts";
@@ -57,10 +57,29 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
     const langMap = lang === 'ru' ? russ:eng
 
+    const missionChange = useRef<HTMLDivElement | null>(null);
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (missionChange.current && !missionChange.current.contains(event.target as Node)) {
+                // console.log('Клик вне компонента');
+                setIsOpen(false)
+                // Логика закрытия или другого действия
+            }
+        }
+
+        // Добавляем обработчик событий при монтировании компонента
+        document.addEventListener('mousedown', handleClickOutside);
+
+        // Убираем обработчик событий при размонтировании компонента
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
 
     return (
         
-        <div className={cx('mission',{
+        <div ref={missionChange}
+            className={cx('mission',{
             'mission-compl': isCompleted,
             'mission-trash':listName==='Trash',
             'opened':isOpen
@@ -93,7 +112,9 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
             </div>
 
 
-            <div className={cx('missionChange', {
+            <div
+
+                className={cx('missionChange', {
                 'missionChangeActive': isOpen
             })}>
                 <div className={cx('input-area_content',{

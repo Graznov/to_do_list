@@ -21,9 +21,9 @@ const ru:string = '/src/assets/flag-ru-svgrepo-com.svg'
 function UserName({pathAvaImg, userName}:propsUserNames) {
     const dispatch = useAppDispatch()
     const lang = useAppSelector(state => state.styleSlice.language)
-    const darkTheme = useAppSelector(state => state.styleSlice.darkTheme)
+    const theme = useAppSelector(state => state.styleSlice.theme)
 
-    console.log(darkTheme)
+    console.log(theme)
 
     useEffect(()=>{
         if(!localStorage.getItem('lang')){
@@ -32,17 +32,21 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
         dispatch(setLang(localStorage.getItem('lang')));
         (lang==='ru')?setPathImgLang(ru):setPathImgLang(us);
     }, [dispatch, lang])
-    
-    useEffect(() => {
-        if(!localStorage.getItem('darkTheme')){
-            localStorage.setItem('darkTheme', String(darkTheme))
-        } else {
-            dispatch(setTheme(localStorage.getItem('darkTheme')));
-        }
-        (darkTheme)?setPathImgTheme(darkThemePath):setPathImgTheme(lightThemePath)
-        console.log(`localStorage.getItem('darkTheme'): ${localStorage.getItem('darkTheme')}`)
 
-    }, [darkTheme, dispatch]);
+    useEffect(() => {
+        if(!localStorage.getItem('theme')){
+            localStorage.setItem('theme', theme)
+        }
+
+        if(localStorage.getItem('theme')==='light') {
+            setPathImgTheme(lightThemePath)
+            dispatch(setTheme('light'))
+        } else if(localStorage.getItem('theme')==='dark') {
+            setPathImgTheme(darkThemePath);
+            dispatch(setTheme('dark'))
+        }
+
+    }, []);
 
 // localStorage.clear()
 
@@ -50,26 +54,21 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
     const [pathImgTheme, setPathImgTheme] = useState(lightThemePath);
     const [visibleMenu, setVisibleMenu] = useState(false);
 
-    console.log(`darkTheme: ${darkTheme},\npathImgTheme: ${pathImgTheme}`)
+    console.log(`Theme: ${theme},\npathImgTheme: ${pathImgTheme}`)
 
     const changeTheme = () => {
-
-        if(!darkTheme) {
+        if(theme==='light') {
             setPathImgTheme(darkThemePath)
-            dispatch(setTheme(true))
-            localStorage.setItem('darkTheme', String(true))
-        } else if(darkTheme) {
+            dispatch(setTheme('dark'))
+            localStorage.setItem('theme', 'dark')
+        } else if(theme==='dark') {
             setPathImgTheme(lightThemePath);
-            dispatch(setTheme(false))
-            localStorage.setItem('darkTheme', String(false))
+            dispatch(setTheme('light'))
+            localStorage.setItem('theme', 'light')
 
         }
-        console.log(`localStorage.getItem('darkTheme'): ${localStorage.getItem('darkTheme')}`)
-
-
-        // console.log('changeTheme');
     }
-
+    console.log(`localStorage.getItem('theme'): ${localStorage.getItem('theme')}`)
     const changeLanguage = () => {
         if(pathImgLang===us){
             setPathImgLang(ru)

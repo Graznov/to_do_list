@@ -1,6 +1,15 @@
 /*!!!*/
+:root {
+    --backgr-dark: #222222;
+}
+
 .work_container_opasity{
     opacity: .5;
+}
+
+.darkTheme{
+    background: var(--backgr-dark);
+    /*color: white;*/
 }
 
 .work_container{
@@ -55,6 +64,15 @@
                     color: white;
                 }
             }
+
+            /*.MyListBtn_Active_dark{*/
+            /*    background: #284c23;*/
+            /*    button *{*/
+            /*        stroke: #9c9a9a;*/
+            /*        color: #9c9a9a;*/
+            /*    }*/
+            /*}*/
+
 
         }
 
@@ -165,6 +183,8 @@
         flex-direction: column;
         justify-content: space-between;
         /*padding-top: 100px;*/
+
+
         .head{
             position: absolute;
             left: 0;
@@ -187,6 +207,12 @@
                     border: 1.5px solid white;
                     padding: 10px 15px 10px 37px;
                     border-radius: 10px;
+                }
+                .searchInput_dark{
+                    color: white;
+                    background: var(--backgr-dark);
+                    border: 1.5px solid white;
+
                 }
                 .searchLabel{
                     position: absolute;
@@ -224,6 +250,10 @@
 
 
             /*...input*/
+        }
+
+        .head_dark{
+            background: #222222;
         }
 
         .floor{
