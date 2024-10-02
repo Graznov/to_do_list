@@ -88,7 +88,8 @@ function WorkWind() {
 
                     <div className={cx('work_container_leftPanel_Top')}>
                         <UserName
-                            pathAvaImg={'https://cdn.icon-icons.com/icons2/4222/PNG/512/charlie_chaplin_avatar_icon_263203.png'}
+                            // pathAvaImg={'https://cdn.icon-icons.com/icons2/4222/PNG/512/charlie_chaplin_avatar_icon_263203.png'}
+                            pathAvaImg={'https://wallpapers.com/images/high/stylized-manin-suitand-sunglasses-avatar-xkm7f2gkd43126ix.png'}
                             userName={'User01'}/>
                     </div>
 
@@ -107,7 +108,9 @@ function WorkWind() {
                                 setSearchInput('')
                             }}
                             adress={'/workwindow/today'}
-                            logo={<LogoOne className={cx('logogo')}
+                            logo={<LogoOne className={cx('logogo',{
+                                'logogo_dark':theme==='dark'
+                            })}
                                            width={'30px'}
                                            heidth={'30px'}/>}
 
@@ -214,7 +217,9 @@ function WorkWind() {
                     <div className={cx('completed')}>
                         <LeftPanelBtn
                             className={cx('button',{
-                                'MyListBtn_Active':listName==='Completed'
+                                'button_dark':theme==='dark',
+                                'MyListBtn_Active':listName==='Completed',
+                                'MyListBtn_Active_dark':theme==='dark' && listName==='Completed'
                             })}
                             Click={()=>{
                                 dispatch(changeTaskList('Completed'))
@@ -231,7 +236,9 @@ function WorkWind() {
                             logo2={undefined}/>
                         <LeftPanelBtn
                             className={cx('button',{
-                                'MyListBtn_Active':listName==='Trash'
+                                'MyListBtn_Active':listName==='Trash',
+                                'button_dark':theme==='dark',
+                                'MyListBtn_Active_dark':theme==='dark' && listName==='Trash'
                             })}
                             Click={()=>{
                                 dispatch(changeTaskList('Trash'))
