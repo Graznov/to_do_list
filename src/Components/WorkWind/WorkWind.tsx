@@ -78,7 +78,7 @@ function WorkWind() {
 
             <div className={cx('work_container',{
                 'work_container_opasity':styleWindAddTask,
-                'darkTheme':theme==='dark'
+                'work_container_dark':theme==='dark'
             })}>
 
                 <div className={cx('work_container_leftPanel',{
@@ -88,7 +88,7 @@ function WorkWind() {
 
                     <div className={cx('work_container_leftPanel_Top')}>
                         <UserName
-                            pathAvaImg={'https://banner2.cleanpng.com/lnd/20240527/ioh/axd6r2bt0.webp'}
+                            pathAvaImg={'https://cdn.icon-icons.com/icons2/4222/PNG/512/charlie_chaplin_avatar_icon_263203.png'}
                             userName={'User01'}/>
                     </div>
 
@@ -96,7 +96,9 @@ function WorkWind() {
 
                         <LeftPanelBtn
                             className={cx('button',{
+                                'button_dark':theme==='dark',
                                 'MyListBtn_Active':listName==='Today',
+                                'MyListBtn_Active_dark':theme==='dark' && listName==='Today'
                             })}
                             Click={()=>{
                                 dispatch(changeTaskList('Today'))
@@ -117,7 +119,10 @@ function WorkWind() {
 
                         <LeftPanelBtn
                             className={cx('button',{
-                                'MyListBtn_Active':listName==='Next 7 days'
+                                'button_dark':theme==='dark',
+                                'MyListBtn_Active':listName==='Next 7 days',
+                                'MyListBtn_Active_dark':theme==='dark' && listName==='Next 7 days'
+
                             })}
                             Click={()=>{
                                 dispatch(changeTaskList('Next 7 days'))
@@ -137,7 +142,10 @@ function WorkWind() {
 
                         <LeftPanelBtn
                             className={cx('button',{
-                                'MyListBtn_Active':listName==='All'
+                                'button_dark':theme==='dark',
+                                'MyListBtn_Active':listName==='All',
+                                'MyListBtn_Active_dark':theme==='dark' && listName==='All'
+
                             })}
                             Click={()=>{
                                 dispatch(changeTaskList('All'))
@@ -158,7 +166,9 @@ function WorkWind() {
 
                     <div className={cx('work_container_leftPanel_TagsList')}>
 
-                        <h2 className={cx('MyList')}>{langMap.myList}</h2>
+                        <h2 className={cx('MyList',{
+                            'myList_dark':theme==='dark'
+                        })}>{langMap.myList}</h2>
 
                         <div className={cx('tags')}>
 
@@ -168,7 +178,9 @@ function WorkWind() {
                                     <div
                                         key={title}
                                         className={cx('tag', {
-                                        'MyListBtn_Active':ActyveTag.includes(title)
+                                            'MyListBtn_Active':ActyveTag.includes(title),
+                                            'MyListBtn_Active_dark':theme==='dark' && ActyveTag.includes(title),
+                                            'tag_dark':theme==='dark'
                                     })}>
                                         <LeftPanelBtn
 
@@ -182,7 +194,10 @@ function WorkWind() {
                                             key={title}
                                             text_btn={title}
                                             adress={`/workwindow/tags`}
-                                            className={undefined}
+                                            // className={undefined}
+                                            className={cx({
+                                                // 'button_dark':theme==='dark'
+                                            })}
                                             number={undefined}
                                             logo={undefined}
                                             logo2={undefined}
@@ -245,14 +260,20 @@ function WorkWind() {
                     })}>
                         <Input
                             name='search'
-                            classNameContainer={cx('inputContainer')}
-                            classNameLabel={cx('searchLabel')}
+                            classNameContainer={cx('inputContainer',{
+                                'inputContainer_dark':theme==='dark'
+                            })}
+                            classNameLabel={cx('searchLabel',{
+                                'searchLabel_dark':theme==='dark'
+                            })}
                             classNameInput={cx('searchInput',{
                                 'searchInput_dark':theme==='dark'
                             })}
                             placeholder=''
                             hiddenStr={langMap.hiddenSearch}
-                            classNameBtn={cx('searchBtn')}
+                            classNameBtn={cx('searchBtn',{
+                                'searchBtn_dark':theme==='dark'
+                            })}
                             BTNdisabled={true}
                             reactSvg={<LogoSearch/>}
                             value={searchInput}
@@ -283,7 +304,9 @@ function WorkWind() {
                             {/*<BibMac/>*/}
                             <Btn
                                 type={'button'}
-                                ClassNameBtn={cx('headerBtn')}
+                                ClassNameBtn={cx('headerBtn',{
+                                    'headerBtn_dark':theme==='dark'
+                                })}
                                 Btn_text={
                                     <LogoQuestion className={cx('logogo')}
                                                   width={'30px'}
@@ -291,7 +314,9 @@ function WorkWind() {
                                 }/>
                             <Btn
                                 type={'button'}
-                                ClassNameBtn={cx('headerBtn')}
+                                ClassNameBtn={cx('headerBtn',{
+                                    'headerBtn_dark':theme==='dark'
+                                })}
                                 Btn_text={
                                     <LogoAlarm className={cx('logogo')}
                                                   width={'30px'}
@@ -328,7 +353,9 @@ function WorkWind() {
 
                         <button
                             onClick={clickAddTask}
-                            className={cx('floorBtn')}>
+                            className={cx('floorBtn', {
+                                'floorBtn_dark':theme==='dark'
+                            })}>
                             {langMap.addTask}
                         </button>
 

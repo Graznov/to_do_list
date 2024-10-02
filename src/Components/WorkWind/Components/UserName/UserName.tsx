@@ -23,8 +23,6 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
     const lang = useAppSelector(state => state.styleSlice.language)
     const theme = useAppSelector(state => state.styleSlice.theme)
 
-    console.log(theme)
-
     useEffect(()=>{
         if(!localStorage.getItem('lang')){
             localStorage.setItem('lang', lang)
@@ -54,8 +52,6 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
     const [pathImgTheme, setPathImgTheme] = useState(lightThemePath);
     const [visibleMenu, setVisibleMenu] = useState(false);
 
-    console.log(`Theme: ${theme},\npathImgTheme: ${pathImgTheme}`)
-
     const changeTheme = () => {
         if(theme==='light') {
             setPathImgTheme(darkThemePath)
@@ -68,7 +64,6 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
 
         }
     }
-    console.log(`localStorage.getItem('theme'): ${localStorage.getItem('theme')}`)
     const changeLanguage = () => {
         if(pathImgLang===us){
             setPathImgLang(ru)
@@ -109,10 +104,14 @@ function UserName({pathAvaImg, userName}:propsUserNames) {
 
         <div
             ref={menuRef}
-            className={cx('work_container_leftPanel_user')}
+            className={cx('work_container_leftPanel_user', {
+                'work_container_leftPanel_user_dark':theme==='dark'
+            })}
             id='mainID'>
             <button
-                className={cx('btn_user')}
+                className={cx('btn_user',{
+                    'btn_user_dark':theme==='dark'
+                })}
                 onClick={() => setVisibleMenu(!visibleMenu)}
                 >
                 <img
