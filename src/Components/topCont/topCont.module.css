@@ -1,9 +1,17 @@
+:root {
+    --color-primary-font: #A89984;
+}
+
 .top_cont{
     display: flex;
     gap: 10px;
     width: 80%;
-    margin: 0 auto;
+    margin: 20px auto;
     .image{
         width: 35px;
     }
+}
+
+.top_cont_dark{
+    color: var(--color-primary-font);
 }

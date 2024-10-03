@@ -82,7 +82,8 @@ export const AddTaskWindow = () => {
     const langMap = lang === 'ru' ? russ:eng
 
     return (
-        <form className={ClassAddTask}>
+        <form
+            className={ClassAddTask}>
 
             <button
                 onClick={closeWindowAddTask}
@@ -125,10 +126,13 @@ export const AddTaskWindow = () => {
                     <button type='button' className={cx("dropbtn")}>
                         {langMap.add_task_wind_btnTag}
                     </button>
-                    <div className={cx("dropdown-content")}>
+                    <div className={cx("dropdown-content",{
+                        'dropdown-content_dark':theme==='dark'
+                    })}>
                         {
                             arrayTags.map(tag =>
                                 <button
+                                    className={cx({'button_dark':theme==='dark'})}
                                     onClick={()=>{
                                         setVall({
                                             ...vall,
@@ -277,7 +281,9 @@ export const AddTaskWindow = () => {
 
                     }
 
-                }} className={cx('AddTaskContainerBtn')}>
+                }} className={cx('AddTaskContainerBtn',{
+                        'AddTaskContainerBtn_dark':theme==='dark'
+            })}>
                 <span>
                     {langMap.add_task_wind_btnAdd}
                 </span>

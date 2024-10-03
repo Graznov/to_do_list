@@ -78,6 +78,7 @@ function WorkWind() {
 
             <div className={cx('work_container',{
                 'work_container_opasity':styleWindAddTask,
+                'work_container_opasity_dark':styleWindAddTask && theme==='dark',
                 'work_container_dark':theme==='dark'
             })}>
 

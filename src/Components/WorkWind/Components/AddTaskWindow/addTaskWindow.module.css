@@ -197,9 +197,26 @@
     background: var(--color-secondary-bg-opac);
     color: var(--color-primary-font);
 
+        .dropdown-content_dark *{
+            background: var(--color-secondary);
+        }
+    .button_dark:hover{
+        color: var(--color-header-bg);
+    }
+
+    .addTaskContainerTopInput{
+        color: var(--color-primary-font);
+
+    }
+
+
     textarea{
         color: var(--color-primary-font);
 
+    }
+
+    .AddTaskContainerBtn_dark{
+        background: var(--color-secondary-bg);
     }
 }
 

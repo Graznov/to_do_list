@@ -8,7 +8,6 @@ import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
 import {russ} from "../../Store/Ru.ts";
 import {eng} from "../../Store/En.ts";
 import {setLang} from "../../Store/styleSlise.ts";
-import Title_3 from "../ui-kit/title_3.tsx";
 
 const cx = classNames.bind(styles);
 
@@ -17,6 +16,8 @@ export const LogInWind = () => {
     const dispatch = useAppDispatch()
 
     const lang = useAppSelector(state => state.styleSlice.language)
+    const theme = useAppSelector(state => state.styleSlice.theme)
+
 
     useEffect(() => {
         if (!localStorage.getItem('lang')) {
@@ -35,7 +36,9 @@ export const LogInWind = () => {
     })
 
     const ClassBtn = cx('classNameBtn', {
-        classNameBtnDiss: (!formLogin.email || !formLogin.password)
+        classNameBtnDiss: (!formLogin.email || !formLogin.password),
+        'classNameBtnDiss_dark':theme==='dark' && (!formLogin.email || !formLogin.password),
+        'classNameBtn_dark':theme=='dark'
     })
     const [upper, setUpper] = useState(false) //для загл буквы пароля
     const [numberInPass, setNumberInPass] = useState(false)
@@ -80,16 +83,20 @@ export const LogInWind = () => {
     }
 
     const ClassInputEmail = cx('classNameInputEmail',{
-        classNameInput_red:emailDirty && emailBorder
+        classNameInput_red:emailDirty && emailBorder,
+        'classNameInput_dark':theme === 'dark',
     });
     const ClassLabelEmail = cx('classNameLabelEmail',{
-        classNameLabel_red:emailDirty && emailBorder
+        classNameLabel_red:emailDirty && emailBorder,
+        'classNameLabel_black':theme === 'dark',
     });
     const ClassInputPass = cx('classNameInputPass',{
-        classNameInput_red:passOneDirty
+        classNameInput_red:passOneDirty,
+        'classNameInput_dark':theme === 'dark',
     });
     const ClassLabelPass = cx('classNameLabelPass',{
-        classNameLabel_red:passOneDirty
+        classNameLabel_red:passOneDirty,
+        'classNameLabel_black':theme === 'dark',
     });
 
 
@@ -151,10 +158,18 @@ export const LogInWind = () => {
         <div className={cx('containerLogIn')}>
 
 
-            <Title_3
-                ClassNameTitle_3={styles.input_area_Zag}
-                title_text={langMap.logIn}
-            />
+            {/*<Title_3*/}
+            {/*    ClassNameTitle_3={styles.input_area_Zag}*/}
+            {/*    title_text={langMap.logIn}*/}
+            {/*/>*/}
+
+            <h3 className={cx('input_area_Zag', {
+                'input_area_Zag_dark': theme === 'dark'
+            })}>
+                {langMap.registration}
+            </h3>
+
+
             <form className={styles.input_area}>
 
                 <Input
@@ -167,8 +182,8 @@ export const LogInWind = () => {
                     placeholder=''
                     type='email'
                     hiddenStr={langMap.logInWindHiddenEmail}
-                    ClassDivError={cx('ClassDivError',{
-                        ClassDivErrorVisibl:emailDirty
+                    ClassDivError={cx('ClassDivError', {
+                        ClassDivErrorVisibl: emailDirty
                     })}
                     message={emailError}
                     classNameBtn={styles.classInputBtn}
@@ -184,8 +199,8 @@ export const LogInWind = () => {
                     placeholder=''
                     type={isShown ? "text" : "password"}
                     hiddenStr={langMap.logInWindPassHidden}
-                    ClassDivError={cx('ClassDivError',{
-                        ClassDivErrorVisibl:passOneDirty
+                    ClassDivError={cx('ClassDivError', {
+                        ClassDivErrorVisibl: passOneDirty
                     })}
                     message={passOneError}
 
@@ -199,7 +214,15 @@ export const LogInWind = () => {
                     Btn_text={langMap.logInWindBtn}
                     type='submit'
                 />
-                <div className={styles.toLogin}>{langMap.logInWinIDont}<NavLink to={'/'}>{langMap.logInWinRegistr}</NavLink></div>
+
+                <div className={cx('toLogin', {
+                    'toLogin_dark': theme === 'dark'
+                })}>
+                    {langMap.logInWinIDont}
+                    <NavLink to={'/'}>
+                        {langMap.logInWinRegistr}
+                    </NavLink>
+                </div>
 
             </form>
         </div>

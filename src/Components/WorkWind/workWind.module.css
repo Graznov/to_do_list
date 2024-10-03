@@ -27,6 +27,9 @@
 .work_container_opasity{
     opacity: .5;
 }
+.work_container_opasity_dark{
+    opacity: .89;
+}
 
 .work_container_dark{
     background: var(--color-main-bg);

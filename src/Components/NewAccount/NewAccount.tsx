@@ -8,7 +8,6 @@ import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
 import {setLang} from "../../Store/styleSlise.ts";
 import {russ} from "../../Store/Ru.ts";
 import {eng} from "../../Store/En.ts";
-import Title_3 from "../ui-kit/title_3.tsx";
 
 const cx = classNames.bind(styles);
 
@@ -18,6 +17,7 @@ export const NewAccount = () => {
     const dispatch = useAppDispatch()
 
     const lang = useAppSelector(state => state.styleSlice.language)
+    const theme = useAppSelector(state => state.styleSlice.theme)
 
     useEffect(() => {
         if (!localStorage.getItem('lang')) {
@@ -36,7 +36,9 @@ export const NewAccount = () => {
     })
 
     const ClassBtn = cx('classNameBtn', {
-        classNameBtnDiss: (!form.name || !form.email || !form.password)
+        'classNameBtnDiss': (!form.name || !form.email || !form.password),
+        'classNameBtnDiss_dark':theme==='dark' && (!form.name || !form.email || !form.password),
+        'classNameBtn_dark':theme=='dark'
     })
     const [upper, setUpper] = useState(false) //для загл буквы пароля
     const [numberInPass, setNumberInPass] = useState(false)
@@ -110,30 +112,38 @@ export const NewAccount = () => {
     }
 
     const ClassInput = cx('classNameInput',{
-        classNameInput_red:nameDirty && nameBorder
+        classNameInput_red:nameDirty && nameBorder,
+        'classNameInput_dark':theme === 'dark',
     });
     const ClassLabel = cx('classNameLabel',{
-        classNameLabel_red:nameDirty && nameBorder
+        classNameLabel_red:nameDirty && nameBorder,
+        'classNameLabel_black':theme === 'dark',
     });
 
     const ClassInputEmail = cx('classNameInputEmail',{
-        classNameInput_red:emailDirty && emailBorder
+        classNameInput_red:emailDirty && emailBorder,
+        'classNameInput_dark':theme === 'dark',
     });
     const ClassLabelEmail = cx('classNameLabelEmail',{
-        classNameLabel_red:emailDirty && emailBorder
+        classNameLabel_red:emailDirty && emailBorder,
+        'classNameLabel_black':theme === 'dark',
     });
     const ClassInputPass = cx('classNameInputPass',{
-        classNameInput_red:passOneDirty
+        classNameInput_red:passOneDirty,
+        'classNameInput_dark':theme === 'dark',
     });
     const ClassLabelPass = cx('classNameLabelPass',{
-        classNameLabel_red:passOneDirty
+        classNameLabel_red:passOneDirty,
+        'classNameLabel_black':theme === 'dark',
     });
 
     const ClassInputPassTwo = cx('classNameInputPassTwo',{
-        classNameInput_red:passTwoDirty
+        classNameInput_red:passTwoDirty,
+        'classNameInput_dark':theme === 'dark',
     });
     const ClassLabelPassTwo = cx('classNameLabelPassTwo',{
-        classNameLabel_red:passTwoDirty
+        classNameLabel_red:passTwoDirty,
+        'classNameLabel_black':theme === 'dark',
     });
 
 // проверка имени...
@@ -254,11 +264,11 @@ export const NewAccount = () => {
 
         <div className={cx('registrContainer')}>
 
-
-                <Title_3
-                    ClassNameTitle_3={styles.input_area_Zag}
-                    title_text={langMap.registration}
-                />
+            <h3 className={cx('input_area_Zag',{
+                'input_area_Zag_dark':theme==='dark'
+            })}>
+                {langMap.registration}
+            </h3>
 
                 <form className={styles.input_area}>
 
@@ -268,7 +278,7 @@ export const NewAccount = () => {
                         value={temp}
                         onBlur={e => blurHandler(e)}
                         onChange={changeName}
-                        classNameContainer={styles.classNameContainer}
+                        classNameContainer={cx('classNameContainer')}
                         classNameLabel={ClassLabel}
                         classNameInput={ClassInput}
                         placeholder=''
@@ -346,7 +356,14 @@ export const NewAccount = () => {
                         Btn_text={langMap.RegistrWinBtnRegistr}
                         type='submit'
                     />
-                    <div className={styles.toLogin}>{langMap.RegistrWinAlrHavAnAcc}<NavLink to={'/login'}>{langMap.RegistrWinBtnLogIn}</NavLink></div>
+                    <div className={cx('toLogin',{
+                        'toLogin_dark':theme==='dark'
+                    })}>
+                        {langMap.RegistrWinAlrHavAnAcc}
+                        <NavLink to={'/login'}>
+                            {langMap.RegistrWinBtnLogIn}
+                        </NavLink>
+                    </div>
 
                 </form>
             </div>
