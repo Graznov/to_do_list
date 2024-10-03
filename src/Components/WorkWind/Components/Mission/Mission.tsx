@@ -25,6 +25,7 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
     const list = useAppSelector(state => state.defSlice.tasks)
     const yourDate = new Date().toISOString().split('T')[0]
+    const theme = useAppSelector(state => state.styleSlice.theme)
 
     const check = !!isCompleted
     const [vall, setVall] = useState({
@@ -80,15 +81,18 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
         
         <div ref={missionChange}
             className={cx('mission',{
-            'mission-compl': isCompleted,
-            'mission-trash':listName==='Trash',
-            'opened':isOpen
-        })}>
+                'mission-dark':theme==='dark',
+                'mission-compl': isCompleted,
+                'mission-trash':listName==='Trash',
+                'opened':isOpen
+            })}>
             <div className={cx('mission-top-cont')}>
                 <label>
                     <input
                         checked={check}
-                        className={cx('missCheck')}
+                        className={cx('missCheck',{
+                            'missCheck-dark':theme==='dark',
+                        })}
                         onChange={() => {
                             dispatch(checkTask(id))
                         }}
@@ -115,7 +119,8 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
             <div
 
                 className={cx('missionChange', {
-                'missionChangeActive': isOpen
+                    'missionChangeActive': isOpen,
+                    'missionChange_dark':theme==='dark',
             })}>
                 <div className={cx('input-area_content',{
 
@@ -285,6 +290,7 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
                         }}>
                         <Pencil
+                            className={cx({'icon-dark':theme === 'dark'})}
                             width="25px" height="25px"
                         />
                     </button>
@@ -294,12 +300,14 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                         }}
                     >
                         <LogoTrash
+                            className={cx({'icon1-dark':theme === 'dark'})}
                             width="25px" height="25px"/>
                     </button>
                 </div>
 
 
                 <div className={cx('askDel', {
+                    'askDel_dark':theme === 'dark',
                     'askDel_visible': DeletedWind
                 })}>
                     <div>

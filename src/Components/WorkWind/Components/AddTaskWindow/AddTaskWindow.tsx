@@ -20,6 +20,7 @@ export const AddTaskWindow = () => {
     const arrayTags: Array<string> = useAppSelector(state => state.styleSlice.tags)
 
     const errorInput = useAppSelector(state => state.styleSlice.input_AddTaskWind)
+    const theme = useAppSelector(state => state.styleSlice.theme)
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -56,6 +57,7 @@ export const AddTaskWindow = () => {
 
 
     const ClassAddTask = cx('AddTaskContainer', {
+        'AddTaskContainer_dark':theme==='dark',
         'AddTaskContainer_Visible': styleWindAddTask,
     })
 

@@ -2,6 +2,7 @@
 :root {
     --color-main-bg: #282828;
     --color-secondary-bg: #3c3836;
+    --color-secondary-bg-opac:rgba(60,56,54,0.5);
     --color-primary-font: #A89984;
     --color-secondary-font: #fbf1c7;
     --color-primmary-icon: #7C6F64;

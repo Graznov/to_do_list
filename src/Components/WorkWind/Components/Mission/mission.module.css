@@ -1,10 +1,33 @@
+:root {
+    --color-main-bg: #282828;
+    --color-secondary-bg: #3c3836;
+    --color-primary-font: #A89984;
+    --color-secondary-font: #fbf1c7;
+    --color-primmary-icon: #7C6F64;
+    --color-secondary-icon: #fbf1c7;
+    --color-primary: #8EC07C;
+    --color-primary-hover: #689D6A;
+    --color-secondary: #83A598;
+    --color-secondary-hover: #458588;
+    --color-info: #D3869B;
+    --color-info-hover: #B16286;
+    --color-warning: #FABD2F;
+    --color-warning-hover: #D79921;
+    --color-success: #B8BB26;
+    --color-success-hover: #98971A;
+    --color-danger: #FB4934;
+    --color-danger-hover: #CC241D;
+    --color-header-bg: #282828;
+    --color-search-bg: #3c3836;
+    --color-gray-font: gray;
+}
+
+
+
 .mission{
     position: relative;
     border: 1px solid silver;
     border-radius: 5px;
-    /*width: 500px;*/
-    /*min-width: 330px;*/
-    /*max-width: 430px;*/
     margin: 10px auto;
     padding: 10px;
     display: flex;
@@ -68,8 +91,6 @@
             color: #ffffff;
         }
 
-
-
     }
     .logo{
         border: none;
@@ -91,6 +112,25 @@
     .missText:hover{
         /*display: block;*/
     }
+
+}
+
+.mission-dark{
+    background: var(--color-main-bg);
+    color: var(--color-primary-font);
+    border: 1px solid var(--color-primary-font);
+
+    /*label{*/
+    /*    input{*/
+    /*        color: var(--color-primary-font);*/
+    /*        !*accent-color: #C56FFF*!*/
+    /*        background: #5e5e5e;*/
+
+    /*    }*/
+    /*}*/
+
+
+
 
 }
 .mission-compl{
@@ -203,12 +243,45 @@
         justify-content: flex-end;
         margin-top: 10px;
         button{
+            stroke: black;
             border: none;
             cursor: pointer;
         }
         button:hover{
             background: none;
         }
+    }
+}
+
+.missionChange_dark {
+    background: var(--color-main-bg);
+    border: 1px solid var(--color-primary-font);
+    color: var(--color-primary-font);
+
+    input {
+        color: var(--color-primary-font);
+    }
+
+    textarea{
+        color: var(--color-primary-font);
+    }
+    .btnArea {
+
+
+        button{
+            background-color: var(--color-main-bg);
+
+            .icon-dark{
+
+                stroke: var(--color-primary-font);
+                fill: white;
+            }
+            .icon1-dark{
+                stroke: var(--color-primary-font);
+                fill: none;
+            }
+        }
+
     }
 }
 
@@ -250,6 +323,15 @@
         }
     }
 }
+
+.askDel_dark{
+    background: var(--color-header-bg);
+    button{
+        background: var(--color-search-bg);
+        color: var(--color-primary-font);
+    }
+}
+
 .askDel_visible{
     display: flex;
 }
