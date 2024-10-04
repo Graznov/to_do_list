@@ -166,7 +166,7 @@ export const LogInWind = () => {
             <h3 className={cx('input_area_Zag', {
                 'input_area_Zag_dark': theme === 'dark'
             })}>
-                {langMap.registration}
+                {langMap.logIn}
             </h3>
 
 

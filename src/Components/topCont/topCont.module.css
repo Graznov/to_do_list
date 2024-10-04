@@ -4,14 +4,23 @@
 
 .top_cont{
     display: flex;
-    gap: 10px;
+    gap: 30px;
     width: 80%;
     margin: 20px auto;
-    .image{
-        width: 35px;
+
+    .notesLogo{
+        width: 90px;
+        height: 90px;
+        fill: black;
+    }
+    h1{
+        align-self: center;
     }
 }
 
 .top_cont_dark{
     color: var(--color-primary-font);
+    .notesLogo_dark{
+        fill: var(--color-primary-font);
+    }
 }
