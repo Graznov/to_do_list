@@ -51,6 +51,8 @@ function TodayList() {
 
     if(styleSearchStatus){
 
+        document.title = langMap.search
+
         return (
             <div className={cx('cont')}>
                 <h1>{langMap.search}</h1>
@@ -74,6 +76,9 @@ function TodayList() {
     }
 
         if(listName==='All'){
+
+            document.title = langMap.all
+
 
             const afterDay = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate()-1, 23,59,59)//вчерашний день, все что меньше - просрочено
             let AllfilterArr = list.filter(item => new Date(item.dueDate) > afterDay)
@@ -105,6 +110,7 @@ function TodayList() {
             let filterCompletedArr = list.filter(item=>new Date(item.dueDate)<afterDay)
             if(ActyveTag.length) filterCompletedArr = filterCompletedArr.filter(item=>ActyveTag.includes(item.category))
 
+            document.title = langMap.trash
             return (
                 <div className={cx('cont')}>
                     <h1 className={cx('adaptiveNameList')}>{langMap.trash}</h1>
@@ -129,6 +135,7 @@ function TodayList() {
 
             let filterCompletedArr = list.filter(item=>item.isCompleted)
             if(ActyveTag.length) filterCompletedArr = filterCompletedArr.filter(item=>ActyveTag.includes(item.category))
+            document.title = langMap.completed
 
 
             return (
@@ -160,6 +167,7 @@ function TodayList() {
             const completedFilterArr = list.filter(item=>!item.isCompleted)
             let TodayfilterArr = completedFilterArr.filter(item=>item.dueDate.split('T')[0]===currentDate)
             if(ActyveTag.length) TodayfilterArr = TodayfilterArr.filter(item=>ActyveTag.includes(item.category))
+            document.title = langMap.today
 
             return (
                 <div className={cx('cont')}>
@@ -185,6 +193,7 @@ function TodayList() {
             );
 
         } else if(listName==='Next 7 days'){
+            document.title = langMap.nextSevenDays
 
             return (
                 <>

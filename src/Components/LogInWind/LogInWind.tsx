@@ -157,12 +157,6 @@ export const LogInWind = () => {
 
         <div className={cx('containerLogIn')}>
 
-
-            {/*<Title_3*/}
-            {/*    ClassNameTitle_3={styles.input_area_Zag}*/}
-            {/*    title_text={langMap.logIn}*/}
-            {/*/>*/}
-
             <h3 className={cx('input_area_Zag', {
                 'input_area_Zag_dark': theme === 'dark'
             })}>

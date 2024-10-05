@@ -216,7 +216,10 @@
     }
 
     .AddTaskContainerBtn_dark{
-        background: var(--color-secondary-bg);
+        background: var(--color-primary);
+    }
+    .AddTaskContainerBtn_dark:hover{
+        background: var(--color-primary-hover);
     }
 }
 

@@ -2,12 +2,17 @@ import styles from "./topCont.module.css";
 import classNames from "classnames/bind";
 import {useAppSelector} from "../../Store/hooks.ts";
 import {ReactComponent as NoteLogo} from "/src/assets/note.svg";
+import {useEffect} from "react";
 
 const cx = classNames.bind(styles);
 
 function TopCont(){
-    const theme = useAppSelector(state => state.styleSlice.theme)
 
+    useEffect(() => {
+        document.title = 'maybe later...'
+    }, []);
+
+    const theme = useAppSelector(state => state.styleSlice.theme)
     return(
         <div className={cx('top_cont',{
             'top_cont_dark':theme === 'dark'
@@ -16,7 +21,7 @@ function TopCont(){
                 'notesLogo_dark':theme==='dark'
             })}/>
 
-            <h1>Focus flow</h1>
+            <h1>maybe later...</h1>
         </div>
     )
 }
