@@ -499,11 +499,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(141, 140, 140, 0.9);
+            /*background: rgba(141, 140, 140, 0.9);*/
+            background: var(--color-secondary-bg);
             z-index: 1;
 
-
         }
+
+
 
         .work_container_rightPanel{
             position: relative;
