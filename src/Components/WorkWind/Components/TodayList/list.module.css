@@ -5,6 +5,8 @@
     /*height: 10vh;*/
     overflow: auto;
     margin: 120px auto 90px auto;
+/*min-width: 300px;*/
+/*    width: 620px;*/
 
     .adaptiveNameList{
         display: none;
@@ -12,7 +14,9 @@
 
     .content{
         margin-top: 15px;
-        width: 370px;
+        width: 400px;
+        /*min-width: 300px;*/
+        /*max-height: 470px;*/
         height: max-content;
 
     }

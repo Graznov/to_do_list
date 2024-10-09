@@ -148,7 +148,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"blue",
         description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ",
-        dueDate:"2024-10-08T00:00:00.000Z",
+        dueDate:"2024-10-09T00:00:00.000Z",
         id:"sdf khj kjh ghks df 424.",
         isCompleted:false,
         title:"17 заплатить за работу"
@@ -319,7 +319,7 @@ const Temp:Array<Task> = [
         category:"work",
         color:"blue",
         description:"Lorem ipsum dolor  ",
-        dueDate:"2024-10-16T00:00:00.000Z",
+        dueDate:"2024-10-09T00:00:00.000Z",
         id:"sdf khjg sd gkh khfjk sdf 42n4",
         isCompleted:false,
         title:"36 выпить воды"

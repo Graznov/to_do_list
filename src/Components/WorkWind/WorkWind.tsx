@@ -248,7 +248,7 @@ function WorkWind() {
                                 setSearchInput('')
                             }}
                             adress={'/workwindow/trash'}
-                                      logo={<LogoTrash className={cx('logogo')}
+                                      logo={<LogoTrash className={cx('logogo', 'logoTrash')}
                                                        width={'30px'}
                                                        heidth={'30px'}/>}
                                       text_btn={langMap.trash}

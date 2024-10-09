@@ -59,6 +59,9 @@
         .logogo {
             fill: none;
         }
+        .logoTrash{
+            stroke: black;
+        }
 
 
         .work_container_leftPanel_Top{
