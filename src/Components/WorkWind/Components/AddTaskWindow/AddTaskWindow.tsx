@@ -41,7 +41,9 @@ export const AddTaskWindow = () => {
         dueDate: '',
         category: '',
         color: '',
-        isCompleted: false
+        isCompleted: false,
+        createdAt: '',
+        updateAt: ''
     })
     useEffect(() => {
         setVall({
@@ -51,7 +53,9 @@ export const AddTaskWindow = () => {
             dueDate: '',
             category: '',
             color: '',
-            isCompleted: false
+            isCompleted: false,
+            createdAt: '',
+            updateAt: ''
         })
     }, [styleWindAddTask]);
 
@@ -79,7 +83,21 @@ export const AddTaskWindow = () => {
 
     const yourDate = new Date().toISOString().split('T')[0]
 
+    // console.log(new Date().toISOString())
+
     const langMap = lang === 'ru' ? russ:eng
+
+    // function createDate():string{
+    //     return new Date(new Date().toISOString()).toLocaleString(lang, {
+    //         year: 'numeric',
+    //         month: 'long',
+    //         day: 'numeric',
+    //         weekday: 'long',
+    //         hour: 'numeric',
+    //         minute: 'numeric',
+    //         // timezone: 'UTC',
+    //     })
+    // }
 
     return (
         <form
@@ -264,7 +282,9 @@ export const AddTaskWindow = () => {
                                     dueDate: vall.dueDate+'T00:00:00.000Z',
                                     category: vall.category,
                                     color: vall.color,
-                                    isCompleted: false
+                                    isCompleted: false,
+                                    createdAt:new Date().toISOString(),
+                                    updatedAt:vall.updateAt
                                 }
                             ))
                     } else {

@@ -66,22 +66,39 @@
 
         /*///////*/
 
-        .missTag{
-            font-size: 13px;
-            /*padding: 5px;*/
-            /*height: 29px;*/
+        .mission-textContent_top{
+            display: flex;
+            justify-content: space-between;
 
-            /*min-width: 30%;*/
-            text-align: center;
-            border-radius: 3px;
 
-            /*///////*/
-            width: 80px;
-            overflow: hidden;
-            padding: 3px;
-            align-self: flex-end;
-            /*///////*/
+            .dates{
+                font-size: 12px;
+            }
+            .mission-textContent_top_dates {
+
+
+            }
+            .missTag{
+                align-self: center;
+                font-size: 13px;
+                /*padding: 5px;*/
+                /*height: 29px;*/
+
+                /*min-width: 30%;*/
+                text-align: center;
+                border-radius: 3px;
+
+                /*///////*/
+                width: 80px;
+                overflow: hidden;
+                padding: 3px;
+                /*align-self: flex-end;*/
+                /*///////*/
+            }
         }
+
+
+
         .missTagGray{
             background: #c7c4c4;
         }

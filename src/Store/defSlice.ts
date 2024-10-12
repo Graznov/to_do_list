@@ -7,7 +7,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-12T00:00:00.000Z",
         id:"sdfsпппkdf 42f4",
         isCompleted:false,
-        title:"1 Попить пива"
+        title:"1 Попить пива",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"",
     },
     {
         category:"Week",
@@ -16,7 +18,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-12T00:00:00.000Z",
         id:"sdfsdsааghjaddf 424.",
         isCompleted:false,
-        title:"2 Поспать"
+        title:"2 Поспать",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"",
     },
     {
         category:"Game",
@@ -25,7 +29,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-16T00:00:00.000Z",
         id:"sdfsdsрвапрkвaddf 4264.",
         isCompleted:false,
-        title:"3 постирать"
+        title:"3 постирать",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Work",
@@ -34,7 +40,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sdfsdsadрпkарdf 42486yh.",
         isCompleted:false,
-        title:"4 поиграть и поесть"
+        title:"4 поиграть и поесть",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -43,7 +51,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-13T00:00:00.000Z",
         id:"sdfkjkjhkhsdf 4g24",
         isCompleted:false,
-        title:"5 забить болт"
+        title:"5 забить болт",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -52,7 +62,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-14T00:00:00.000Z",
         id:"sdfsdf 42hljkjl4",
         isCompleted:false,
-        title:"6 выпить пиваса"
+        title:"6 выпить пиваса",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -61,7 +73,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-19T00:00:00.000Z",
         id:"sdfshdjhkl;h f 4g24",
         isCompleted:false,
-        title:"7 покататься на велике"
+        title:"7 покататься на велике",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -70,7 +84,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-16T00:00:00.000Z",
         id:"sdfsdf ghjk,mghjk 42h4",
         isCompleted:false,
-        title:"8 посмотреть кино"
+        title:"8 посмотреть кино",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -79,7 +95,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sdfskjh jhk df 42b,4",
         isCompleted:false,
-        title:"9 поработать за компьютером"
+        title:"9 поработать за компьютером",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -88,7 +106,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-14T00:00:00.000Z",
         id:"sdfs khjk hdfm 42n4",
         isCompleted:false,
-        title:"10 убраться в доме"
+        title:"10 убраться в доме",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -97,7 +117,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sdfs khk df 4b2,4",
         isCompleted:false,
-        title:"11 поработать во дворе"
+        title:"11 поработать во дворе",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -106,7 +128,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-12T00:00:00.000Z",
         id:"sdf khjgkh   khfjk sdf 42n4",
         isCompleted:false,
-        title:"12 поработать в доме"
+        title:"12 поработать в доме",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -115,7 +139,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-12T00:00:00.000Z",
         id:"sdf khjk khjk hjkjsdf 4bm24",
         isCompleted:false,
-        title:"13 подстричь газон"
+        title:"13 подстричь газон",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -124,7 +150,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-11T00:00:00.000Z",
         id:"sdf  khjk  hjjsdf 42m,4",
         isCompleted:false,
-        title:"14 поиграть в компьютер"
+        title:"14 поиграть в компьютер",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -133,7 +161,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-12T00:00:00.000Z",
         id:"sdfsd kjhk kf 42./4",
         isCompleted:false,
-        title:"15 почитать книгу"
+        title:"15 почитать книгу",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -142,7 +172,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-13T00:00:00.000Z",
         id:"sddfsd kjh kjh saddk789df 424.",
         isCompleted:false,
-        title:"16 полить газон"
+        title:"16 полить газон",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -151,7 +183,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-09T00:00:00.000Z",
         id:"sdf khj kjh ghks df 424.",
         isCompleted:false,
-        title:"17 заплатить за работу"
+        title:"17 заплатить за работу",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -160,7 +194,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-12T00:00:00.000Z",
         id:"sdf kjh khjkfghjkf ghjsd9k 9saddf 424.",
         isCompleted:false,
-        title:"18 вызвать доставку"
+        title:"18 вызвать доставку",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -169,7 +205,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-16T00:00:00.000Z",
         id:"sdffd jkhgf ghjkksd  87 k saddf 424.",
         isCompleted:false,
-        title:"19 заплатить налоги"
+        title:"19 заплатить налоги",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -178,7 +216,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-18T00:00:00.000Z",
         id:"sdfsds kjghfkadfdd99f 4k24.",
         isCompleted:false,
-        title:"20 купить книгу"
+        title:"20 купить книгу",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -187,7 +227,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-12T00:00:00.000Z",
         id:"sdfsdd kjfhjk sfsadd876f h424.",
         isCompleted:false,
-        title:"21 посмотреть телевизор"
+        title:"21 посмотреть телевизор",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Week",
@@ -196,7 +238,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sdfsds kjhf addf d6785sfg4b24.",
         isCompleted:false,
-        title:"22 подстричь газон"
+        title:"22 подстричь газон",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Week",
@@ -205,7 +249,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-17T00:00:00.000Z",
         id:"sdfsds kjhf addf dsfg4f7567gfsd624.",
         isCompleted:false,
-        title:"23 починить велосипед"
+        title:"23 починить велосипед",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Week",
@@ -214,7 +260,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-19T00:00:00.000Z",
         id:"sdfsds kjhf adddgd6654sf dsfg4fgfsd274.",
         isCompleted:false,
-        title:"24 протереть пыль с телевизора"
+        title:"24 протереть пыль с телевизора",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -223,7 +271,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-17T00:00:00.000Z",
         id:"sdfsпп апвы ппk  df 42f4",
         isCompleted:false,
-        title:"25 умыться и побриться"
+        title:"25 умыться и побриться",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Week",
@@ -232,7 +282,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sd fsds ааg gdhja ddf 424.",
         isCompleted:false,
-        title:"26 проверить уроки"
+        title:"26 проверить уроки",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -241,7 +293,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-16T00:00:00.000Z",
         id:"sdfsdsрвапрkвh dcgh add gf 4264.",
         isCompleted:false,
-        title:"27 почистить картошку"
+        title:"27 почистить картошку",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Work",
@@ -250,7 +304,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sdfsdsadрп gdfkарdf 42486gg syh.",
         isCompleted:false,
-        title:"28 сделать поиск в тудухе"
+        title:"28 сделать поиск в тудухе",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -259,7 +315,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-18T00:00:00.000Z",
         id:"sdfkjkjhkh gdsdf 4g24",
         isCompleted:false,
-        title:"29 выучить уроки"
+        title:"29 выучить уроки",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -268,7 +326,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-19T00:00:00.000Z",
         id:"sdfhfd gdhsdf 42hljkjl 4",
         isCompleted:false,
-        title:"30 сходить в магазин"
+        title:"30 сходить в магазин",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -277,7 +337,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-16T00:00:00.000Z",
         id:"sdfshfhj hdfd hdjhkl;h f 4g24",
         isCompleted:false,
-        title:"31 подстричься"
+        title:"31 подстричься",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -286,7 +348,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-19T00:00:00.000Z",
         id:"sdfsdf gh tfd jk,mghjk 42h4",
         isCompleted:false,
-        title:"32 почистить кабачок"
+        title:"32 почистить кабачок",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -295,7 +359,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-16T00:00:00.000Z",
         id:"sd g  h egfskjh jhk df 42b,4",
         isCompleted:false,
-        title:"33 позвонить на работу"
+        title:"33 позвонить на работу",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -304,7 +370,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-14T00:00:00.000Z",
         id:"sdfs kh g jk hdfm 42n4",
         isCompleted:false,
-        title:"34 вызвать курьера"
+        title:"34 вызвать курьера",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -313,7 +381,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-13T00:00:00.000Z",
         id:"sdfs k gh  hd hk df 4b2,4",
         isCompleted:false,
-        title:"34 убраться в сарае"
+        title:"34 убраться в сарае",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -322,7 +392,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-09T00:00:00.000Z",
         id:"sdf khjg sd gkh khfjk sdf 42n4",
         isCompleted:false,
-        title:"36 выпить воды"
+        title:"36 выпить воды",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -331,7 +403,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-18T00:00:00.000Z",
         id:"sdf khjk kh gh h jk hjkjs df 4bm24",
         isCompleted:false,
-        title:"37 позвонить другу"
+        title:"37 позвонить другу",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -340,7 +414,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sdf  khjk  hjjh d h d sdf 42m,4",
         isCompleted:false,
-        title:"38 убраться в машине"
+        title:"38 убраться в машине",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -349,7 +425,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-07T00:00:00.000Z",
         id:"sdfs gd gh d kjhk kf 42./ 4",
         isCompleted:false,
-        title:"39 вызвать такси"
+        title:"39 вызвать такси",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -358,7 +436,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-18T00:00:00.000Z",
         id:"sddg s fsd kjh kjh saddk789df 424.",
         isCompleted:false,
-        title:"40 прокатиться в город на велосипеде"
+        title:"40 прокатиться в город на велосипеде",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -367,7 +447,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-10T00:00:00.000Z",
         id:"sdf khj kjh g gsd hks df 424.",
         isCompleted:false,
-        title:"41 побриться"
+        title:"41 побриться",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -376,7 +458,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-10T00:00:00.000Z",
         id:"sdf kjh khjkfghjkf ghg s fg 634 jsd9k 9saddf 424.",
         isCompleted:false,
-        title:"42 выпить пива"
+        title:"42 выпить пива",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -385,7 +469,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-12T00:00:00.000Z",
         id:"sdffd jkhgf ghjkk gd6rt sd  87 k saddf 424.",
         isCompleted:false,
-        title:"43 помыть цепь на велостпеде"
+        title:"43 помыть цепь на велостпеде",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -394,7 +480,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-19T00:00:00.000Z",
         id:"sdfsds kjg gheg ge4563tg hfkadfdd99f 4k24.",
         isCompleted:false,
-        title:"44 выспаться"
+        title:"44 выспаться",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -403,7 +491,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-17T00:00:00.000Z",
         id:"sdfsdd kjfhjk sfsghfd gdsgwe rgefadd876f h424.",
         isCompleted:false,
-        title:"45 почистить фильтр"
+        title:"45 почистить фильтр",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Week",
@@ -412,7 +502,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sdfsds kjhf addf d6785g fdsgw 53 sfg4b24.",
         isCompleted:false,
-        title:"46 поиграть в футбол"
+        title:"46 поиграть в футбол",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Week",
@@ -421,7 +513,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-17T00:00:00.000Z",
         id:"sdfsds kjhf addf dsfg4f75hg gdfhg 4435 67gfsd624.",
         isCompleted:false,
-        title:"47 позвонить по важному вопросу"
+        title:"47 позвонить по важному вопросу",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Week",
@@ -430,7 +524,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-13T00:00:00.000Z",
         id:"sdfsds kjhf adddg g 43 5 dghjklgd6654sf dsfg4fgfsd274.",
         isCompleted:false,
-        title:"48 поиграть в приставку"
+        title:"48 поиграть в приставку",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"Game",
@@ -439,7 +535,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-16T00:00:00.000Z",
         id:"sdfsds kjhf ad f f fddg g 43 5 dghjklgd6654sf dsfg4fgfsd274.",
         isCompleted:false,
-        title:"49 Поиграть в шашки"
+        title:"49 Поиграть в шашки",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     },
     {
         category:"work",
@@ -448,7 +546,9 @@ const Temp:Array<Task> = [
         dueDate:"2024-10-15T00:00:00.000Z",
         id:"sdfsds kjhf add аdg g 43 5 dghjkдлртlgd6654sf dsfg4fgfsd274.",
         isCompleted:false,
-        title:"50 Выполнить домашнее задание"
+        title:"50 Выполнить домашнее задание",
+        createdAt:"2024-10-16T00:00:00.000Z",
+        updatedAt:"2024-10-16T00:00:00.000Z",
     }
 ]
 export interface Task {
@@ -458,7 +558,9 @@ export interface Task {
     dueDate: string,
     category: string,
     color: string,
-    isCompleted: boolean
+    isCompleted: boolean,
+    createdAt:string,
+    updatedAt:string,
 }
 export interface TaskState{
     tasks:Task[]

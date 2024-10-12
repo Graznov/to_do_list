@@ -51,7 +51,9 @@ export const eng:{
         RegistrWinNameError: string;
         logInWindBtn: string;
         registration:string;
-        logIn:string
+        logIn:string,
+        createdAt:string,
+        updatedAt:string
 } = {
         work_left_theme:'Theme',
         work_left_lang:'Lang',
@@ -105,5 +107,8 @@ export const eng:{
         RegistrWinAlrHavAnAcc:'Already have an account? ',
         RegistrWinBtnLogIn:'Login',
         registration:'Sign Up',
-        logIn:'Log In'
+        logIn:'Log In',
+        createdAt:'Created: ',
+        updatedAt:'Udtated: '
+
 }

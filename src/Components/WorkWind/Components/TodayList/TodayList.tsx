@@ -66,6 +66,8 @@ function TodayList() {
                                 key={item.id}
                                 color={item.color}
                                 isCompleted={item.isCompleted}
+                                createdAt={item.createdAt}
+                                updatedAt={item.updatedAt}
                             />
                         ))
                     }
@@ -98,6 +100,8 @@ function TodayList() {
                                     key={item.id}
                                     color={item.color}
                                     isCompleted={item.isCompleted}
+                                    createdAt={item.createdAt}
+                                    updatedAt={item.updatedAt}
                                 />
                             ))
                         }
@@ -125,6 +129,8 @@ function TodayList() {
                                     key={item.id}
                                     color={item.color}
                                     isCompleted={item.isCompleted}
+                                    createdAt={item.createdAt}
+                                    updatedAt={item.updatedAt}
                                 />
                             ))
                         }
@@ -151,6 +157,8 @@ function TodayList() {
                                     key={item.id}
                                     color={item.color}
                                     isCompleted={item.isCompleted}
+                                    createdAt={item.createdAt}
+                                    updatedAt={item.updatedAt}
                                 />
                             ))
                         }
@@ -185,6 +193,8 @@ function TodayList() {
                                     key={item.id}
                                     color={item.color}
                                     isCompleted={item.isCompleted}
+                                    createdAt={item.createdAt}
+                                    updatedAt={item.updatedAt}
                                 />
                             ))
                         }
@@ -212,6 +222,8 @@ function TodayList() {
                                             key={item.id}
                                             color={item.color}
                                             isCompleted={item.isCompleted}
+                                            createdAt={item.createdAt}
+                                            updatedAt={item.updatedAt}
                                         />
                                     ))
                                 }
@@ -231,6 +243,8 @@ function TodayList() {
                                             key={item.id}
                                             color={item.color}
                                             isCompleted={item.isCompleted}
+                                            createdAt={item.createdAt}
+                                            updatedAt={item.updatedAt}
                                         />
                                     ))
                                 }
@@ -249,6 +263,8 @@ function TodayList() {
                                             key={item.id}
                                             color={item.color}
                                             isCompleted={item.isCompleted}
+                                            createdAt={item.createdAt}
+                                            updatedAt={item.updatedAt}
                                         />
                                     ))
                                 }
@@ -267,6 +283,8 @@ function TodayList() {
                                             key={item.id}
                                             color={item.color}
                                             isCompleted={item.isCompleted}
+                                            createdAt={item.createdAt}
+                                            updatedAt={item.updatedAt}
                                         />
                                     ))
                                 }
@@ -285,6 +303,8 @@ function TodayList() {
                                             key={item.id}
                                             color={item.color}
                                             isCompleted={item.isCompleted}
+                                            createdAt={item.createdAt}
+                                            updatedAt={item.updatedAt}
                                         />
                                     ))
                                 }
@@ -303,6 +323,8 @@ function TodayList() {
                                             key={item.id}
                                             color={item.color}
                                             isCompleted={item.isCompleted}
+                                            createdAt={item.createdAt}
+                                            updatedAt={item.updatedAt}
                                         />
                                     ))
                                 }
@@ -321,6 +343,8 @@ function TodayList() {
                                             key={item.id}
                                             color={item.color}
                                             isCompleted={item.isCompleted}
+                                            createdAt={item.createdAt}
+                                            updatedAt={item.updatedAt}
                                         />
                                     ))
                                 }

@@ -8,6 +8,7 @@ import {ReactComponent as Pencil} from "/public/pencil.svg";
 import {eng} from "../../../../Store/En.ts";
 import {russ} from "../../../../Store/Ru.ts";
 
+
 const cx = classNames.bind(styles);
 
 interface MissionProps {
@@ -16,10 +17,12 @@ interface MissionProps {
     color:string,
     listName?:string,
     id:string,
-    isCompleted:boolean
+    isCompleted:boolean,
+    createdAt:string,
+    updatedAt:string
 }
 
-export function Mission({tag, text, color, listName, id, isCompleted}:MissionProps) {
+export function Mission({tag, text, color, listName, id, isCompleted, createdAt, updatedAt}:MissionProps) {
     const lang = useAppSelector(state => state.styleSlice.language)
     // const lang = localStorage.getItem('lang')
 
@@ -35,7 +38,9 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
         dueDate:"0000-00-00",
         id:"___.",
         isCompleted:false,
-        title:"___"
+        title:"___",
+        createdAt: '',
+        updatedAt: ''
     })
 
     const [DeletedWind, setDeletedWind] = useState<boolean>(false)
@@ -77,6 +82,19 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
         };
     }, []);
 
+    function createDate(str:string):string{
+        return new Date(str).toLocaleString(lang, {
+            year: 'numeric',
+            // month: 'long',
+            month: 'numeric',
+            day: 'numeric',
+            weekday: 'long',
+            hour: 'numeric',
+            minute: 'numeric',
+            // timezone: 'UTC',
+        })
+    }
+
     return (
         
         <div ref={missionChange}
@@ -110,7 +128,15 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                     }}
                     className={cx('mission-textContent')}
                 >
-                    <div className={ClassTag}>{tag}</div>
+                    <div className={cx('mission-textContent_top')}>
+                        <div className={'mission-textContent_top_dates'}>
+                            <div className={cx('dates', 'created')}>{langMap.createdAt}{createDate(createdAt)}</div>
+                            <div className={cx('dates', 'updated')}>{langMap.updatedAt}{(updatedAt.length) ? createDate(updatedAt) : ''}</div>
+                        </div>
+
+                        <div className={ClassTag}>{tag}</div>
+                    </div>
+
                     <div className={cx('missText')}>{text}</div>
                 </div>
             </div>
@@ -120,8 +146,8 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
 
                 className={cx('missionChange', {
                     'missionChangeActive': isOpen,
-                    'missionChange_dark':theme==='dark',
-            })}>
+                    'missionChange_dark': theme === 'dark',
+                })}>
                 <div className={cx('input-area_content',{
 
                 })}>
@@ -278,7 +304,10 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                     className={cx('btnArea')}>
                     <button
                         onClick={() => {
-
+                            setVall({
+                                ...vall,
+                                updatedAt: new Date().toISOString().toString()
+                            })
                             if(disabled) {
                                 setDisabled(false)
                             } else {
@@ -286,7 +315,6 @@ export function Mission({tag, text, color, listName, id, isCompleted}:MissionPro
                                 dispatch(defChangeTask(vall))
                                 setIsOpen(!isOpen)
                             }
-
 
                         }}>
                         <Pencil
