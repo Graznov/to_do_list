@@ -72,6 +72,7 @@
 
 
             .dates{
+                color: var(--color-primmary-icon);
                 font-size: 12px;
             }
             .mission-textContent_top_dates {
