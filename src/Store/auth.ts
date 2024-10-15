@@ -1,11 +1,20 @@
 import {createSlice} from '@reduxjs/toolkit'
+import {AuthDataResponse, ErrorResponse, FetchStatus} from "../types.ts";
 
-export interface auth {
 
+
+export interface Auth {
+    authData: AuthDataResponse | null,
+    authFetchStatus: FetchStatus,
+    error: ErrorResponse | null,
+    isAuth:boolean
 }
 
-const initialState:auth = {
-
+const initialState:Auth = {
+    authData:null,
+    authFetchStatus: 'idle',
+    error: null,
+    isAuth:false
 }
 
 const auth = createSlice({
