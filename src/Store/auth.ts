@@ -1,4 +1,4 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {AuthDataResponse, ErrorResponse, FetchStatus} from "../types.ts";
 
 
@@ -20,15 +20,46 @@ const initialState:Auth = {
 const auth = createSlice({
     name: 'auth',
     initialState,
+    selectors: {
+        selectAuthData: (state) => state.authData,
+        selectAuthFetchStatus: (state) => state.authFetchStatus,
+        selectError: (state) => state.error,
+        selectIsAuth: (state) => state.isAuth,
+    },
     reducers:{
+
+        setToken(state, action: PayloadAction<string>) {
+            if (state.authData?.accessToken) {
+                    state.authData.accessToken = action.payload;
+                }
+        },
+
 
 
     },
 
+    extraReducers: (builder) => {
+        builder
+            .addCase(registrationRequest.pending, (state) => {
+                state.authFetchStatus = 'loading';
+                state.error = null;
+
+            })
+            .addCase(registrationRequest.fulfilled, (state, action) => {
+                state.authFetchStatus = 'succeeded';
+                state.authData = action.payload;
+                state.error = null;
+                state.isAuth = true
+            })
+    }
+
+
 })
 
-export const {
+export const { selectAuthData } = auth.selectors;
 
+export const {
+    setToken,
 
 } = auth.actions;
 export default auth.reducer

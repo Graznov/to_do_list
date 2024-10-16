@@ -13,4 +13,4 @@ export type ErrorResponse = {
     path: string;
 }
 
-export type FetchStatus =  'idle' | 'failed' | 'succeeded' ;
+export type FetchStatus =  'idle' | 'failed' | 'succeeded' | 'loading';
