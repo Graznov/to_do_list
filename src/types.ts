@@ -14,3 +14,10 @@ export type ErrorResponse = {
 }
 
 export type FetchStatus =  'idle' | 'failed' | 'succeeded' | 'loading';
+
+export interface RegistrationRequest{
+    username:string,
+    email: string,
+    password: string,
+    confirmPassword: string
+}

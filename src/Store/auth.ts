@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {AuthDataResponse, ErrorResponse, FetchStatus} from "../types.ts";
+import {registrationRequest} from "./authThunk.ts";
 
 
 
@@ -51,6 +52,11 @@ const auth = createSlice({
                 state.error = null;
                 state.isAuth = true
             })
+            .addCase(registrationRequest.rejected, (state, action) => {
+                state.authFetchStatus = 'failed';
+                state.error = action.payload
+            })
+
     }
 
 
