@@ -2,8 +2,6 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {AuthDataResponse, ErrorResponse, FetchStatus} from "../types.ts";
 import {registrationRequest} from "./authThunk.ts";
 
-
-
 export interface Auth {
     authData: AuthDataResponse | null,
     authFetchStatus: FetchStatus,
@@ -28,13 +26,11 @@ const auth = createSlice({
         selectIsAuth: (state) => state.isAuth,
     },
     reducers:{
-
         setToken(state, action: PayloadAction<string>) {
             if (state.authData?.accessToken) {
                     state.authData.accessToken = action.payload;
                 }
         },
-
     },
 
     extraReducers: (builder) => {
@@ -56,7 +52,6 @@ const auth = createSlice({
             })
 
     }
-
 
 })
 

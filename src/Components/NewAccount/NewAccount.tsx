@@ -260,6 +260,10 @@ export const NewAccount = () => {
     }
 // ... показать/скрыть пароль
 
+    // const clickBtn = () => {
+    //     console.log('click button')
+    // }
+
     return(
 
         <div className={cx('registrContainer')}>
@@ -354,8 +358,25 @@ export const NewAccount = () => {
                     <Btn
                         ClassNameBtn={ClassBtn}
                         Btn_text={langMap.RegistrWinBtnRegistr}
-                        type='submit'
+                        type='button'
+                        // disabled='true'
+                        // onClick={clickBtn}
+                        onClick={()=>{
+                            console.log('click button button')
+                        }}
                     />
+
+                    {/*<button*/}
+                    {/*    className={ClassBtn}*/}
+                    {/*    type='button'*/}
+                    {/*    onClick={()=>{*/}
+                    {/*        console.log('click button button')*/}
+                    {/*        // dispatch(registrationRequest())*/}
+                    {/*        console.log(form)*/}
+                    {/*    }}>*/}
+                    {/*    {langMap.RegistrWinBtnRegistr}*/}
+                    {/*</button>*/}
+
                     <div className={cx('toLogin',{
                         'toLogin_dark':theme==='dark'
                     })}>
