@@ -1,6 +1,5 @@
 import styles from "./newAccount.module.css";
 import {Input} from "../ui-kit/Input.tsx";
-import Btn from "../ui-kit/Btn.tsx";
 import {FocusEvent, useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import {NavLink} from "react-router-dom";
@@ -8,6 +7,7 @@ import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
 import {setLang} from "../../Store/styleSlise.ts";
 import {russ} from "../../Store/Ru.ts";
 import {eng} from "../../Store/En.ts";
+import {registrationRequest} from "../../Store/authThunk.ts";
 
 const cx = classNames.bind(styles);
 
@@ -35,11 +35,11 @@ export const NewAccount = () => {
         password: '',
     })
 
-    const ClassBtn = cx('classNameBtn', {
-        'classNameBtnDiss': (!form.name || !form.email || !form.password),
-        'classNameBtnDiss_dark':theme==='dark' && (!form.name || !form.email || !form.password),
-        'classNameBtn_dark':theme=='dark'
-    })
+    // const ClassBtn = cx('classNameBtn', {
+    //     'classNameBtnDiss': (!form.name || !form.email || !form.password),
+    //     'classNameBtnDiss_dark':theme==='dark' && (!form.name || !form.email || !form.password),
+    //     'classNameBtn_dark':theme=='dark'
+    // })
     const [upper, setUpper] = useState(false) //для загл буквы пароля
     const [numberInPass, setNumberInPass] = useState(false)
 
@@ -264,6 +264,7 @@ export const NewAccount = () => {
     //     console.log('click button')
     // }
 
+
     return(
 
         <div className={cx('registrContainer')}>
@@ -355,27 +356,25 @@ export const NewAccount = () => {
                         classNameBtn={styles.classInputBtn}
                     />
 
-                    <Btn
-                        ClassNameBtn={ClassBtn}
-                        Btn_text={langMap.RegistrWinBtnRegistr}
+                    <button
+                        disabled={(!form.name || !form.email || !form.password)}
+                        className={cx('classNameBtn', {
+                            'classNameBtnDiss': (!form.name || !form.email || !form.password),
+                            'classNameBtnDiss_dark':theme==='dark' && (!form.name || !form.email || !form.password),
+                            'classNameBtn_dark':theme=='dark'
+                        })}
                         type='button'
-                        // disabled='true'
-                        // onClick={clickBtn}
                         onClick={()=>{
-                            console.log('click button button')
-                        }}
-                    />
-
-                    {/*<button*/}
-                    {/*    className={ClassBtn}*/}
-                    {/*    type='button'*/}
-                    {/*    onClick={()=>{*/}
-                    {/*        console.log('click button button')*/}
-                    {/*        // dispatch(registrationRequest())*/}
-                    {/*        console.log(form)*/}
-                    {/*    }}>*/}
-                    {/*    {langMap.RegistrWinBtnRegistr}*/}
-                    {/*</button>*/}
+                            console.log('click button button\n',form)
+                            dispatch(registrationRequest({
+                                username:form.name,
+                                email: form.email,
+                                password: form.password,
+                                confirmPassword: form.password
+                            }))
+                        }}>
+                        {langMap.RegistrWinBtnRegistr}
+                    </button>
 
                     <div className={cx('toLogin',{
                         'toLogin_dark':theme==='dark'

@@ -1,6 +1,5 @@
 import styles from "./logInWind.module.css";
 import {Input} from "../ui-kit/Input.tsx";
-import Btn from "../ui-kit/Btn.tsx";
 import {FocusEvent, useEffect, useState} from "react";
 import classNames from "classnames/bind";
 import {NavLink} from "react-router-dom";
@@ -35,11 +34,11 @@ export const LogInWind = () => {
         password: '',
     })
 
-    const ClassBtn = cx('classNameBtn', {
-        classNameBtnDiss: (!formLogin.email || !formLogin.password),
-        'classNameBtnDiss_dark':theme==='dark' && (!formLogin.email || !formLogin.password),
-        'classNameBtn_dark':theme=='dark'
-    })
+    // const ClassBtn = cx('classNameBtn', {
+    //     classNameBtnDiss: (!formLogin.email || !formLogin.password),
+    //     'classNameBtnDiss_dark':theme==='dark' && (!formLogin.email || !formLogin.password),
+    //     'classNameBtn_dark':theme=='dark'
+    // })
     const [upper, setUpper] = useState(false) //для загл буквы пароля
     const [numberInPass, setNumberInPass] = useState(false)
 
@@ -203,11 +202,19 @@ export const LogInWind = () => {
                     classNameBtn={styles.classInputBtn}
                 />
 
-                <Btn
-                    ClassNameBtn={ClassBtn}
-                    Btn_text={langMap.logInWindBtn}
-                    type='submit'
-                />
+                <button
+                    disabled={(!formLogin.email || !formLogin.password)}
+                    className={cx('classNameBtn', {
+                        'classNameBtnDiss': (!formLogin.email || !formLogin.password),
+                        'classNameBtnDiss_dark':theme==='dark' && (!formLogin.email || !formLogin.password),
+                        'classNameBtn_dark':theme=='dark'
+                    })}
+                    type='button'
+                    onClick={() => {
+                        console.log(`click button button\n`,formLogin)
+                    }}>
+                    {langMap.logInWindBtn}
+                </button>
 
                 <div className={cx('toLogin', {
                     'toLogin_dark': theme === 'dark'
