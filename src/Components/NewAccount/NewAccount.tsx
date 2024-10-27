@@ -241,22 +241,34 @@ export const NewAccount = () => {
     }
 // ...проверка пароля
 
-
+    console.log(theme)
 // кнопка показать/скрыть пароль:
-    const [adress, setAdress] = useState('public/hide_icon.svg')
+    const [adress, setAdress] = useState((theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg')
     const [isShown, setIsShown] = useState(false)
     const isShowChange = () => {
         setIsShown(!isShown)
-        setAdress((adress==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+        // setAdress((adress==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+        if(theme==='dark'){
+            setAdress((adress==='public/hide_icon_dark.svg')?'public/show_icon_dark.svg':'public/hide_icon_dark.svg')
+        } else if(theme==='light') {
+            setAdress((adress==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+        }
     }
     // useEffect(()=>{
     // },[isShown])
 
-    const [adressTwo, setAdressTwo] = useState('public/hide_icon.svg')
+    const [adressTwo, setAdressTwo] = useState((theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg')
     const [isShownTwo, setIsShownTwo] = useState(false)
     const isShowChangeTwo = () => {
         setIsShownTwo(!isShownTwo)
-        setAdressTwo((adressTwo==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+        // setAdressTwo((adressTwo==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+        if(theme==='dark'){
+            setAdressTwo((adressTwo==='public/hide_icon_dark.svg')?'public/show_icon_dark.svg':'public/hide_icon_dark.svg')
+            // setAdressTwo(isShownTwo?'public/hide_icon_dark.svg':'public/show_icon_dark.svg')
+        } else if(theme==='light') {
+            setAdressTwo((adressTwo==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+            // setAdressTwo(!isShownTwo?'public/hide_icon.svg':'public/show_icon.svg')
+        }
     }
 // ... показать/скрыть пароль
 

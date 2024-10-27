@@ -23,7 +23,7 @@ export interface StyleState {
         trash:number
     },
     language:string,
-    theme:string,
+    theme:'light'|'dark',
 }
 
 const initialState:StyleState = {

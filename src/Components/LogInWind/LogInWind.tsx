@@ -18,6 +18,7 @@ export const LogInWind = () => {
     const theme = useAppSelector(state => state.styleSlice.theme)
 
 
+
     useEffect(() => {
         if (!localStorage.getItem('lang')) {
             localStorage.setItem('lang', lang)
@@ -142,13 +143,28 @@ export const LogInWind = () => {
 // ...проверка пароля
 
 
+
+
 // кнопка показать/скрыть пароль:
-    const [adress, setAdress] = useState('public/hide_icon.svg')
+    const [adress, setAdress] = useState((theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg')
     const [isShown, setIsShown] = useState(false)
+
+    // useEffect(() => {
+    //     (theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg'
+    // }, [theme]);
+
     const isShowChange = () => {
+
         setIsShown(!isShown)
-        setAdress((adress==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+
+        if(theme==='dark'){
+            setAdress((adress==='public/hide_icon_dark.svg')?'public/show_icon_dark.svg':'public/hide_icon_dark.svg')
+        } else if(theme==='light') {
+            setAdress((adress==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+        }
+
     }
+    console.log(theme)
 
 // ... показать/скрыть пароль
 
