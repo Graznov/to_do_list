@@ -17,14 +17,11 @@ export const LogInWind = () => {
     const lang = useAppSelector(state => state.styleSlice.language)
     const theme = useAppSelector(state => state.styleSlice.theme)
 
-
-
     useEffect(() => {
         if (!localStorage.getItem('lang')) {
             localStorage.setItem('lang', lang)
         } else {
             dispatch(setLang(localStorage.getItem('lang')));
-
         }
     })
     const langMap = lang === 'ru' ? russ : eng
@@ -35,11 +32,6 @@ export const LogInWind = () => {
         password: '',
     })
 
-    // const ClassBtn = cx('classNameBtn', {
-    //     classNameBtnDiss: (!formLogin.email || !formLogin.password),
-    //     'classNameBtnDiss_dark':theme==='dark' && (!formLogin.email || !formLogin.password),
-    //     'classNameBtn_dark':theme=='dark'
-    // })
     const [upper, setUpper] = useState(false) //для загл буквы пароля
     const [numberInPass, setNumberInPass] = useState(false)
 
@@ -143,26 +135,23 @@ export const LogInWind = () => {
 // ...проверка пароля
 
 
-
-
 // кнопка показать/скрыть пароль:
-    const [adress, setAdress] = useState((theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg')
-    const [isShown, setIsShown] = useState(false)
 
-    // useEffect(() => {
-    //     (theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg'
-    // }, [theme]);
+    const [adress, setAdress] = useState((theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg')
+
+
+
+    const [isShown, setIsShown] = useState(false)
 
     const isShowChange = () => {
 
         setIsShown(!isShown)
 
         if(theme==='dark'){
-            setAdress((adress==='public/hide_icon_dark.svg')?'public/show_icon_dark.svg':'public/hide_icon_dark.svg')
+            setAdress((!isShown)?'public/show_icon_dark.svg':'public/hide_icon_dark.svg')
         } else if(theme==='light') {
-            setAdress((adress==='public/hide_icon.svg')?'public/show_icon.svg':'public/hide_icon.svg')
+            setAdress((!isShown)?'public/show_icon.svg':'public/hide_icon.svg')
         }
-
     }
     console.log(theme)
 
