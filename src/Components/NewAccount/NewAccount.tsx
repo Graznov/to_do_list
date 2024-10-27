@@ -365,13 +365,16 @@ export const NewAccount = () => {
                         })}
                         type='button'
                         onClick={()=>{
-                            console.log('click button button\n',form)
-                            dispatch(registrationRequest({
+
+                            const dispForm = {
                                 username:form.name,
                                 email: form.email,
                                 password: form.password,
                                 confirmPassword: form.password
-                            }))
+                            }
+                            dispatch(registrationRequest(dispForm))
+                            console.log('click button button\n',dispForm)
+
                         }}>
                         {langMap.RegistrWinBtnRegistr}
                     </button>

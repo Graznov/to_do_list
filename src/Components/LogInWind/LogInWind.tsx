@@ -211,7 +211,13 @@ export const LogInWind = () => {
                     })}
                     type='button'
                     onClick={() => {
-                        console.log(`click button button\n`,formLogin)
+
+                        const dispForm = {
+                            email: formLogin.email,
+                            password: formLogin.password
+                        }
+                        console.log(`click button button\n`,dispForm)
+
                     }}>
                     {langMap.logInWindBtn}
                 </button>
