@@ -63,8 +63,16 @@
             img{
                 /*width: 10px;*/
             }
+
+
+        }
+        .logoBtn{
+            fill: black;
         }
 
+        .logoBtn_dark{
+            fill: #A89984;
+        }
         .classNameContainer {
             position: relative;
             width: 40%;

@@ -7,6 +7,8 @@ import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
 import {russ} from "../../Store/Ru.ts";
 import {eng} from "../../Store/En.ts";
 import {setLang} from "../../Store/styleSlise.ts";
+import {ReactComponent as BtnVisiblePass} from "/public/show_icon.svg";
+import {ReactComponent as BtnHiddenPass} from "/public/hide_icon.svg";
 
 const cx = classNames.bind(styles);
 
@@ -25,7 +27,6 @@ export const LogInWind = () => {
         }
     })
     const langMap = lang === 'ru' ? russ : eng
-
 
     const [formLogin, setFormLogin] = useState({
         email: '',
@@ -136,24 +137,11 @@ export const LogInWind = () => {
 
 
 // кнопка показать/скрыть пароль:
-
-    const [adress, setAdress] = useState((theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg')
-
-
-
     const [isShown, setIsShown] = useState(false)
 
     const isShowChange = () => {
-
         setIsShown(!isShown)
-
-        if(theme==='dark'){
-            setAdress((!isShown)?'public/show_icon_dark.svg':'public/hide_icon_dark.svg')
-        } else if(theme==='light') {
-            setAdress((!isShown)?'public/show_icon.svg':'public/hide_icon.svg')
-        }
     }
-    console.log(theme)
 
 // ... показать/скрыть пароль
 
@@ -201,9 +189,8 @@ export const LogInWind = () => {
                         ClassDivErrorVisibl: passOneDirty
                     })}
                     message={passOneError}
-
+                    reactSvg={!isShown? <BtnHiddenPass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>:<BtnVisiblePass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>}
                     onClickBtn={isShowChange}
-                    src={adress}
                     classNameBtn={styles.classInputBtn}
                 />
 

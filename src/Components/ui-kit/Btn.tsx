@@ -1,16 +1,22 @@
 
+interface Btn {
+    Btn_text:string | JSX.Element,
+    ClassNameBtn:string,
+    type:"submit" | "reset" | "button" | undefined,
+    onClick:()=>void,
+}
+
 function Btn({
                 Btn_text,
                 ClassNameBtn,
                 type,
                 onClick,
-                disabled
-             }){
+
+             }:Btn){
 
     return(
         <button
             className={ClassNameBtn}
-            disabled
             onClick={onClick}
             type={type}>
             {Btn_text}

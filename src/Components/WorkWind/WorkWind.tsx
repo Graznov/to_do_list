@@ -315,6 +315,9 @@ function WorkWind() {
                                 ClassNameBtn={cx('headerBtn',{
                                     'headerBtn_dark':theme==='dark'
                                 })}
+                                onClick={()=>{
+                                    console.log('?')
+                                }}
                                 Btn_text={
                                     <LogoQuestion className={cx('logogo')}
                                                   width={'30px'}
@@ -325,6 +328,9 @@ function WorkWind() {
                                 ClassNameBtn={cx('headerBtn',{
                                     'headerBtn_dark':theme==='dark'
                                 })}
+                                onClick={()=>{
+                                    console.log('Dzin-dzin')
+                                }}
                                 Btn_text={
                                     <LogoAlarm className={cx('logogo')}
                                                   width={'30px'}

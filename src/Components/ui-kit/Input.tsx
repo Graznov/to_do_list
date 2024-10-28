@@ -56,6 +56,7 @@ export const Input = (
                 type='button'
                 className={classNameBtn}
                 onClick={onClickBtn}
+
             >
                 {reactSvg}
                 <img src={src} alt=''/>

@@ -7,8 +7,8 @@ import {useAppDispatch, useAppSelector} from "../../Store/hooks.ts";
 import {setLang} from "../../Store/styleSlise.ts";
 import {russ} from "../../Store/Ru.ts";
 import {eng} from "../../Store/En.ts";
-import {registrationRequest} from "../../Store/authThunk.ts";
-
+import {ReactComponent as BtnVisiblePass} from "/public/show_icon.svg";
+import {ReactComponent as BtnHiddenPass} from "/public/hide_icon.svg";
 const cx = classNames.bind(styles);
 
 
@@ -35,11 +35,6 @@ export const NewAccount = () => {
         password: '',
     })
 
-    // const ClassBtn = cx('classNameBtn', {
-    //     'classNameBtnDiss': (!form.name || !form.email || !form.password),
-    //     'classNameBtnDiss_dark':theme==='dark' && (!form.name || !form.email || !form.password),
-    //     'classNameBtn_dark':theme=='dark'
-    // })
     const [upper, setUpper] = useState(false) //для загл буквы пароля
     const [numberInPass, setNumberInPass] = useState(false)
 
@@ -241,27 +236,15 @@ export const NewAccount = () => {
     }
 // ...проверка пароля
 
-    // console.log(theme)
 // кнопка показать/скрыть пароль:
-    const [adress, setAdress] = useState((theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg')
     const [isShown, setIsShown] = useState(false)
     const isShowChange = () => {
         setIsShown(!isShown)
-        if(theme==='dark'){
-            setAdress((!isShown)?'public/show_icon_dark.svg':'public/hide_icon_dark.svg')
-        } else if(theme==='light') {
-            setAdress((!isShown)?'public/show_icon.svg':'public/hide_icon.svg')        }
     }
 
-    const [adressTwo, setAdressTwo] = useState((theme==='light')?'public/hide_icon.svg':'public/hide_icon_dark.svg')
     const [isShownTwo, setIsShownTwo] = useState(false)
     const isShowChangeTwo = () => {
         setIsShownTwo(!isShownTwo)
-
-        if(theme==='dark'){
-            setAdressTwo((!isShownTwo)?'public/show_icon_dark.svg':'public/hide_icon_dark.svg')
-        } else if(theme==='light') {
-            setAdressTwo((!isShownTwo)?'public/show_icon.svg':'public/hide_icon.svg')        }
     }
 
     return(
@@ -329,7 +312,7 @@ export const NewAccount = () => {
                         message={passOneError}
 
                         onClickBtn={isShowChange}
-                        src={adress}
+                        reactSvg={!isShown? <BtnHiddenPass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>:<BtnVisiblePass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>}
                         classNameBtn={styles.classInputBtn}
                     />
 
@@ -341,17 +324,14 @@ export const NewAccount = () => {
                         classNameLabel={ClassLabelPassTwo}
                         classNameInput={ClassInputPassTwo}
                         placeholder=''
-                        // type='password'
                         type={isShownTwo ? "text" : "password"}
                         hiddenStr={langMap.RegistrWinConfirmPassword}
                         ClassDivError={cx('ClassDivError',{
                             ClassDivErrorVisibl:passTwoDirty
                         })}
                         message={passTwoError}
-                        src={adressTwo}
+                        reactSvg={!isShownTwo? <BtnHiddenPass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>:<BtnVisiblePass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>}
                         onClickBtn={isShowChangeTwo}
-                        // btnImg={adressTwo}
-                        // alt="show/hide icon"/>)}
                         classNameBtn={styles.classInputBtn}
                     />
 
@@ -371,7 +351,7 @@ export const NewAccount = () => {
                                 password: form.password,
                                 confirmPassword: form.password
                             }
-                            dispatch(registrationRequest(dispForm))
+                            // dispatch(registrationRequest(dispForm))
                             console.log('click button button\n',dispForm)
 
                         }}>
