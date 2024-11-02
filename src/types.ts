@@ -21,3 +21,7 @@ export interface RegistrationRequest{
     password: string,
     confirmPassword: string
 }
+export interface LoginRequestData {
+    email: string,
+    password: string
+}

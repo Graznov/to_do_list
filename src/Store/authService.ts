@@ -1,4 +1,4 @@
-import {AuthDataResponse, RegistrationRequest} from "../types.ts";
+import {AuthDataResponse, LoginRequestData, RegistrationRequest} from "../types.ts";
 import axios, {AxiosResponse} from "axios";
 
 export class AuthService {

@@ -38,7 +38,6 @@ const auth = createSlice({
             .addCase(registrationRequest.pending, (state) => {
                 state.authFetchStatus = 'loading';
                 state.error = null;
-
             })
             .addCase(registrationRequest.fulfilled, (state, action) => {
                 state.authFetchStatus = 'succeeded';
@@ -50,9 +49,7 @@ const auth = createSlice({
                 state.authFetchStatus = 'failed';
                 state.error = action.payload
             })
-
     }
-
 })
 
 export const {
