@@ -145,6 +145,8 @@ export const LogInWind = () => {
 
 // ... показать/скрыть пароль
 
+    const ClassBtnSsowPass = cx('logoBtn',{'logoBtn_dark':theme==='dark'})
+
     return(
 
         <div className={cx('containerLogIn')}>
@@ -189,7 +191,7 @@ export const LogInWind = () => {
                         ClassDivErrorVisibl: passOneDirty
                     })}
                     message={passOneError}
-                    reactSvg={!isShown? <BtnHiddenPass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>:<BtnVisiblePass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>}
+                    reactSvg={!isShown? <BtnHiddenPass className={ClassBtnSsowPass}/>:<BtnVisiblePass className={ClassBtnSsowPass}/>}
                     onClickBtn={isShowChange}
                     classNameBtn={styles.classInputBtn}
                 />

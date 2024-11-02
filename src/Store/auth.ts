@@ -55,9 +55,13 @@ const auth = createSlice({
 
 })
 
-export const { selectAuthData } = auth.selectors;
+export const {
+    selectAuthData,
+    selectAuthFetchStatus,
+} = auth.selectors;
 
 export const {
+
     setToken,
 
 } = auth.actions;

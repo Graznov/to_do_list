@@ -140,6 +140,8 @@ export const NewAccount = () => {
         classNameLabel_red:passTwoDirty,
         'classNameLabel_black':theme === 'dark',
     });
+    const ClassBtnSsowPass = cx('logoBtn',{'logoBtn_dark':theme==='dark'})
+
 
 // проверка имени...
 
@@ -312,7 +314,7 @@ export const NewAccount = () => {
                         message={passOneError}
 
                         onClickBtn={isShowChange}
-                        reactSvg={!isShown? <BtnHiddenPass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>:<BtnVisiblePass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>}
+                        reactSvg={!isShown? <BtnHiddenPass className={ClassBtnSsowPass}/>:<BtnVisiblePass className={ClassBtnSsowPass}/>}
                         classNameBtn={styles.classInputBtn}
                     />
 
@@ -330,7 +332,7 @@ export const NewAccount = () => {
                             ClassDivErrorVisibl:passTwoDirty
                         })}
                         message={passTwoError}
-                        reactSvg={!isShownTwo? <BtnHiddenPass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>:<BtnVisiblePass className={cx('logoBtn',{'logoBtn_dark':theme==='dark'})}/>}
+                        reactSvg={!isShownTwo? <BtnHiddenPass className={ClassBtnSsowPass}/>:<BtnVisiblePass className={ClassBtnSsowPass}/>}
                         onClickBtn={isShowChangeTwo}
                         classNameBtn={styles.classInputBtn}
                     />
